@@ -1,0 +1,74 @@
+{
+ "title": "Bilimin En Ürkütücü 5 Gerçeği | Karanlık Bilim Dosyası #1",
+ "description_intro": "Bir karıncayı kuklaya çeviren mantar, on bir gün uyumayan bir çocuk, yaşlanınca yeniden bebek olan bir hayvan... Bu hafta bilimin en ürkütücü beş gerçeğini en derin hâliyle anlatıyoruz. Hepsi gerçek, hepsi belgelenmiş.",
+ "tags": ["karanlık bilim", "ilginç bilgiler", "bilim belgeseli", "zombi mantar", "kara delik", "ölümsüz denizanası", "uykusuzluk", "uzay", "bilim"],
+ "segments": [
+  {"kind": "intro", "title": "Bilimin En Ürkütücü 5 Gerçeği", "chapter_name": "Giriş", "accent": "#ff3b3b", "tint": "#0a0f1c", "motif": "network", "drone": 46,
+   "say": [
+    "Ormanın derinliklerinde bir mantar, bir karıncayı canlıyken kukla gibi yönetiyor.",
+    "Ve bu, bu videodaki en ürkütücü şey bile olmayabilir.",
+    "Bu hafta bilimin en karanlık beş gerçeğini, en az bilinen ayrıntılarıyla anlatıyoruz.",
+    "Hepsi gerçek. Hepsi belgelenmiş. Beşten bire doğru gidiyoruz."
+   ]},
+  {"kind": "chapter", "number": "5", "title": "Ölmeyen Hayvan", "label": "5 • Ölümsüz denizanası", "chapter_name": "5. Ölmeyen hayvan", "accent": "#2ee6ff", "tint": "#041620", "motif": "tentacles", "drone": 45,
+   "say": [
+    "Beşinci sırada, ölmeyi reddeden bir hayvan var.",
+    "Adı Turritopsis dohrnii. Boyu sadece birkaç milimetre olan küçücük bir denizanası.",
+    "Çoğu canlı doğar, büyür, yaşlanır ve ölür. Bu denizanası ise bu sırayı tersine çevirebiliyor.",
+    "Yaralandığında, aç kaldığında ya da yaşlandığında, vücudu küçük bir kütleye dönüşüyor ve hayatının ilk evresine, deniz tabanına tutunan bir polipe geri dönüyor.",
+    "Bilim insanları bu olayı ilk kez doksanlı yıllarda, İtalya'daki laboratuvar çalışmalarında belgeledi.",
+    "Hücreleri bir tür hücreden başka bir türe dönüşebiliyor. Buna dönüşüm yeteneği deniyor.",
+    "Ve bunu tekrar tekrar yapabiliyor. Bu yüzden ona biyolojik olarak ölümsüz deniyor.",
+    "Ama ölümsüz demek yenilmez demek değil. Bir balık onu yerse ya da hastalanırsa, o da ölür."
+   ]},
+  {"kind": "chapter", "number": "4", "title": "On Bir Gün Uykusuz", "label": "4 • Uykusuzluk deneyi", "chapter_name": "4. On bir gün uyumayan çocuk", "accent": "#ffb020", "tint": "#14100a", "motif": "pulse", "drone": 50,
+   "say": [
+    "Dördüncü sırada, kendi beynini sınayan bir lise öğrencisi var.",
+    "Bin dokuz yüz altmış üçün sonunda, on yedi yaşındaki Randy Gardner bir okul bilim projesi için uyanık kalmaya karar verdi.",
+    "Tam iki yüz altmış dört saat, yani on bir günden fazla hiç uyumadı.",
+    "İlk günlerde odaklanmakta zorlandı. Sonra hafızası bozulmaya, ruh hâli sert iniş çıkışlar yapmaya başladı.",
+    "İlerleyen günlerde halüsinasyonlar gördü. Bir sokak tabelasını insan sandığı anlatılır.",
+    "Deneyin bir kısmını uyku araştırmacısı William Dement izledi.",
+    "Rekoru bitirdikten sonra on dört saate yakın aralıksız uyudu.",
+    "Bugün bu tür denemeler o kadar tehlikeli görülüyor ki, rekor kitapları artık uykusuzluk rekorlarını kaydetmiyor. Sakın deneme."
+   ]},
+  {"kind": "chapter", "number": "3", "title": "Uzayda On Beş Saniye", "label": "3 • Uzay boşluğu", "chapter_name": "3. Uzayda kask açılırsa", "accent": "#ff3b3b", "tint": "#0a0f1c", "motif": "stars", "drone": 42,
+   "say": [
+    "Üçüncü sırada, uzay boşluğuyla gerçekten yüz yüze gelmiş bir insan var.",
+    "Filmlerde uzayda kask açılınca insanlar patlar ya da anında donar. Gerçek bunların hiçbiri değil.",
+    "Basınç neredeyse sıfıra düşünce vücuttaki su buharlaşmaya başlar ve deri altı şişer. Ama patlamazsın.",
+    "Asıl tehlike oksijensizlik. Bilincin yaklaşık on beş saniye içinde kaybolur.",
+    "Bin dokuz yüz altmış altıda, Houston'daki bir NASA test odasında, bir teknisyenin giysisi vakum testi sırasında sızdırmaya başladı.",
+    "Yaklaşık on dört saniyede bayıldı. Hatırladığı son şey, dilindeki tükürüğün kaynamaya başlamasıydı.",
+    "Odaya hızla yeniden hava verildi ve teknisyen hayatta kaldı.",
+    "Bir ayrıntı daha: Böyle bir anda nefesini tutarsan ciğerlerin zarar görür. Hava dışarı kaçabilmeli."
+   ]},
+  {"kind": "chapter", "number": "2", "title": "Kara Deliğe Düşmek", "label": "2 • Kara delik", "chapter_name": "2. Kara deliğe düşmek", "accent": "#8f5bff", "tint": "#08061a", "motif": "vortex", "drone": 40,
+   "say": [
+    "İkinci sırada, evrenin en karanlık yeri var: kara delik.",
+    "Bir kara deliğe ayaklarının üstüne düştüğünü düşün. Ayakların, başından çok daha güçlü çekilir.",
+    "Bu fark seni boylamasına uzatır ve aynı anda yanlardan sıkıştırır. Bilim insanları buna gerçekten spagettileşme diyor.",
+    "Garip olan şu: Küçük bir kara delikte bu, sınırına varmadan seni parçalar. Ama dev bir kara delikte, sınırı fark etmeden geçebilirsin.",
+    "Dışarıdan izleyen biri içinse durum bambaşka. Sen ona, sınırın kenarında giderek yavaşlıyor, kızarıyor ve solup gidiyormuş gibi görünürsün.",
+    "Yani içeri düştüğünü hiçbir zaman tam olarak göremez.",
+    "Ve bu artık sadece teori de değil. İki bin on dokuzda insanlık bir kara deliğin gölgesini ilk kez fotoğrafladı."
+   ]},
+  {"kind": "chapter", "number": "1", "title": "Kukla Karınca", "label": "1 • Zombi mantar", "chapter_name": "1. Karıncayı kuklaya çeviren mantar", "accent": "#ff4d2e", "tint": "#0d1a10", "motif": "network", "drone": 46,
+   "say": [
+    "Ve birinci sıra. Bir canlıyı içeriden ele geçiren mantar.",
+    "Tropik ormanlarda yaşayan Ophiocordyceps adlı bir mantar, marangoz karıncaları hedef alıyor.",
+    "Sporları karıncanın vücuduna girer. Mantar hücreleri çoğalır ve karıncanın kaslarını bir ağ gibi sarar.",
+    "Araştırmalar şaşırtıcı bir şey gösterdi: Mantar beyni yok etmiyor. Beyin sağlam kalırken, vücudu adeta dışarıdan yönetiyor.",
+    "Enfekte karınca yuvasını terk eder, yerden belli bir yüksekliğe tırmanır ve bir yaprağın damarını ölümüne ısırır. Bu genellikle öğle saatlerinde olur.",
+    "Karınca orada ölür. Birkaç gün içinde kafasının arkasından bir mantar sapı çıkar ve aşağıdan geçen karıncaların üzerine spor yağdırır.",
+    "Bilim insanları, yaklaşık kırk sekiz milyon yıllık fosil yapraklarda bu ölüm ısırığının izlerini buldu. Yani bu kâbus milyonlarca yıldır sürüyor.",
+    "Karıncalar da boş durmuyor. Bazı kolonilerin enfekte üyeleri fark edip yuvadan uzaklaştırdığı biliniyor."
+   ]},
+  {"kind": "outro", "title": "Gelecek Hafta", "chapter_name": "Kapanış", "accent": "#ff3b3b", "tint": "#0a0f1c", "motif": "stars", "drone": 46,
+   "say": [
+    "Bunların hangisi seni daha çok ürpertti? Yorumlara yaz.",
+    "Her gün kısa bir karanlık bilim gerçeği, her hafta da böyle bir dosya yayınlıyoruz.",
+    "Kaçırmamak için abone ol. Gelecek hafta görüşürüz."
+   ]}
+ ]
+}
