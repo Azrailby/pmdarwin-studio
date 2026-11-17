@@ -1,4 +1,5 @@
 .cache/
-*.mp4
-*.wav
+/*.mp4
+/*.wav
+*_mix.wav
 __pycache__/
