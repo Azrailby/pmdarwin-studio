@@ -1,0 +1,41 @@
+{
+ "title": "Bu Mantar Karıncayı Kuklaya Çeviriyor #shorts",
+ "description": "Ophiocordyceps adlı mantar, karıncanın kaslarını ele geçirip onu tam istediği yere yürütüyor. Doğanın en ürkütücü parazitlerinden biri.\n\nHer gün tuhaf ama gerçek bir bilim olayı için abone ol.\n\n#bilim #doğa #mantar #parazit #ilginçbilgiler #shorts",
+ "tags": [
+  "zombi mantar",
+  "ophiocordyceps",
+  "parazit",
+  "karınca",
+  "bilim",
+  "doğa",
+  "shorts"
+ ],
+ "accent": "#ff4d2e",
+ "tint": "#0d1a10",
+ "drone": 50.0,
+ "hook": "Bu mantar, bir karıncayı canlıyken kukla gibi yönetiyor.",
+ "hook_red": "KUKLA",
+ "scenes": [
+  {
+   "kicker": "",
+   "say": "Bu mantar, bir karıncayı canlıyken kukla gibi yönetiyor."
+  },
+  {
+   "kicker": "Enfeksiyon",
+   "say": "Sporları karıncanın vücuduna girer ve içeriden kaslarını sarmaya başlar."
+  },
+  {
+   "kicker": "Ölüm yürüyüşü",
+   "say": "Karınca yuvasını terk eder, bir bitkiye tırmanır ve bir yaprağın damarını ölümüne ısırır."
+  },
+  {
+   "kicker": "Ve sonra",
+   "say": "Karınca orada ölür. Birkaç gün içinde kafasından bir mantar sapı fışkırır ve aşağıdan geçen yeni karıncaların üstüne spor yağdırır."
+  },
+  {
+   "kicker": "Abone ol",
+   "say": "Doğa sandığından çok daha karanlık. Daha fazlası için takip et."
+  }
+ ],
+ "motif": "network"
+}

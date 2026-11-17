@@ -1,0 +1,190 @@
+"""PMDARWIN Shorts renderer (v2): dark cinematic style, hook on frame 0, dfki Turkish voice, no emoji.
+Usage: python3 scripts/render.py video.json out.mp4"""
+import json, sys, os, subprocess, math, re
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import sherpa_onnx, soundfile as sf
+
+W, H, FPS = 1080, 1920, 30
+FB = os.path.join(ROOT, "assets/fonts/Montserrat_900Black.ttf")
+FX = os.path.join(ROOT, "assets/fonts/Montserrat_800ExtraBold.ttf")
+FM = os.path.join(ROOT, "assets/fonts/Montserrat_600SemiBold.ttf")
+SR = 22050
+VNAME = "dfki"
+VOICE = os.path.join(ROOT, f".cache/vits-piper-tr_TR-{VNAME}-medium")
+
+_tts = None
+def tts():
+    global _tts
+    if _tts is None:
+        cfg = sherpa_onnx.OfflineTtsConfig(model=sherpa_onnx.OfflineTtsModelConfig(
+            vits=sherpa_onnx.OfflineTtsVitsModelConfig(model=f"{VOICE}/tr_TR-{VNAME}-medium.onnx", tokens=f"{VOICE}/tokens.txt",
+                                                       data_dir=f"{VOICE}/espeak-ng-data"), num_threads=4))
+        _tts = sherpa_onnx.OfflineTts(cfg)
+    return _tts
+
+def hexrgb(h): h = h.lstrip('#'); return np.array([int(h[i:i+2], 16) for i in (0, 2, 4)], np.float32)
+def up(s): return s.replace('i', 'İ').replace('ı', 'I').upper()
+
+def wrap(d, text, font, maxw):
+    out, cur = [], ""
+    for w in text.split():
+        t = (cur + " " + w).strip()
+        if d.textlength(t, font=font) <= maxw: cur = t
+        else:
+            if cur: out.append(cur)
+            cur = w
+    if cur: out.append(cur)
+    return out
+
+def chunks(s, n=3):
+    w = s.split(); out = [" ".join(w[i:i+n]) for i in range(0, len(w), n)]
+    if len(out) > 1 and len(out[-1].split()) == 1: out[-2] += " " + out.pop()
+    return out
+
+def drone(dur, base):
+    t = np.arange(int(dur * SR)) / SR
+    x = np.zeros_like(t)
+    for f, a in [(base, .5), (base * 1.5, .22), (base * 2.01, .15), (base / 2, .45)]:
+        x += a * np.sin(2 * np.pi * f * t + 3 * np.sin(2 * np.pi * 0.07 * t))
+    x *= 0.6 + 0.4 * np.sin(2 * np.pi * 0.11 * t) ** 2
+    pulse = np.exp(-((t % 1.6) / 0.08)) * np.sin(2 * np.pi * 55 * t)   # low heartbeat thump
+    x = x / np.abs(x).max() * 0.07 + pulse * 0.06
+    fade = np.minimum(1, t / 0.3) * np.minimum(1, (dur - t) / 0.8)
+    return (x * fade).astype(np.float32)
+
+
+def make_motif(kind, seed=3):
+    rng = np.random.default_rng(seed)
+    st = {}
+    if kind == "network":
+        segs = []
+        def grow(x, y, ang, ln, t0, depth):
+            if depth > 7 or ln < 18: return
+            x2, y2 = x + ln * math.cos(ang), y + ln * math.sin(ang)
+            segs.append((x, y, x2, y2, t0, depth)); t1 = t0 + 0.35
+            for da in (-0.5, 0.45):
+                if rng.random() < 0.85: grow(x2, y2, ang + da + rng.normal(0, .15), ln * 0.78, t1, depth + 1)
+        for a in np.linspace(0, 2 * math.pi, 7, endpoint=False): grow(540, 1380, a, 110, 0.0, 0)
+        st["segs"] = segs
+    if kind == "stars":
+        st["s"] = rng.uniform(-1, 1, (260, 2)) * [W, H]; st["z"] = rng.uniform(0.05, 1, 260)
+    return st
+
+def draw_motif(d, kind, st, tt, acc):
+    a = tuple(int(c) for c in acc); dim = tuple(int(c * .55) for c in acc)
+    if kind == "network":
+        for x, y, x2, y2, t0, dep in st["segs"]:
+            k = (tt * 1.2 - t0)
+            if k <= 0: continue
+            k = min(1, k); d.line((x, y, x + (x2 - x) * k, y + (y2 - y) * k), fill=dim if dep > 2 else a, width=max(2, 7 - dep))
+        d.ellipse((520, 1360, 560, 1400), fill=a)
+    elif kind == "pulse":
+        pts = []
+        for x in range(0, W + 1, 6):
+            ph = (x / W) * 6 - tt * 1.5
+            y = 1400 + 18 * math.sin(ph * 5) + (140 * math.exp(-((ph % 2.5) - 1.2) ** 2 / 0.004) if (ph % 2.5) > 1 else 0) * math.sin(ph * 40)
+            pts.append((x, y))
+        d.line(pts, fill=a, width=4)
+    elif kind == "vortex":
+        cx, cy = 540, 1400
+        for r in range(150, 330, 14):
+            n = 90
+            for i in range(n):
+                th = 2 * math.pi * i / n + tt * (2.4 * 150 / r)
+                x = cx + r * math.cos(th); y = cy + r * 0.32 * math.sin(th)
+                col = a if (i + r // 14) % 3 == 0 else dim
+                d.ellipse((x - 3, y - 3, x + 3, y + 3), fill=col)
+        d.ellipse((cx - 125, cy - 125, cx + 125, cy + 125), fill=(0, 0, 0))
+        d.ellipse((cx - 131, cy - 131, cx + 131, cy + 131), outline=a, width=4)
+    elif kind == "tentacles":
+        cx = 540; cy = 1250 + 35 * math.sin(tt * 1.3); squash = 1 + 0.08 * math.sin(tt * 2.6)
+        d.chord((cx - 160 * squash, cy - 130 / squash, cx + 160 * squash, cy + 130 / squash), 180, 360, outline=a, width=5)
+        for i in range(9):
+            x0 = cx - 140 + i * 35; pts = []
+            for j in range(40):
+                y = cy + j * 9; pts.append((x0 + 18 * math.sin(tt * 2.2 + j * 0.25 + i), y))
+            d.line(pts, fill=dim, width=3)
+    elif kind == "stars":
+        for (sx, sy), z in zip(st["s"], st["z"]):
+            zz = (z - tt * 0.18) % 1 + 0.02
+            x = W / 2 + sx / zz * 0.25; y = 1300 + sy / zz * 0.12
+            if 0 <= x < W and 900 <= y < H - 280:
+                r = max(1, 4 * (1 - zz)); d.ellipse((x - r, y - r, x + r, y + r), fill=(230, 230, 240))
+        d.arc((340, 1120, 740, 1520), 200, 340, fill=a, width=6)
+
+def build(path, out):
+    S = json.load(open(path))
+    acc = hexrgb(S.get("accent", "#ff3b3b")); tint = hexrgb(S.get("tint", "#0a1a24"))
+    # --- audio: voice starts at 0
+    segs, t, audio = [], 0.0, []
+    for i, sc in enumerate(S["scenes"]):
+        a = tts().generate(sc["say"], sid=0, speed=sc.get("speed", 1.08))
+        v = np.array(a.samples, np.float32); d = len(v) / SR
+        cs = chunks(re.sub(r"\s+", " ", sc["say"]).strip()); tot = sum(len(c) for c in cs); ct = t; caps = []
+        for c in cs:
+            cd = d * len(c) / tot; caps.append((ct, ct + cd, c)); ct += cd
+        gap = 0.18
+        segs.append(dict(start=t, end=t + d + gap, i=i, caps=caps, kicker=sc.get("kicker", "")))
+        audio += [v, np.zeros(int(gap * SR), np.float32)]; t += d + gap
+    total = t + 0.5
+    voice = np.concatenate(audio + [np.zeros(int(0.5 * SR), np.float32)])
+    dr = drone(len(voice) / SR + 0.01, S.get("drone", 55.0))[:len(voice)]
+    mix = voice + np.pad(dr, (0, len(voice) - len(dr)))
+    mix /= max(1, np.abs(mix).max() / 0.95)
+    tmp = out.replace(".mp4", "_mix.wav"); sf.write(tmp, mix, SR)
+
+    # --- visuals: dark base, moving light, grain, vignette
+    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+    vign = 1 - 0.75 * np.clip(((xx - W / 2) / (W * .75)) ** 2 + ((yy - H / 2) / (H * .62)) ** 2, 0, 1)
+    vign = vign[..., None]
+    sm_h, sm_w = H // 8, W // 8
+    syy, sxx = np.mgrid[0:sm_h, 0:sm_w].astype(np.float32)
+    rng = np.random.default_rng(7)
+    grains = [rng.normal(0, 5, (H // 2, W // 2, 1)).astype(np.float32) for _ in range(1)]
+    fHook = ImageFont.truetype(FB, 96); fCap = ImageFont.truetype(FB, 88); fK = ImageFont.truetype(FX, 40); fBr = ImageFont.truetype(FM, 30)
+    p = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
+                          "-i", tmp, "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k",
+                          "-shortest", "-movflags", "+faststart", out], stdin=subprocess.PIPE)
+    hook_lines = None
+    mk = S.get('motif'); mst = make_motif(mk) if mk else None
+    for f in range(int(total * FPS)):
+        tt = f / FPS
+        # light blob path
+        cx = sm_w * (0.5 + 0.28 * math.sin(tt * 0.35)); cy = sm_h * (0.42 + 0.18 * math.cos(tt * 0.27))
+        blob = np.exp(-(((sxx - cx) / (sm_w * .45)) ** 2 + ((syy - cy) / (sm_h * .32)) ** 2))
+        blob2 = np.exp(-(((sxx - sm_w * .5) / (sm_w * .9)) ** 2 + ((syy - sm_h * 1.05) / (sm_h * .25)) ** 2))
+        small = tint[None, None, :] * 0.8 + acc[None, None, :] * (blob[..., None] * 0.55) + tint[None, None, :] * blob2[..., None] * 1.5
+        img = np.asarray(Image.fromarray(np.clip(small, 0, 255).astype(np.uint8)).resize((W, H), Image.BILINEAR), np.float32)
+        g = grains[0]; g = np.repeat(np.repeat(g, 2, 0), 2, 1)
+        img = np.clip(img * vign + g, 0, 255).astype(np.uint8)
+        im = Image.fromarray(img); d = ImageDraw.Draw(im)
+        if mk: draw_motif(d, mk, mst, tt, acc)
+        sc = next((s for s in segs if s["start"] <= tt < s["end"]), segs[-1])
+        if sc["i"] == 0:
+            # hook: full sentence, big, from frame 0
+            if hook_lines is None: hook_lines = wrap(d, up(S["hook"]), fHook, W - 140)
+            lh = 108; y0 = H * 0.40 - lh * (len(hook_lines) - 1) / 2
+            for j, ln in enumerate(hook_lines):
+                col = tuple(int(c) for c in acc) if any(w in ln for w in up(S.get("hook_red", "")).split()) and S.get("hook_red") else (255, 255, 255)
+                d.text((W / 2, y0 + j * lh), ln, font=fHook, fill=col, anchor="mm", stroke_width=6, stroke_fill=(0, 0, 0))
+        else:
+            if sc["kicker"]:
+                k = up(sc["kicker"]); kw = d.textlength(k, font=fK)
+                d.rectangle(((W - kw) / 2 - 22, 470, (W + kw) / 2 + 22, 530), fill=tuple(int(c) for c in acc))
+                d.text((W / 2, 500), k, font=fK, fill=(255, 255, 255), anchor="mm")
+            cap = next((c for c in sc["caps"] if c[0] <= tt < c[1]), sc["caps"][-1])
+            ck = min(1, (tt - cap[0]) / 0.1); size = int(88 * (0.9 + 0.1 * ck))
+            fc = fCap if size == 88 else ImageFont.truetype(FB, size)
+            lines = wrap(d, up(cap[2]), fc, W - 150); lh = size * 1.15; y0 = H * 0.5 - lh * (len(lines) - 1) / 2
+            for j, ln in enumerate(lines):
+                d.text((W / 2, y0 + j * lh), ln, font=fc, fill=(255, 255, 255), anchor="mm", stroke_width=8, stroke_fill=(0, 0, 0))
+        d.text((W / 2, H - 250), "PMDARWIN", font=fBr, fill=(200, 200, 200), anchor="mm")
+        d.rectangle((0, H - 6, W * tt / total, H), fill=tuple(int(c) for c in acc))
+        p.stdin.write(im.tobytes())
+    p.stdin.close(); p.wait(); os.remove(tmp)
+    return total
+
+if __name__ == "__main__":
+    print(build(sys.argv[1], sys.argv[2]))
