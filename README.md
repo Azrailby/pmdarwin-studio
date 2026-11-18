@@ -37,3 +37,16 @@ Her pazar 20:00'de, o haftanın Shorts konularını derinleştiren 16:9 bir böl
   CONCAT_ONLY=1 python3 scripts/render_long.py episodes/X.json out.mp4   # out.chapters.txt bölüm işaretlerini verir
   ```
 - **Açıklama:** `description_intro` + boş satır + bölüm işaretleri + boş satır + abone çağrısı + etiketler.
+
+## Çizim animasyonu (v4, Kurzgesagt tarzı) — varsayılan tarz
+
+Her sahneye bir `art` nesnesi eklenir; anlatılan şey ekranda çizilip canlandırılır. Ayrıntılı alan listesi `scripts/art.py` başındaki açıklamada; tam örnek: `examples/102_zombi_mantar_cizim.json`.
+
+- **Tuval:** Shorts 1080×1920, uzun video 1920×1080. Her `layers` öğesi bir SVG parçasıdır (`<g>`, `<path>`, `<circle>`…), tuval koordinatlarında çizilir.
+- **Yerleşim (Shorts):** Çizimi y=150–1150 arasına koy. Kanca sahnesinde y=200–700 yazı alanı; diğer sahnelerde y=1150–1550 yazı alanı (karartılır). En alt 300 px'e önemli şey koyma.
+- **Yerleşim (uzun video):** Çizimi y=120–760 arasına koy; alt kısım altyazı.
+- **Hareketler:** `walk` (yürüme, `frames` ile bacak değişimi), `float`, `sway`, `grow` (sap/damar büyümesi, `pivot` + `axis`), `pulse`, `spin`, `drift`, `rain` (spor, kar, toz yağması), `reveal` (soldan sağa açılma), `fadein`, `shake`.
+- **Stil:** Koyu arka plan (`sky`), düz renkli şekiller, 2–3 renk + bir vurgu rengi (accent), parlamalar için `defs` içinde `radialGradient id="glow"`. Yüz ifadesi, mizah ve sevimlilik yok; karanlık ve sinematik.
+- **Her sahne en az bir hareketli öğe içermeli** ve anlatılanı göstermeli (karınca tırmanıyorsa karınca tırmanır).
+- **Uzun video:** bölümde `arts` listesi verilir; bölüm süresi listeye eşit bölünür (her 10–15 sn için bir çizim önerilir).
+- Kural dışı/okunamayan SVG'de cairosvg hata verir: çizim kodunu kısa tut, her `layer` için ayrı ayrı test et.

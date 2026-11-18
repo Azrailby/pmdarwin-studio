@@ -3,10 +3,11 @@ Kullanım: python3 scripts/render_long.py bolum.json cikti.mp4
 Her bölüm ayrı üretilip birleştirilir (hız için: SEGMENT=i ile bölümleri paralel üret, sonra CONCAT_ONLY=1 ile birleştir); YouTube bölüm zaman damgaları <cikti>.chapters.txt dosyasına yazılır."""
 import json, sys, os, subprocess, math, re
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import soundfile as sf
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import render as R  # dikey şablondaki ses, müzik ve motifler
+import art as ARTM
 
 W, H, FPS = 1920, 1080, 24
 SR = R.SR
@@ -15,7 +16,7 @@ def fonts():
     return dict(num=ImageFont.truetype(R.FB, 260), title=ImageFont.truetype(R.FB, 92), cap=ImageFont.truetype(R.FB, 80),
                 lab=ImageFont.truetype(R.FX, 34), brand=ImageFont.truetype(R.FM, 30))
 
-def render_segment(seg, out, idx, total_chapters, show_title):
+def render_segment(seg, out, idx, total_chapters, show_title, spec_defs=""):
     F = fonts()
     acc = R.hexrgb(seg.get("accent", "#ff3b3b")); tint = R.hexrgb(seg.get("tint", "#0a0f1c"))
     # ses: cümle cümle, aralarında kısa duraklama
@@ -45,6 +46,12 @@ def render_segment(seg, out, idx, total_chapters, show_title):
                           "-i", wav, "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k",
                           "-ar", "44100", "-shortest", out], stdin=subprocess.PIPE)
     title_dur = 3.0 if show_title else 0
+    arts = seg.get("arts") or ([seg["art"]] if seg.get("art") else [])
+    art_objs = []
+    for a in arts:
+        a = dict(a); a["defs"] = spec_defs + a.get("defs", ""); art_objs.append(ARTM.Art(a, W, H, acc))
+    band = Image.new("L", (W, H), 0); ImageDraw.Draw(band).rectangle((0, 760, W, H), fill=170)
+    band = band.filter(ImageFilter.GaussianBlur(50)); black = Image.new("RGB", (W, H), (0, 0, 0))
     for f in range(int(total * FPS)):
         tt = f / FPS
         cx = sw * (0.5 + 0.3 * math.sin(tt * 0.3)); cy = sh * (0.45 + 0.15 * math.cos(tt * 0.23))
@@ -52,7 +59,14 @@ def render_segment(seg, out, idx, total_chapters, show_title):
         small = tint[None, None, :] * 0.85 + acc[None, None, :] * (blob[..., None] * 0.5)
         img = np.asarray(Image.fromarray(np.clip(small, 0, 255).astype(np.uint8)).resize((W, H), Image.BILINEAR), np.float32)
         im = Image.fromarray(np.clip(img * vign + grain, 0, 255).astype(np.uint8)); d = ImageDraw.Draw(im)
-        if mk and tt >= title_dur:
+        if art_objs and tt >= title_dur:
+            span = (total - title_dur) / len(art_objs); ai = min(len(art_objs) - 1, int((tt - title_dur) / span))
+            at = tt - title_dur - ai * span
+            im = art_objs[ai].frame(at, span, 1.0 + 0.06 * min(1, at / span))
+            fl = math.exp(-at / 0.15) * 0.3
+            if fl > 0.01: im = Image.blend(im, Image.new("RGB", (W, H), (255, 255, 255)), fl)
+            im = Image.composite(black, im, band); d = ImageDraw.Draw(im)
+        elif mk and tt >= title_dur:
             layer = Image.new("RGBA", (R.W, R.H), (0, 0, 0, 0)); R.draw_motif(ImageDraw.Draw(layer), mk, mst, tt, acc)
             crop = layer.crop((0, 1030, R.W, 1730)).resize((900, 583))
             alpha = crop.getchannel("A").point(lambda v: int(v * 0.55)); crop.putalpha(alpha)
@@ -88,7 +102,7 @@ def build(spec_path, out):
     for i, seg in enumerate(segs):
         if only is not None and str(i) != only: continue
         if os.environ.get("CONCAT_ONLY") and os.path.exists(f"{work}/{i:02d}.mp4"): continue
-        durs[i] = render_segment(seg, f"{work}/{i:02d}.mp4", i, len(segs), seg.get("kind") != "intro")
+        durs[i] = render_segment(seg, f"{work}/{i:02d}.mp4", i, len(segs), seg.get("kind") != "intro", S.get("defs", ""))
     if only is not None:
         print(durs); return
     lst = f"{work}/liste.txt"

@@ -1,0 +1,247 @@
+{
+ "title": "Bu Mantar Karıncayı Kuklaya Çeviriyor #shorts",
+ "description": "Ophiocordyceps adlı mantar, karıncanın kaslarını ele geçirip onu tam istediği yere yürütüyor. Doğanın en ürkütücü parazitlerinden biri.\n\nHer gün tuhaf ama gerçek bir bilim olayı için abone ol.\n\n#bilim #doğa #mantar #parazit #ilginçbilgiler #shorts",
+ "tags": [
+  "zombi mantar",
+  "ophiocordyceps",
+  "parazit",
+  "karınca",
+  "bilim",
+  "doğa",
+  "shorts"
+ ],
+ "accent": "#ff4d2e",
+ "tint": "#0d1a10",
+ "drone": 50.0,
+ "hook": "Bu mantar, bir karıncayı canlıyken kukla gibi yönetiyor.",
+ "hook_red": "KUKLA",
+ "scenes": [
+  {
+   "kicker": "",
+   "say": "Bu mantar, bir karıncayı canlıyken kukla gibi yönetiyor.",
+   "art": {
+    "sky": [
+     "#08161b",
+     "#020507"
+    ],
+    "layers": [
+     {
+      "svg": "<circle cx=\"820\" cy=\"420\" r=\"420\" fill=\"url(#moon)\"/>",
+      "anim": "pulse",
+      "amp": 0.03
+     },
+     {
+      "svg": "<path d=\"M0,1500 Q270,1440 540,1500 T1080,1500 V1920 H0Z\" fill=\"#0c1a12\"/><path d=\"M-40,1920 Q120,1100 60,700\" stroke=\"#0f2418\" stroke-width=\"40\" fill=\"none\"/><path d=\"M1140,1920 Q930,1200 1010,600\" stroke=\"#0f2418\" stroke-width=\"46\" fill=\"none\"/><ellipse cx=\"160\" cy=\"900\" rx=\"170\" ry=\"50\" fill=\"#143222\" transform=\"rotate(-25 160 900)\"/><ellipse cx=\"930\" cy=\"820\" rx=\"190\" ry=\"55\" fill=\"#143222\" transform=\"rotate(20 930 820)\"/>",
+      "anim": "none"
+     },
+     {
+      "svg": "<path d=\"M-50,1180 Q540,1120 1130,1200\" stroke=\"#2a1d14\" stroke-width=\"34\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M-50,1172 Q540,1112 1130,1192\" stroke=\"#3d2a1c\" stroke-width=\"10\" fill=\"none\"/>",
+      "anim": "none"
+     },
+     {
+      "frames": [
+       "<g transform=\"translate(150,1080) rotate(-3) scale(1.8)\"><path d=\"M-18,4 Q-11.0,34 -4,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M-18,4 Q-23.6,30 -29.200000000000003,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><path d=\"M0,4 Q-7.0,34 -14,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M0,4 Q5.6000000000000005,30 11.200000000000001,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><path d=\"M18,4 Q25.0,34 32,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M18,4 Q12.399999999999999,30 6.799999999999999,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><ellipse cx=\"-78\" cy=\"-4\" rx=\"62\" ry=\"44\" fill=\"#4a1f14\"/><ellipse cx=\"-90\" cy=\"-20\" rx=\"30\" ry=\"14\" fill=\"#7a3522\" opacity=\"0.6\"/><ellipse cx=\"-2\" cy=\"-6\" rx=\"34\" ry=\"21\" fill=\"#4a1f14\"/><circle cx=\"58\" cy=\"-20\" r=\"32\" fill=\"#4a1f14\"/><circle cx=\"50\" cy=\"-32\" r=\"12\" fill=\"#7a3522\" opacity=\"0.6\"/><circle cx=\"72\" cy=\"-26\" r=\"9\" fill=\"#f4e9d8\"/><circle cx=\"75\" cy=\"-26\" r=\"4.5\" fill=\"#120604\"/><path d=\"M84,-6 Q100,0 96,10\" stroke=\"#4a1f14\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M60,-48 Q80,-95 118,-100\" stroke=\"#4a1f14\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M52,-50 Q60,-100 92,-118\" stroke=\"#4a1f14\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/></g>",
+       "<g transform=\"translate(150,1080) rotate(-3) scale(1.8)\"><path d=\"M-18,4 Q-25.0,34 -32,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M-18,4 Q-12.399999999999999,30 -6.799999999999999,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><path d=\"M0,4 Q7.0,34 14,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M0,4 Q-5.6000000000000005,30 -11.200000000000001,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><path d=\"M18,4 Q11.0,34 4,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M18,4 Q23.6,30 29.200000000000003,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><ellipse cx=\"-78\" cy=\"-4\" rx=\"62\" ry=\"44\" fill=\"#4a1f14\"/><ellipse cx=\"-90\" cy=\"-20\" rx=\"30\" ry=\"14\" fill=\"#7a3522\" opacity=\"0.6\"/><ellipse cx=\"-2\" cy=\"-6\" rx=\"34\" ry=\"21\" fill=\"#4a1f14\"/><circle cx=\"58\" cy=\"-20\" r=\"32\" fill=\"#4a1f14\"/><circle cx=\"50\" cy=\"-32\" r=\"12\" fill=\"#7a3522\" opacity=\"0.6\"/><circle cx=\"72\" cy=\"-26\" r=\"9\" fill=\"#f4e9d8\"/><circle cx=\"75\" cy=\"-26\" r=\"4.5\" fill=\"#120604\"/><path d=\"M84,-6 Q100,0 96,10\" stroke=\"#4a1f14\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M60,-48 Q80,-95 118,-100\" stroke=\"#4a1f14\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M52,-50 Q60,-100 92,-118\" stroke=\"#4a1f14\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/></g>"
+      ],
+      "fps": 7,
+      "anim": "walk",
+      "from": [
+       -300,
+       0
+      ],
+      "to": [
+       480,
+       -30
+      ],
+      "amp": 3
+     },
+     {
+      "svg": "<circle cx=\"540\" cy=\"1100\" r=\"520\" fill=\"url(#glow)\"/>",
+      "anim": "pulse",
+      "amp": 0.12,
+      "speed": 0.7
+     }
+    ]
+   }
+  },
+  {
+   "kicker": "Enfeksiyon",
+   "say": "Sporları karıncanın vücuduna girer ve içeriden kaslarını sarmaya başlar.",
+   "art": {
+    "sky": [
+     "#14100c",
+     "#050302"
+    ],
+    "layers": [
+     {
+      "svg": "<circle cx=\"540\" cy=\"1000\" r=\"600\" fill=\"url(#glow)\" opacity=\"0.5\"/>",
+      "anim": "pulse",
+      "amp": 0.05
+     },
+     {
+      "svg": "<g transform=\"translate(600,1050) rotate(0) scale(3.2)\"><path d=\"M-18,4 Q-11.0,34 -4,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M-18,4 Q-23.6,30 -29.200000000000003,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><path d=\"M0,4 Q-7.0,34 -14,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M0,4 Q5.6000000000000005,30 11.200000000000001,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><path d=\"M18,4 Q25.0,34 32,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M18,4 Q12.399999999999999,30 6.799999999999999,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><ellipse cx=\"-78\" cy=\"-4\" rx=\"62\" ry=\"44\" fill=\"#4a1f14\"/><ellipse cx=\"-90\" cy=\"-20\" rx=\"30\" ry=\"14\" fill=\"#7a3522\" opacity=\"0.6\"/><ellipse cx=\"-2\" cy=\"-6\" rx=\"34\" ry=\"21\" fill=\"#4a1f14\"/><circle cx=\"58\" cy=\"-20\" r=\"32\" fill=\"#4a1f14\"/><circle cx=\"50\" cy=\"-32\" r=\"12\" fill=\"#7a3522\" opacity=\"0.6\"/><circle cx=\"72\" cy=\"-26\" r=\"9\" fill=\"#f4e9d8\"/><circle cx=\"75\" cy=\"-26\" r=\"4.5\" fill=\"#120604\"/><path d=\"M84,-6 Q100,0 96,10\" stroke=\"#4a1f14\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M60,-48 Q80,-95 118,-100\" stroke=\"#4a1f14\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M52,-50 Q60,-100 92,-118\" stroke=\"#4a1f14\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/></g>",
+      "anim": "float",
+      "amp": 8
+     },
+     {
+      "svg": "<g transform=\"translate(600,1050) scale(3.2)\"><path d=\"M-140,-24 q30,40 60,0 t60,0\" stroke=\"#ff5a2a\" stroke-width=\"5\" fill=\"none\" opacity=\"0.9\"/><path d=\"M-114,-10 q30,-40 60,0 t60,0\" stroke=\"#ff5a2a\" stroke-width=\"5\" fill=\"none\" opacity=\"0.9\"/><path d=\"M-88,4 q30,40 60,0 t60,0\" stroke=\"#ff5a2a\" stroke-width=\"5\" fill=\"none\" opacity=\"0.9\"/><path d=\"M-62,-24 q30,-40 60,0 t60,0\" stroke=\"#ff5a2a\" stroke-width=\"5\" fill=\"none\" opacity=\"0.9\"/><path d=\"M-36,-10 q30,40 60,0 t60,0\" stroke=\"#ff5a2a\" stroke-width=\"5\" fill=\"none\" opacity=\"0.9\"/><path d=\"M-10,4 q30,-40 60,0 t60,0\" stroke=\"#ff5a2a\" stroke-width=\"5\" fill=\"none\" opacity=\"0.9\"/><path d=\"M16,-24 q30,40 60,0 t60,0\" stroke=\"#ff5a2a\" stroke-width=\"5\" fill=\"none\" opacity=\"0.9\"/><path d=\"M42,-10 q30,-40 60,0 t60,0\" stroke=\"#ff5a2a\" stroke-width=\"5\" fill=\"none\" opacity=\"0.9\"/><path d=\"M68,4 q30,40 60,0 t60,0\" stroke=\"#ff5a2a\" stroke-width=\"5\" fill=\"none\" opacity=\"0.9\"/><path d=\"M94,-24 q30,-40 60,0 t60,0\" stroke=\"#ff5a2a\" stroke-width=\"5\" fill=\"none\" opacity=\"0.9\"/></g>",
+      "anim": "reveal",
+      "start": 0.25,
+      "dur": 0.65
+     },
+     {
+      "svg": "<circle cx=\"540\" cy=\"300\" r=\"14\" fill=\"#ffc08a\"/><circle cx=\"540\" cy=\"300\" r=\"26\" fill=\"#ffc08a\" opacity=\"0.25\"/>",
+      "anim": "rain",
+      "count": 16,
+      "spread": 900,
+      "fall": 700,
+      "speed": 1.2
+     }
+    ]
+   }
+  },
+  {
+   "kicker": "Ölüm yürüyüşü",
+   "say": "Karınca yuvasını terk eder, bir bitkiye tırmanır ve bir yaprağın damarını ölümüne ısırır.",
+   "art": {
+    "sky": [
+     "#0a1a14",
+     "#020604"
+    ],
+    "layers": [
+     {
+      "svg": "<path d=\"M0,1700 Q270,1640 540,1700 T1080,1700 V1920 H0Z\" fill=\"#0c1a12\"/><path d=\"M-40,1920 Q120,1100 60,700\" stroke=\"#0f2418\" stroke-width=\"40\" fill=\"none\"/><path d=\"M1140,1920 Q930,1200 1010,600\" stroke=\"#0f2418\" stroke-width=\"46\" fill=\"none\"/><ellipse cx=\"160\" cy=\"900\" rx=\"170\" ry=\"50\" fill=\"#143222\" transform=\"rotate(-25 160 900)\"/><ellipse cx=\"930\" cy=\"820\" rx=\"190\" ry=\"55\" fill=\"#143222\" transform=\"rotate(20 930 820)\"/>",
+      "anim": "none"
+     },
+     {
+      "svg": "<path d=\"M540,1950 C520,1500 560,1100 540,640\" stroke=\"#1f4a2c\" stroke-width=\"30\" fill=\"none\"/><path d=\"M540,700 C700,600 900,620 1000,560 C880,700 700,740 540,700Z\" fill=\"#2c6b3d\"/><path d=\"M540,700 C760,660 880,620 1000,560\" stroke=\"#1f4a2c\" stroke-width=\"5\" fill=\"none\"/><path d=\"M545,1250 C380,1180 230,1200 140,1150 C260,1280 420,1290 545,1250Z\" fill=\"#245a33\"/>",
+      "anim": "sway",
+      "pivot": [
+       540,
+       1920
+      ],
+      "amp": 1.2
+     },
+     {
+      "frames": [
+       "<g transform=\"translate(540,1700) rotate(-90) scale(0.9)\"><path d=\"M-18,4 Q-11.0,34 -4,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M-18,4 Q-23.6,30 -29.200000000000003,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><path d=\"M0,4 Q-7.0,34 -14,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M0,4 Q5.6000000000000005,30 11.200000000000001,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><path d=\"M18,4 Q25.0,34 32,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M18,4 Q12.399999999999999,30 6.799999999999999,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><ellipse cx=\"-78\" cy=\"-4\" rx=\"62\" ry=\"44\" fill=\"#4a1f14\"/><ellipse cx=\"-90\" cy=\"-20\" rx=\"30\" ry=\"14\" fill=\"#7a3522\" opacity=\"0.6\"/><ellipse cx=\"-2\" cy=\"-6\" rx=\"34\" ry=\"21\" fill=\"#4a1f14\"/><circle cx=\"58\" cy=\"-20\" r=\"32\" fill=\"#4a1f14\"/><circle cx=\"50\" cy=\"-32\" r=\"12\" fill=\"#7a3522\" opacity=\"0.6\"/><circle cx=\"72\" cy=\"-26\" r=\"9\" fill=\"#f4e9d8\"/><circle cx=\"75\" cy=\"-26\" r=\"4.5\" fill=\"#120604\"/><path d=\"M84,-6 Q100,0 96,10\" stroke=\"#4a1f14\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M60,-48 Q80,-95 118,-100\" stroke=\"#4a1f14\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M52,-50 Q60,-100 92,-118\" stroke=\"#4a1f14\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/></g>",
+       "<g transform=\"translate(540,1700) rotate(-90) scale(0.9)\"><path d=\"M-18,4 Q-25.0,34 -32,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M-18,4 Q-12.399999999999999,30 -6.799999999999999,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><path d=\"M0,4 Q7.0,34 14,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M0,4 Q-5.6000000000000005,30 -11.200000000000001,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><path d=\"M18,4 Q11.0,34 4,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M18,4 Q23.6,30 29.200000000000003,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><ellipse cx=\"-78\" cy=\"-4\" rx=\"62\" ry=\"44\" fill=\"#4a1f14\"/><ellipse cx=\"-90\" cy=\"-20\" rx=\"30\" ry=\"14\" fill=\"#7a3522\" opacity=\"0.6\"/><ellipse cx=\"-2\" cy=\"-6\" rx=\"34\" ry=\"21\" fill=\"#4a1f14\"/><circle cx=\"58\" cy=\"-20\" r=\"32\" fill=\"#4a1f14\"/><circle cx=\"50\" cy=\"-32\" r=\"12\" fill=\"#7a3522\" opacity=\"0.6\"/><circle cx=\"72\" cy=\"-26\" r=\"9\" fill=\"#f4e9d8\"/><circle cx=\"75\" cy=\"-26\" r=\"4.5\" fill=\"#120604\"/><path d=\"M84,-6 Q100,0 96,10\" stroke=\"#4a1f14\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M60,-48 Q80,-95 118,-100\" stroke=\"#4a1f14\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M52,-50 Q60,-100 92,-118\" stroke=\"#4a1f14\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/></g>"
+      ],
+      "fps": 8,
+      "anim": "walk",
+      "from": [
+       0,
+       150
+      ],
+      "to": [
+       0,
+       -950
+      ],
+      "amp": 2
+     },
+     {
+      "svg": "<circle cx=\"540\" cy=\"720\" r=\"260\" fill=\"url(#glow)\"/>",
+      "anim": "pulse",
+      "amp": 0.15,
+      "speed": 0.8
+     }
+    ]
+   }
+  },
+  {
+   "kicker": "Ve sonra",
+   "say": "Karınca orada ölür. Birkaç gün içinde kafasından bir mantar sapı fışkırır ve aşağıdan geçen yeni karıncaların üstüne spor yağdırır.",
+   "art": {
+    "sky": [
+     "#0b1612",
+     "#020504"
+    ],
+    "layers": [
+     {
+      "svg": "<path d=\"M120,620 C380,520 760,520 1000,640 C760,760 380,760 120,620Z\" fill=\"#2c6b3d\"/><path d=\"M120,620 C420,640 700,640 1000,640\" stroke=\"#1f4a2c\" stroke-width=\"6\" fill=\"none\"/>",
+      "anim": "sway",
+      "pivot": [
+       120,
+       620
+      ],
+      "amp": 0.8
+     },
+     {
+      "svg": "<g transform=\"translate(560,730) rotate(180) scale(1.3)\"><path d=\"M-18,4 Q-11.0,34 -4,58\" stroke=\"#3a2a24\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M-18,4 Q-23.6,30 -29.200000000000003,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><path d=\"M0,4 Q-7.0,34 -14,58\" stroke=\"#3a2a24\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M0,4 Q5.6000000000000005,30 11.200000000000001,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><path d=\"M18,4 Q25.0,34 32,58\" stroke=\"#3a2a24\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M18,4 Q12.399999999999999,30 6.799999999999999,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><ellipse cx=\"-78\" cy=\"-4\" rx=\"62\" ry=\"44\" fill=\"#3a2a24\"/><ellipse cx=\"-90\" cy=\"-20\" rx=\"30\" ry=\"14\" fill=\"#5b4136\" opacity=\"0.6\"/><ellipse cx=\"-2\" cy=\"-6\" rx=\"34\" ry=\"21\" fill=\"#3a2a24\"/><circle cx=\"58\" cy=\"-20\" r=\"32\" fill=\"#3a2a24\"/><circle cx=\"50\" cy=\"-32\" r=\"12\" fill=\"#5b4136\" opacity=\"0.6\"/><circle cx=\"72\" cy=\"-26\" r=\"9\" fill=\"#f4e9d8\"/><circle cx=\"75\" cy=\"-26\" r=\"4.5\" fill=\"#120604\"/><path d=\"M84,-6 Q100,0 96,10\" stroke=\"#3a2a24\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M60,-48 Q80,-95 118,-100\" stroke=\"#3a2a24\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M52,-50 Q60,-100 92,-118\" stroke=\"#3a2a24\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/></g>",
+      "anim": "none"
+     },
+     {
+      "svg": "<path d=\"M640,770 C660,980 600,1150 640,1380\" stroke=\"#c9a77a\" stroke-width=\"16\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"640\" cy=\"1390\" rx=\"26\" ry=\"40\" fill=\"#ff5a2a\"/><circle cx=\"640\" cy=\"1390\" r=\"70\" fill=\"url(#glow)\"/>",
+      "anim": "grow",
+      "axis": "y",
+      "pivot": [
+       640,
+       770
+      ],
+      "start": 0.05,
+      "dur": 0.55
+     },
+     {
+      "svg": "<circle cx=\"640\" cy=\"1420\" r=\"9\" fill=\"#ffc08a\"/>",
+      "anim": "rain",
+      "count": 22,
+      "spread": 600,
+      "fall": 450,
+      "start": 0.5
+     },
+     {
+      "frames": [
+       "<g transform=\"translate(250,1780) rotate(0) scale(0.7)\"><path d=\"M-18,4 Q-11.0,34 -4,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M-18,4 Q-23.6,30 -29.200000000000003,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><path d=\"M0,4 Q-7.0,34 -14,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M0,4 Q5.6000000000000005,30 11.200000000000001,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><path d=\"M18,4 Q25.0,34 32,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M18,4 Q12.399999999999999,30 6.799999999999999,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><ellipse cx=\"-78\" cy=\"-4\" rx=\"62\" ry=\"44\" fill=\"#4a1f14\"/><ellipse cx=\"-90\" cy=\"-20\" rx=\"30\" ry=\"14\" fill=\"#7a3522\" opacity=\"0.6\"/><ellipse cx=\"-2\" cy=\"-6\" rx=\"34\" ry=\"21\" fill=\"#4a1f14\"/><circle cx=\"58\" cy=\"-20\" r=\"32\" fill=\"#4a1f14\"/><circle cx=\"50\" cy=\"-32\" r=\"12\" fill=\"#7a3522\" opacity=\"0.6\"/><circle cx=\"72\" cy=\"-26\" r=\"9\" fill=\"#f4e9d8\"/><circle cx=\"75\" cy=\"-26\" r=\"4.5\" fill=\"#120604\"/><path d=\"M84,-6 Q100,0 96,10\" stroke=\"#4a1f14\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M60,-48 Q80,-95 118,-100\" stroke=\"#4a1f14\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M52,-50 Q60,-100 92,-118\" stroke=\"#4a1f14\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/></g>",
+       "<g transform=\"translate(250,1780) rotate(0) scale(0.7)\"><path d=\"M-18,4 Q-25.0,34 -32,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M-18,4 Q-12.399999999999999,30 -6.799999999999999,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><path d=\"M0,4 Q7.0,34 14,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M0,4 Q-5.6000000000000005,30 -11.200000000000001,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><path d=\"M18,4 Q11.0,34 4,58\" stroke=\"#4a1f14\" stroke-width=\"7\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M18,4 Q23.6,30 29.200000000000003,56\" stroke=\"#2b110b\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" opacity=\"0.8\"/><ellipse cx=\"-78\" cy=\"-4\" rx=\"62\" ry=\"44\" fill=\"#4a1f14\"/><ellipse cx=\"-90\" cy=\"-20\" rx=\"30\" ry=\"14\" fill=\"#7a3522\" opacity=\"0.6\"/><ellipse cx=\"-2\" cy=\"-6\" rx=\"34\" ry=\"21\" fill=\"#4a1f14\"/><circle cx=\"58\" cy=\"-20\" r=\"32\" fill=\"#4a1f14\"/><circle cx=\"50\" cy=\"-32\" r=\"12\" fill=\"#7a3522\" opacity=\"0.6\"/><circle cx=\"72\" cy=\"-26\" r=\"9\" fill=\"#f4e9d8\"/><circle cx=\"75\" cy=\"-26\" r=\"4.5\" fill=\"#120604\"/><path d=\"M84,-6 Q100,0 96,10\" stroke=\"#4a1f14\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M60,-48 Q80,-95 118,-100\" stroke=\"#4a1f14\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M52,-50 Q60,-100 92,-118\" stroke=\"#4a1f14\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\"/></g>"
+      ],
+      "fps": 8,
+      "anim": "walk",
+      "from": [
+       -300,
+       0
+      ],
+      "to": [
+       700,
+       0
+      ],
+      "amp": 2
+     }
+    ]
+   }
+  },
+  {
+   "kicker": "Abone ol",
+   "say": "Doğa sandığından çok daha karanlık. Daha fazlası için takip et.",
+   "art": {
+    "sky": [
+     "#0a1310",
+     "#010302"
+    ],
+    "layers": [
+     {
+      "svg": "<path d=\"M0,1650 Q270,1590 540,1650 T1080,1650 V1920 H0Z\" fill=\"#0c1a12\"/><path d=\"M-40,1920 Q120,1100 60,700\" stroke=\"#0f2418\" stroke-width=\"40\" fill=\"none\"/><path d=\"M1140,1920 Q930,1200 1010,600\" stroke=\"#0f2418\" stroke-width=\"46\" fill=\"none\"/><ellipse cx=\"160\" cy=\"900\" rx=\"170\" ry=\"50\" fill=\"#143222\" transform=\"rotate(-25 160 900)\"/><ellipse cx=\"930\" cy=\"820\" rx=\"190\" ry=\"55\" fill=\"#143222\" transform=\"rotate(20 930 820)\"/>",
+      "anim": "none"
+     },
+     {
+      "svg": "<path d=\"M140,1920 C160,1600.0 120,1500 140,1400\" stroke=\"#c9a77a\" stroke-width=\"10\" fill=\"none\"/><ellipse cx=\"140\" cy=\"1390\" rx=\"18\" ry=\"28\" fill=\"#ff5a2a\"/><circle cx=\"140\" cy=\"1390\" r=\"60\" fill=\"url(#glow)\"/><path d=\"M330,1920 C350,1490.0 310,1280 330,1180\" stroke=\"#c9a77a\" stroke-width=\"10\" fill=\"none\"/><ellipse cx=\"330\" cy=\"1170\" rx=\"18\" ry=\"28\" fill=\"#ff5a2a\"/><circle cx=\"330\" cy=\"1170\" r=\"60\" fill=\"url(#glow)\"/><path d=\"M540,1920 C560,1550.0 520,1400 540,1300\" stroke=\"#c9a77a\" stroke-width=\"10\" fill=\"none\"/><ellipse cx=\"540\" cy=\"1290\" rx=\"18\" ry=\"28\" fill=\"#ff5a2a\"/><circle cx=\"540\" cy=\"1290\" r=\"60\" fill=\"url(#glow)\"/><path d=\"M760,1920 C780,1450.0 740,1200 760,1100\" stroke=\"#c9a77a\" stroke-width=\"10\" fill=\"none\"/><ellipse cx=\"760\" cy=\"1090\" rx=\"18\" ry=\"28\" fill=\"#ff5a2a\"/><circle cx=\"760\" cy=\"1090\" r=\"60\" fill=\"url(#glow)\"/><path d=\"M950,1920 C970,1570.0 930,1440 950,1340\" stroke=\"#c9a77a\" stroke-width=\"10\" fill=\"none\"/><ellipse cx=\"950\" cy=\"1330\" rx=\"18\" ry=\"28\" fill=\"#ff5a2a\"/><circle cx=\"950\" cy=\"1330\" r=\"60\" fill=\"url(#glow)\"/>",
+      "anim": "pulse",
+      "pivot": [
+       540,
+       1920
+      ],
+      "amp": 0.02
+     },
+     {
+      "svg": "<circle cx=\"540\" cy=\"1100\" r=\"10\" fill=\"#ffc08a\"/>",
+      "anim": "rain",
+      "count": 30,
+      "spread": 1100,
+      "fall": 800
+     }
+    ]
+   }
+  }
+ ],
+ "motif": "network",
+ "defs": "<radialGradient id=\"glow\"><stop offset=\"0\" stop-color=\"#ff5a2a\" stop-opacity=\"0.55\"/><stop offset=\"1\" stop-color=\"#ff5a2a\" stop-opacity=\"0\"/></radialGradient><radialGradient id=\"moon\"><stop offset=\"0\" stop-color=\"#cfe6d8\" stop-opacity=\"0.35\"/><stop offset=\"1\" stop-color=\"#cfe6d8\" stop-opacity=\"0\"/></radialGradient>"
+}

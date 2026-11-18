@@ -5,6 +5,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import sherpa_onnx, soundfile as sf
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import fx as FXM
+import art as ARTM
 
 W, H, FPS = 1080, 1920, 30
 FB = os.path.join(ROOT, "assets/fonts/Montserrat_900Black.ttf")
@@ -126,7 +129,7 @@ def build(path, out):
         for c in cs:
             cd = d * len(c) / tot; caps.append((ct, ct + cd, c)); ct += cd
         gap = 0.18
-        segs.append(dict(start=t, end=t + d + gap, i=i, caps=caps, kicker=sc.get("kicker", "")))
+        segs.append(dict(start=t, end=t + d + gap, i=i, caps=caps, kicker=sc.get("kicker", ""), bg=sc.get("bg"), art=sc.get("art")))
         audio += [v, np.zeros(int(gap * SR), np.float32)]; t += d + gap
     total = t + 0.5
     voice = np.concatenate(audio + [np.zeros(int(0.5 * SR), np.float32)])
@@ -149,37 +152,56 @@ def build(path, out):
                           "-shortest", "-movflags", "+faststart", out], stdin=subprocess.PIPE)
     hook_lines = None
     mk = S.get('motif'); mst = make_motif(mk) if mk else None
+    fx = FXM.FX(W, H, acc, tint)
+    band = Image.new("L", (W, H), 0); ImageDraw.Draw(band).rectangle((0, int(H * .40), W, int(H * .60)), fill=95)
+    band = band.filter(ImageFilter.GaussianBlur(60))
+    def mkband(y0, y1, a):
+        b = Image.new("L", (W, H), 0); ImageDraw.Draw(b).rectangle((0, int(H * y0), W, int(H * y1)), fill=a); return b.filter(ImageFilter.GaussianBlur(60))
+    band_art = mkband(.60, .82, 150); band_hook = mkband(.12, .38, 140); black = Image.new("RGB", (W, H), (0, 0, 0))
+    default_bg = S.get("bg") or FXM.MOTIF_TO_BG.get(mk, "smoke")
     for f in range(int(total * FPS)):
         tt = f / FPS
-        # light blob path
-        cx = sm_w * (0.5 + 0.28 * math.sin(tt * 0.35)); cy = sm_h * (0.42 + 0.18 * math.cos(tt * 0.27))
-        blob = np.exp(-(((sxx - cx) / (sm_w * .45)) ** 2 + ((syy - cy) / (sm_h * .32)) ** 2))
-        blob2 = np.exp(-(((sxx - sm_w * .5) / (sm_w * .9)) ** 2 + ((syy - sm_h * 1.05) / (sm_h * .25)) ** 2))
-        small = tint[None, None, :] * 0.8 + acc[None, None, :] * (blob[..., None] * 0.55) + tint[None, None, :] * blob2[..., None] * 1.5
-        img = np.asarray(Image.fromarray(np.clip(small, 0, 255).astype(np.uint8)).resize((W, H), Image.BILINEAR), np.float32)
-        g = grains[0]; g = np.repeat(np.repeat(g, 2, 0), 2, 1)
-        img = np.clip(img * vign + g, 0, 255).astype(np.uint8)
-        im = Image.fromarray(img); d = ImageDraw.Draw(im)
-        if mk: draw_motif(d, mk, mst, tt, acc)
         sc = next((s for s in segs if s["start"] <= tt < s["end"]), segs[-1])
+        st = tt - sc["start"]; kind = sc["bg"] or default_bg
+        zoom = 1.0 + 0.10 * min(1, st / max(1, sc["end"] - sc["start"]))
+        hit = math.exp(-st / 0.12) if sc["i"] > 0 else 0
+        shake = (14 * hit * math.sin(tt * 90), 10 * hit * math.cos(tt * 70))
+        if sc["art"] is not None:
+            if "_art" not in sc:
+                a = dict(sc["art"]); a["defs"] = S.get("defs", "") + a.get("defs", "")
+                sc["_art"] = ARTM.Art(a, W, H, acc)
+            bgim = sc["_art"].frame(st, sc["end"] - sc["start"], 1.0 + 0.05 * min(1, st / max(1, sc["end"] - sc["start"])))
+            if shake != (0, 0): bgim = bgim.transform((W, H), Image.AFFINE, (1, 0, -shake[0], 0, 1, -shake[1]), Image.BILINEAR)
+        else:
+            bgim = fx.frame(kind, tt, st, zoom, shake)
+        g = grains[0]; g = np.repeat(np.repeat(g, 2, 0), 2, 1)
+        img = np.asarray(bgim, np.float32) * 1.35 * (0.45 + 0.55 * vign) + g + 255 * 0.28 * hit
+        im = Image.fromarray(np.clip(img, 0, 255).astype(np.uint8)); d = ImageDraw.Draw(im)
+        if kind == "hyphae" and sc["art"] is None: fx.hyphae_overlay(d, st, f"{sc['i']}")
+        # readability band behind captions
+        if sc["i"] > 0:
+            im = Image.composite(black, im, band_art if sc["art"] is not None else band); d = ImageDraw.Draw(im)
+        elif sc["art"] is not None:
+            im = Image.composite(black, im, band_hook); d = ImageDraw.Draw(im)
         if sc["i"] == 0:
             # hook: full sentence, big, from frame 0
             if hook_lines is None: hook_lines = wrap(d, up(S["hook"]), fHook, W - 140)
-            lh = 108; y0 = H * 0.40 - lh * (len(hook_lines) - 1) / 2
+            lh = 108; y0 = (H * 0.24 if sc["art"] is not None else H * 0.40) - lh * (len(hook_lines) - 1) / 2
             for j, ln in enumerate(hook_lines):
                 col = tuple(int(c) for c in acc) if any(w in ln for w in up(S.get("hook_red", "")).split()) and S.get("hook_red") else (255, 255, 255)
                 d.text((W / 2, y0 + j * lh), ln, font=fHook, fill=col, anchor="mm", stroke_width=6, stroke_fill=(0, 0, 0))
         else:
-            if sc["kicker"]:
-                k = up(sc["kicker"]); kw = d.textlength(k, font=fK)
-                d.rectangle(((W - kw) / 2 - 22, 470, (W + kw) / 2 + 22, 530), fill=tuple(int(c) for c in acc))
-                d.text((W / 2, 500), k, font=fK, fill=(255, 255, 255), anchor="mm")
             cap = next((c for c in sc["caps"] if c[0] <= tt < c[1]), sc["caps"][-1])
             ck = min(1, (tt - cap[0]) / 0.1); size = int(88 * (0.9 + 0.1 * ck))
             fc = fCap if size == 88 else ImageFont.truetype(FB, size)
-            lines = wrap(d, up(cap[2]), fc, W - 150); lh = size * 1.15; y0 = H * 0.5 - lh * (len(lines) - 1) / 2
+            lines = wrap(d, up(cap[2]), fc, W - 150); lh = size * 1.15; y0 = (H * 0.71 if sc["art"] is not None else H * 0.5) - lh * (len(lines) - 1) / 2
             for j, ln in enumerate(lines):
                 d.text((W / 2, y0 + j * lh), ln, font=fc, fill=(255, 255, 255), anchor="mm", stroke_width=8, stroke_fill=(0, 0, 0))
+            if sc["kicker"]:
+                k = up(sc["kicker"]); kw = d.textlength(k, font=fK)
+                ky = 1150 if sc["art"] is not None else 500
+                d.rectangle(((W - kw) / 2 - 22, ky - 30, (W + kw) / 2 + 22, ky + 30), fill=tuple(int(c) for c in acc))
+                d.text((W / 2, ky), k, font=fK, fill=(255, 255, 255), anchor="mm")
         d.text((W / 2, H - 250), "PMDARWIN", font=fBr, fill=(200, 200, 200), anchor="mm")
         d.rectangle((0, H - 6, W * tt / total, H), fill=tuple(int(c) for c in acc))
         p.stdin.write(im.tobytes())

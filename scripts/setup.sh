@@ -2,8 +2,8 @@
 # Installs everything the renderer needs. Safe to run more than once.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-pip install --quiet --break-system-packages "sherpa-onnx<1.13" soundfile numpy pillow 2>/dev/null \
-  || pip install --quiet "sherpa-onnx<1.13" soundfile numpy pillow
+pip install --quiet --break-system-packages "sherpa-onnx<1.13" soundfile cairosvg numpy pillow 2>/dev/null \
+  || pip install --quiet "sherpa-onnx<1.13" soundfile cairosvg numpy pillow
 command -v ffmpeg >/dev/null || { echo "ffmpeg gerekli (apt-get install ffmpeg)"; exit 1; }
 mkdir -p "$ROOT/.cache"
 V="$ROOT/.cache/vits-piper-tr_TR-dfki-medium"
