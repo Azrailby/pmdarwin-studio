@@ -58,3 +58,23 @@ Yayından önce her başlık ve kanca kontrol edilir; puan 70'in altındaysa dü
 python3 scripts/baslik_kontrol.py --baslik "<başlık>" --kanca "<ilk cümle>"
 ```
 Kurallar dosyanın başında. (Başlık kurallarının bir kısmı MIT lisanslı jakeschincariol/youtube-agent-skill'den uyarlandı.)
+
+## Manim sahneleri (uzun video)
+
+Uzun videoda bir bölümün `arts` listesine SVG çizim yerine bir **Manim** sahnesi konabilir (3Blue1Brown'un kütüphanesi; bükülen uzay-zaman, yörüngeler, grafikler, ölçek karşılaştırmaları için idealdir):
+```json
+{"manim": "from manim import *\n...class KaraDelik(Scene): ...", "scene": "KaraDelik"}
+```
+- Örnek: `examples/manim_kara_delik.py`. Tuval 1920×1080; arka plan `#04070b`; vurgu rengi olarak bölümün `accent` rengini kullan.
+- **Yerleşim:** her şeyi ekranın üst 3/4'ünde tut (Manim koordinatında y > -1.5); alt kısım altyazı.
+- **Süre:** sahne, ona ayrılan süreyi (bölüm süresi ÷ arts sayısı) doldurmalı; kısa kalırsa son kare donar. Sonuna `self.wait(...)` koy ya da animasyonları yavaşlat.
+- Bir sahneyi önce tek başına dene: `manim -ql scene.py SinifAdi`. Manim kurulamazsa (setup.sh uyarı verir) SVG çizim kullan.
+
+## Küçük resim (thumbnail)
+
+```bash
+python3 scripts/thumbnail.py <json> <cikti.jpg>     # 1280x720 + <cikti>_kucuk.jpg (320x180 kontrol)
+```
+JSON'a `thumb` nesnesi eklenir (alanlar `scripts/thumbnail.py` başında; örnek `examples/thumb_bolum01.json`).
+Kurallar: en çok 3 kelime, başlığı tekrar etmez; tek büyük ana nesne; koyu zemin + tek parlak vurgu; `_kucuk.jpg` hâli de okunmalı.
+Metricool'da `videoThumbnailUrl` ile gönderilir (kanal doğrulanmış değilse YouTube kabul etmeyebilir; hata verirse küçük resimsiz planla).

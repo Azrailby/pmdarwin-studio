@@ -19,7 +19,7 @@ A scene may carry an "art" object. Every layer is an SVG fragment drawn in the 1
   ]
 }
 """
-import io, math, re
+import io, math, re, os
 import numpy as np
 from PIL import Image, ImageDraw
 import cairosvg
@@ -149,3 +149,32 @@ class Art:
             zw, zh = W / zoom, H / zoom; ox, oy = (W - zw) / 2, (H - zh) / 2
             im = im.transform((W, H), Image.EXTENT, (ox, oy, ox + zw, oy + zh), Image.BILINEAR)
         return im
+
+
+class ManimClip:
+    """A Manim scene used as one illustration in a long video: {"manim": "<python code>", "scene": "ClassName"}.
+    The code must `from manim import *` and define the Scene class. Rendered once at the canvas size,
+    padded (last frame held) to the span it must fill, then read frame by frame."""
+
+    def __init__(self, spec, W, H, span, fps=24, workdir="/tmp/pmd_manim"):
+        import subprocess, hashlib, tempfile, glob
+        self.W, self.H, self.fps = W, H, fps
+        os.makedirs(workdir, exist_ok=True)
+        key = hashlib.md5((spec["manim"] + f"{W}{H}{span:.2f}").encode()).hexdigest()[:10]
+        src = os.path.join(workdir, f"m_{key}.py"); open(src, "w").write(spec["manim"])
+        media = os.path.join(workdir, f"media_{key}")
+        subprocess.run(["manim", "-qm", "--fps", str(fps), "-r", f"{W},{H}", "--disable_caching", "--media_dir", media,
+                        "-o", f"m_{key}.mp4", src, spec.get("scene", "")], check=True, capture_output=True)
+        raw = glob.glob(os.path.join(media, "videos", "**", f"m_{key}.mp4"), recursive=True)[0]
+        self.p = subprocess.Popen(["ffmpeg", "-loglevel", "error", "-i", raw, "-vf",
+                                   f"fps={fps},scale={W}:{H},tpad=stop_mode=clone:stop_duration={span + 1:.2f}",
+                                   "-t", f"{span + 0.5:.2f}", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+        self.idx = -1; self.last = Image.new("RGB", (W, H))
+
+    def frame(self, st, dur, zoom=1.0):
+        want = int(st * self.fps)
+        while self.idx < want:
+            buf = self.p.stdout.read(self.W * self.H * 3)
+            if len(buf) < self.W * self.H * 3: break
+            self.last = Image.frombytes("RGB", (self.W, self.H), buf); self.idx += 1
+        return self.last

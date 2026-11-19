@@ -47,9 +47,15 @@ def render_segment(seg, out, idx, total_chapters, show_title, spec_defs=""):
                           "-ar", "44100", "-shortest", out], stdin=subprocess.PIPE)
     title_dur = 3.0 if show_title else 0
     arts = seg.get("arts") or ([seg["art"]] if seg.get("art") else [])
-    art_objs = []
-    for a in arts:
-        a = dict(a); a["defs"] = spec_defs + a.get("defs", ""); art_objs.append(ARTM.Art(a, W, H, acc))
+    art_objs = [None] * len(arts)
+    def get_art(i, span):
+        if art_objs[i] is None:
+            a = dict(arts[i])
+            if a.get("manim"):
+                art_objs[i] = ARTM.ManimClip(a, W, H, span, FPS)
+            else:
+                a["defs"] = spec_defs + a.get("defs", ""); art_objs[i] = ARTM.Art(a, W, H, acc)
+        return art_objs[i]
     band = Image.new("L", (W, H), 0); ImageDraw.Draw(band).rectangle((0, 760, W, H), fill=170)
     band = band.filter(ImageFilter.GaussianBlur(50)); black = Image.new("RGB", (W, H), (0, 0, 0))
     for f in range(int(total * FPS)):
@@ -62,7 +68,8 @@ def render_segment(seg, out, idx, total_chapters, show_title, spec_defs=""):
         if art_objs and tt >= title_dur:
             span = (total - title_dur) / len(art_objs); ai = min(len(art_objs) - 1, int((tt - title_dur) / span))
             at = tt - title_dur - ai * span
-            im = art_objs[ai].frame(at, span, 1.0 + 0.06 * min(1, at / span))
+            ob = get_art(ai, span)
+            im = ob.frame(at, span, 1.0 if isinstance(ob, ARTM.ManimClip) else 1.0 + 0.06 * min(1, at / span))
             fl = math.exp(-at / 0.15) * 0.3
             if fl > 0.01: im = Image.blend(im, Image.new("RGB", (W, H), (255, 255, 255)), fl)
             im = Image.composite(black, im, band); d = ImageDraw.Draw(im)
