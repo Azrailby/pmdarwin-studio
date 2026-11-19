@@ -50,3 +50,11 @@ Her sahneye bir `art` nesnesi eklenir; anlatılan şey ekranda çizilip canland�
 - **Her sahne en az bir hareketli öğe içermeli** ve anlatılanı göstermeli (karınca tırmanıyorsa karınca tırmanır).
 - **Uzun video:** bölümde `arts` listesi verilir; bölüm süresi listeye eşit bölünür (her 10–15 sn için bir çizim önerilir).
 - Kural dışı/okunamayan SVG'de cairosvg hata verir: çizim kodunu kısa tut, her `layer` için ayrı ayrı test et.
+
+## Başlık ve kanca kontrolü
+
+Yayından önce her başlık ve kanca kontrol edilir; puan 70'in altındaysa düzeltilir:
+```bash
+python3 scripts/baslik_kontrol.py --baslik "<başlık>" --kanca "<ilk cümle>"
+```
+Kurallar dosyanın başında. (Başlık kurallarının bir kısmı MIT lisanslı jakeschincariol/youtube-agent-skill'den uyarlandı.)
