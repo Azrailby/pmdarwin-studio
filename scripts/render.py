@@ -43,7 +43,7 @@ def wrap(d, text, font, maxw):
 
 def chunks(s, n=3):
     w = s.split(); out = [" ".join(w[i:i+n]) for i in range(0, len(w), n)]
-    if len(out) > 1 and len(out[-1].split()) == 1: out[-2] += " " + out.pop()
+    if len(out) > 1 and len(out[-1].split()) == 1: last = out.pop(); out[-1] += " " + last
     return out
 
 def drone(dur, base):
@@ -57,6 +57,23 @@ def drone(dur, base):
     fade = np.minimum(1, t / 0.3) * np.minimum(1, (dur - t) / 0.8)
     return (x * fade).astype(np.float32)
 
+
+def whoosh(dur=0.35, seed=1):
+    n = int(dur * SR); rng = np.random.default_rng(seed)
+    x = rng.normal(0, 1, n).astype(np.float32)
+    t = np.arange(n) / SR; env = np.sin(np.pi * t / dur) ** 2
+    # crude band sweep: mix of smoothed noise with rising cutoff
+    k = np.cumsum(x); hp = x - np.convolve(x, np.ones(24) / 24, "same")
+    lp = np.convolve(x, np.ones(6) / 6, "same")
+    sweep = (1 - t / dur) * lp + (t / dur) * hp
+    return (sweep * env * 0.09).astype(np.float32)
+
+def impact(dur=0.6):
+    n = int(dur * SR); t = np.arange(n) / SR
+    f = 70 * np.exp(-t * 3) + 38
+    x = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 6) * 0.35
+    x += np.random.default_rng(2).normal(0, 1, n) * np.exp(-t * 40) * 0.08
+    return x.astype(np.float32)
 
 def make_motif(kind, seed=3):
     rng = np.random.default_rng(seed)
@@ -128,13 +145,19 @@ def build(path, out):
         cs = chunks(re.sub(r"\s+", " ", sc["say"]).strip()); tot = sum(len(c) for c in cs); ct = t; caps = []
         for c in cs:
             cd = d * len(c) / tot; caps.append((ct, ct + cd, c)); ct += cd
-        gap = 0.18
+        gap = S.get("gap", 0.18)
         segs.append(dict(start=t, end=t + d + gap, i=i, caps=caps, kicker=sc.get("kicker", ""), bg=sc.get("bg"), art=sc.get("art")))
         audio += [v, np.zeros(int(gap * SR), np.float32)]; t += d + gap
     total = t + 0.5
     voice = np.concatenate(audio + [np.zeros(int(0.5 * SR), np.float32)])
     dr = drone(len(voice) / SR + 0.01, S.get("drone", 55.0))[:len(voice)]
     mix = voice + np.pad(dr, (0, len(voice) - len(dr)))
+    # v5: whoosh on every cut, low impact where the scene asks for it
+    for sg in segs[1:]:
+        k = int(sg["start"] * SR)
+        for snd in [whoosh()] + ([impact()] if S["scenes"][sg["i"]].get("sfx") == "hit" else []):
+            j = max(0, k - (int(0.12 * SR) if snd is not None and len(snd) == int(0.35 * SR) else 0))
+            e = min(len(mix), j + len(snd)); mix[j:e] += snd[:e - j]
     mix /= max(1, np.abs(mix).max() / 0.95)
     tmp = out.replace(".mp4", "_mix.wav"); sf.write(tmp, mix, SR)
 
@@ -170,7 +193,10 @@ def build(path, out):
             if "_art" not in sc:
                 a = dict(sc["art"]); a["defs"] = S.get("defs", "") + a.get("defs", "")
                 sc["_art"] = ARTM.Art(a, W, H, acc)
-            bgim = sc["_art"].frame(st, sc["end"] - sc["start"], 1.0 + 0.05 * min(1, st / max(1, sc["end"] - sc["start"])))
+            u = min(1, st / max(0.5, sc["end"] - sc["start"])); u = u * u * (3 - 2 * u)
+            cam = S["scenes"][sc["i"]].get("cam")
+            z = 1.0 + 0.09 * u if cam == "in" else (1.10 - 0.09 * u if cam == "out" else 1.0 + 0.05 * u)
+            bgim = sc["_art"].frame(st, sc["end"] - sc["start"], z)
             if shake != (0, 0): bgim = bgim.transform((W, H), Image.AFFINE, (1, 0, -shake[0], 0, 1, -shake[1]), Image.BILINEAR)
         else:
             bgim = fx.frame(kind, tt, st, zoom, shake)
