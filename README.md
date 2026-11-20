@@ -25,7 +25,13 @@ python3 scripts/render.py examples/101_zombi_mantar.json out.mp4
 
 Yazı tipi: Montserrat (SIL Open Font License, `assets/fonts/OFL.txt`). Ses: Piper `tr_TR-dfki-medium` (sherpa-onnx).
 
+## KALİTE İLKESİ
+
+Kolay olanı değil, kaliteli ve kanalı öne çıkaracak olanı üret. Hazır içeriği yeniden kullanmak, aynı şablonu tekrarlamak ve Shorts'ları birleştirip uzun video yapmak yasaktır. `episodes/2026-11-22_bolum01.json` bu yüzden **kötü örnektir** (derleme) — yapısını tekrarlama.
+
 ## Haftalık uzun video: "Karanlık Bilim Dosyası"
+
+> GÜNCEL BİÇİM (20 Kasım'dan itibaren): Haftada tek konulu, 6–8 dakikalık bağımsız belgesel — soğuk açılış → arka plan → gerilim → doruk → bilimsel açıklama → bugüne etkisi → kapanış. Bölümler hikâyenin perdeleridir, geri sayım yok. Görseller videoya özel (SVG + Manim). O haftanın 1–2 Shorts'u bu belgeselin fragmanıdır. Aşağıdaki eski "geri sayım" tarifi artık kullanılmaz; yalnızca render komutları geçerlidir.
 
 Her pazar 20:00'de, o haftanın Shorts konularını derinleştiren 16:9 bir bölüm yayınlanır.
 
