@@ -188,15 +188,19 @@ def build(path, out):
         st = tt - sc["start"]; kind = sc["bg"] or default_bg
         zoom = 1.0 + 0.10 * min(1, st / max(1, sc["end"] - sc["start"]))
         hit = math.exp(-st / 0.12) if sc["i"] > 0 else 0
-        shake = (14 * hit * math.sin(tt * 90), 10 * hit * math.cos(tt * 70))
+        shake = (6 * hit * math.sin(tt * 90), 4 * hit * math.cos(tt * 70))
         if sc["art"] is not None:
             if "_art" not in sc:
                 a = dict(sc["art"]); a["defs"] = S.get("defs", "") + a.get("defs", "")
                 sc["_art"] = ARTM.Art(a, W, H, acc)
             u = min(1, st / max(0.5, sc["end"] - sc["start"])); u = u * u * (3 - 2 * u)
             cam = S["scenes"][sc["i"]].get("cam")
-            z = 1.0 + 0.09 * u if cam == "in" else (1.10 - 0.09 * u if cam == "out" else 1.0 + 0.05 * u)
+            # gentle, varied camera: still / slow push / slow pull / sideways drift (no zoom)
+            z = {"in": 1.0 + 0.035 * u, "out": 1.045 - 0.035 * u, "pan": 1.04}.get(cam, 1.0)
             bgim = sc["_art"].frame(st, sc["end"] - sc["start"], z)
+            if cam == "pan":
+                dx = 22 - 44 * u
+                bgim = bgim.transform((W, H), Image.AFFINE, (1, 0, dx, 0, 1, 0), Image.BILINEAR)
             if shake != (0, 0): bgim = bgim.transform((W, H), Image.AFFINE, (1, 0, -shake[0], 0, 1, -shake[1]), Image.BILINEAR)
         else:
             bgim = fx.frame(kind, tt, st, zoom, shake)

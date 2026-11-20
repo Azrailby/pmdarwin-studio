@@ -87,19 +87,19 @@ sc("Beyninde şu an bir parazit yaşıyor olabilir.", [
     {"svg": head(470, 1180, 1.55, bglow=0.9), "anim": "float", "amp": 6},
     {"svg": parasite(520, 950, 0.55, 20), "anim": "drift", "from": [-380, -260], "to": [0, 0], "dur": 0.9},
     {"svg": parasite(560, 1050, 0.45, -30), "anim": "drift", "from": [420, -120], "to": [0, 0], "start": 0.15, "dur": 0.8},
-], cam="out")
+], cam='in')
 # 1 microscope
 sc("Adı Toksoplazma. Mikroskobik bir avcı.", [
     {"svg": '<circle cx="540" cy="760" r="470" fill="url(#lens)" stroke="#3b2a55" stroke-width="26"/>', "anim": "none"},
     {"svg": parasite(540, 760, 3.2, -15), "anim": "float", "amp": 14},
     {"svg": parasite(330, 560, 0.9, 40, 0.7), "anim": "drift", "from": [0, 0], "to": [60, 40]},
     {"svg": parasite(760, 980, 0.8, -60, 0.6), "anim": "drift", "from": [0, 0], "to": [-50, -30]},
-], kicker="Toxoplasma gondii", cam="in")
+], kicker="Toxoplasma gondii")
 # 2 cat face — the dream
 sc("Tek bir hayali var: bir kedinin bağırsağı.", [
     {"svg": cat_face(540, 760, 1.6), "anim": "pulse", "amp": 0.02},
     {"svg": parasite(540, 330, 0.6, 0), "anim": "float", "amp": 10},
-], sky=["#0c0712", "#010002"], cam="in", sfx="hit")
+], sky=["#0c0712", "#010002"], sfx="hit")
 # 3 only there it multiplies
 cat_side = ('<path d="M300,1060 C260,860 330,640 470,600 C520,560 560,540 600,560 L640,470 L680,560 L720,470 L740,600 '
             'C800,660 800,760 760,820 C860,900 880,1000 860,1060Z" fill="#141019"/>'
@@ -110,19 +110,19 @@ sc("Çünkü yalnızca orada çoğalabiliyor.", [
     {"svg": cat_side, "anim": "none"},
     {"svg": '<circle cx="560" cy="900" r="210" fill="url(#pglow)"/>', "anim": "pulse", "amp": 0.15, "speed": 1.4},
     {"svg": cluster, "anim": "grow", "axis": "xy", "pivot": [560, 900], "dur": 0.7},
-], cam="out")
+], cam='pan')
 # 4 first a rat
 sc("Ama önce bir fareye girmesi gerekiyor.", [
     {"svg": ground(1000), "anim": "none"},
     {"frames": [rat(200, 930, 1.6, 0), rat(200, 930, 1.6, 1)], "fps": 8, "anim": "walk", "from": [-350, 0], "to": [250, 0], "amp": 4},
     {"svg": parasite(560, 300, 0.4, 10), "anim": "rain", "count": 6, "spread": 700, "fall": 600},
-], sky=["#0e0b18", "#020104"], cam="in")
+], sky=["#0e0b18", "#020104"])
 # 5 into the brain
 sc("Farenin beynine yerleşiyor.", [
     {"svg": rat(430, 820, 4.2, 0), "anim": "float", "amp": 5},
     {"svg": '<circle cx="640" cy="640" r="150" fill="url(#pglow)"/>', "anim": "pulse", "amp": 0.2, "speed": 1.6},
     {"svg": parasite(640, 640, 0.7, 25), "anim": "fadein", "start": 0.1, "dur": 0.5},
-], cam="in")
+], cam='in')
 # 6 deletes fear
 fear = (f'<g transform="translate(540,520)"><circle r="150" fill="url(#rglow)"/>'
         f'<rect x="-22" y="-110" width="44" height="140" rx="20" fill="#fff"/><circle cy="80" r="24" fill="#fff"/></g>')
@@ -131,26 +131,26 @@ sc("Ve korkusunu siliyor.", [
     {"svg": rat(470, 1000, 2.0, 0), "anim": "none"},
     {"svg": fear, "anim": "shake", "amp": 4},
     {"svg": cross, "anim": "reveal", "start": 0.3, "dur": 0.35},
-], kicker="Korku: 0", cam="out", sfx="hit")
+], kicker="Korku: 0", sfx="hit")
 # 7 normally runs from smell
 sc("Normalde kedi kokusundan kaçan fare,", [
     {"svg": ground(1000), "anim": "none"},
     {"svg": smell(700, 700, 1.0), "anim": "sway", "amp": 2},
     {"frames": [rat(700, 930, 1.4, 0, flip=True), rat(700, 930, 1.4, 1, flip=True)], "fps": 12, "anim": "walk", "from": [0, 0], "to": [-700, 0], "amp": 6, "speed": 1.8},
-], sky=["#0e0b18", "#020104"], cam="in")
+], sky=["#0e0b18", "#020104"])
 # 8 now walks toward it
 sc("artık o kokuya doğru yürüyor.", [
     {"svg": ground(1000), "anim": "none"},
     {"svg": cat_face(900, 520, 0.7), "anim": "fadein", "dur": 0.6},
     {"svg": smell(800, 760, 1.0, flip=True), "anim": "sway", "amp": 2},
     {"frames": [rat(80, 930, 1.4, 0), rat(80, 930, 1.4, 1)], "fps": 6, "anim": "walk", "from": [0, 0], "to": [420, 0], "amp": 3, "speed": 0.7},
-], sky=["#0e0b18", "#020104"], cam="in")
+], sky=["#0e0b18", "#020104"])
 # 9 caught
 sc("Kedi onu yakalıyor. Parazit eve döndü.", [
     {"svg": '<rect width="1080" height="1920" fill="#2a0610"/>', "anim": "none"},
     {"svg": cat_face(540, 740, 1.9, mouth=True), "anim": "shake", "amp": 7},
     {"svg": parasite(540, 1020, 0.8, 0), "anim": "fadein", "start": 0.5, "dur": 0.4},
-], sky=["#1c040a", "#050002"], cam="in", sfx="hit")
+], sky=["#1c040a", "#050002"], sfx="hit")
 # 10 humans join the cycle
 ring = (f'<circle cx="540" cy="760" r="330" stroke="{ACC}" stroke-width="10" fill="none" stroke-dasharray="40 30" opacity="0.8"/>'
         f'<path d="M870,760 l-26,-34 l52,0Z" fill="{ACC}"/><path d="M210,760 l-26,34 l52,0Z" fill="{ACC}"/>')
@@ -159,7 +159,7 @@ sc("Sorun şu: insanlar da bu döngüye karışıyor.", [
     {"svg": cat_face(540, 470, 0.45, glow=False), "anim": "float", "amp": 6},
     {"svg": rat(320, 940, 0.9, 0), "anim": "float", "amp": 6},
     {"svg": head(770, 950, 0.5, col="#3a4256", brain=False), "anim": "float", "amp": 6},
-], cam="out")
+])
 # 11 meat & litter
 steak = ('<g transform="translate(300,760)"><path d="M-170,-40 C-150,-150 120,-170 170,-60 C210,40 120,140 -20,130 C-150,120 -190,60 -170,-40Z" fill="#a8243a"/>'
          '<path d="M-120,-30 C-100,-100 90,-110 120,-40 C140,30 80,90 -20,85 C-110,80 -135,40 -120,-30Z" fill="#e2677e"/>'
@@ -172,7 +172,7 @@ sc("Az pişmiş etle ya da kedi kumuyla.", [
     {"svg": litter, "anim": "float", "amp": 8, "speed": 1.3},
     {"svg": parasite(300, 560, 0.5, 0), "anim": "pulse", "amp": 0.15},
     {"svg": parasite(790, 600, 0.5, 30), "anim": "pulse", "amp": 0.15},
-], sky=["#14101c", "#040306"], cam="in")
+], sky=["#14101c", "#040306"], cam='pan')
 # 12 one in three
 def person(x, y, c):
     return f'<g transform="translate({x},{y})"><circle cy="-60" r="34" fill="{c}"/><path d="M-50,40 C-50,-20 50,-20 50,40Z" fill="{c}"/></g>'
@@ -180,12 +180,12 @@ grid = ''.join(person(200 + (i % 4) * 230, 380 + (i // 4) * 210, ACC if i % 3 ==
 sc("Dünyada yaklaşık her üç kişiden biri bunu taşıyor olabilir.", [
     {"svg": grid, "anim": "fadein", "dur": 0.4},
     {"svg": '<circle cx="540" cy="600" r="420" fill="url(#pglow)" opacity="0.5"/>', "anim": "pulse", "amp": 0.06},
-], kicker="1 / 3", cam="out", sfx="hit")
+], kicker="1 / 3", sfx="hit")
 # 13 most feel nothing
 sc("Çoğu kişi hiçbir şey hissetmiyor.", [
     {"svg": stars(), "anim": "none"},
     {"svg": head(470, 1180, 1.55, col="#262e3d", bglow=0.35), "anim": "float", "amp": 4},
-], cam="in")
+], cam='out')
 # 14 slower reactions
 watch = ('<g transform="translate(560,700)"><circle r="260" fill="#e9e4ee"/><circle r="230" fill="#1a1622"/>'
          '<rect x="-30" y="-320" width="60" height="70" rx="10" fill="#e9e4ee"/>'
@@ -195,12 +195,12 @@ sc("Ama bazı araştırmalar, tepkilerin yavaşladığını öne sürüyor.", [
     {"svg": watch, "anim": "none"},
     {"svg": hand, "anim": "spin", "pivot": [560, 700], "speed": 0.35},
     {"svg": parasite(560, 700, 0.5, 0, 0.9), "anim": "pulse", "amp": 0.1},
-], cam="in")
+])
 # 15 loop ending
 sc("Fare de hiçbir şey hissetmemişti. Peki ya sen?", [
     {"svg": cat_face(540, 400, 0.9), "anim": "fadein", "dur": 0.7},
     {"svg": head(440, 960, 0.95, col="#262e3d", bglow=0.9), "anim": "none"},
-], sky=["#0c0712", "#010002"], cam="in")
+], sky=["#0c0712", "#010002"], cam='in')
 
 spec = {
     "title": "Kedin Beynini Kontrol Ediyor Olabilir mi? #shorts",

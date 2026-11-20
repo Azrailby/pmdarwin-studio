@@ -65,7 +65,7 @@
      }
     ]
    },
-   "cam": "out"
+   "cam": "in"
   },
   {
    "say": "Adı Toksoplazma. Mikroskobik bir avcı.",
@@ -110,8 +110,7 @@
       ]
      }
     ]
-   },
-   "cam": "in"
+   }
   },
   {
    "say": "Tek bir hayali var: bir kedinin bağırsağı.",
@@ -134,7 +133,6 @@
      }
     ]
    },
-   "cam": "in",
    "sfx": "hit"
   },
   {
@@ -168,7 +166,7 @@
      }
     ]
    },
-   "cam": "out"
+   "cam": "pan"
   },
   {
    "say": "Ama önce bir fareye girmesi gerekiyor.",
@@ -208,8 +206,7 @@
       "fall": 600
      }
     ]
-   },
-   "cam": "in"
+   }
   },
   {
    "say": "Farenin beynine yerleşiyor.",
@@ -267,7 +264,6 @@
      }
     ]
    },
-   "cam": "out",
    "sfx": "hit"
   },
   {
@@ -307,8 +303,7 @@
       "speed": 1.8
      }
     ]
-   },
-   "cam": "in"
+   }
   },
   {
    "say": "artık o kokuya doğru yürüyor.",
@@ -352,8 +347,7 @@
       "speed": 0.7
      }
     ]
-   },
-   "cam": "in"
+   }
   },
   {
    "say": "Kedi onu yakalıyor. Parazit eve döndü.",
@@ -381,7 +375,6 @@
      }
     ]
    },
-   "cam": "in",
    "sfx": "hit"
   },
   {
@@ -418,8 +411,7 @@
       "amp": 6
      }
     ]
-   },
-   "cam": "out"
+   }
   },
   {
    "say": "Az pişmiş etle ya da kedi kumuyla.",
@@ -453,7 +445,7 @@
      }
     ]
    },
-   "cam": "in"
+   "cam": "pan"
   },
   {
    "say": "Dünyada yaklaşık her üç kişiden biri bunu taşıyor olabilir.",
@@ -476,7 +468,6 @@
      }
     ]
    },
-   "cam": "out",
    "sfx": "hit"
   },
   {
@@ -499,7 +490,7 @@
      }
     ]
    },
-   "cam": "in"
+   "cam": "out"
   },
   {
    "say": "Ama bazı araştırmalar, tepkilerin yavaşladığını öne sürüyor.",
@@ -529,8 +520,7 @@
       "amp": 0.1
      }
     ]
-   },
-   "cam": "in"
+   }
   },
   {
    "say": "Fare de hiçbir şey hissetmemişti. Peki ya sen?",
