@@ -1,0 +1,100 @@
+[
+ {
+  "text": "Bu köpekbalığı yüzerken Osmanlı İmparatorluğu hâlâ ayaktaydı.",
+  "s": 0.02,
+  "e": 4.265,
+  "w0": 0,
+  "w1": 6
+ },
+ {
+  "text": "Grönland köpekbalığı,",
+  "s": 4.265,
+  "e": 5.365,
+  "w0": 7,
+  "w1": 8
+ },
+ {
+  "text": "Kuzey Atlantik'in buz gibi karanlık sularında yaşıyor.",
+  "s": 5.365,
+  "e": 8.824,
+  "w0": 9,
+  "w1": 15
+ },
+ {
+  "text": "Saatte bir kilometreden biraz hızlı yüzüyor.",
+  "s": 8.824,
+  "e": 11.654,
+  "w0": 16,
+  "w1": 21
+ },
+ {
+  "text": "Her yıl sadece bir santim kadar büyüyor.",
+  "s": 11.654,
+  "e": 14.17,
+  "w0": 22,
+  "w1": 28
+ },
+ {
+  "text": "Bilim insanları yaşını gözünün merceğinden hesapladı.",
+  "s": 14.17,
+  "e": 17.471,
+  "w0": 29,
+  "w1": 34
+ },
+ {
+  "text": "Sonuç en az iki yüz yetmiş iki yıl.",
+  "s": 17.471,
+  "e": 19.829,
+  "w0": 35,
+  "w1": 42
+ },
+ {
+  "text": "Tahmini yaş üç yüz doksan iki.",
+  "s": 19.829,
+  "e": 21.716,
+  "w0": 43,
+  "w1": 48
+ },
+ {
+  "text": "Belki beş yüz.",
+  "s": 21.716,
+  "e": 22.502,
+  "w0": 49,
+  "w1": 51
+ },
+ {
+  "text": "Ve yavru yapabilmek için yaklaşık yüz elli yaşına gelmesi gerekiyor.",
+  "s": 22.502,
+  "e": 27.376,
+  "w0": 52,
+  "w1": 61
+ },
+ {
+  "text": "Yani bugün doğan bir köpekbalığı,",
+  "s": 27.376,
+  "e": 29.262,
+  "w0": 62,
+  "w1": 66
+ },
+ {
+  "text": "ilk yavrusunu ikinci yüzyılında görecek.",
+  "s": 29.262,
+  "e": 32.092,
+  "w0": 67,
+  "w1": 71
+ },
+ {
+  "text": "Tuhaf ama gerçek.",
+  "s": 32.092,
+  "e": 33.036,
+  "w0": 72,
+  "w1": 74
+ },
+ {
+  "text": "Her gün.",
+  "s": 33.036,
+  "e": 33.35,
+  "w0": 75,
+  "w1": 76
+ }
+]

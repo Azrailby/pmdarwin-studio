@@ -1,0 +1,88 @@
+{
+ "voice": "work/voice.wav",
+ "music": {
+  "style": "mystery",
+  "bpm": 84,
+  "start": 0,
+  "stop": 31.9,
+  "sting": true,
+  "level_db": -16
+ },
+ "sfx": [
+  {
+   "t": 0.05,
+   "kind": "splash",
+   "gain_db": -8
+  },
+  {
+   "t": 0.7,
+   "kind": "whoosh",
+   "gain_db": -6
+  },
+  {
+   "t": 4.25,
+   "kind": "swish",
+   "gain_db": -6
+  },
+  {
+   "t": 5.35,
+   "kind": "whoosh",
+   "gain_db": -5
+  },
+  {
+   "t": 9.7,
+   "kind": "zip",
+   "gain_db": -6
+  },
+  {
+   "t": 11.6,
+   "kind": "ding",
+   "gain_db": -6
+  },
+  {
+   "t": 14.15,
+   "kind": "magic",
+   "gain_db": -6
+  },
+  {
+   "t": 17.45,
+   "kind": "drumroll",
+   "gain_db": -8
+  },
+  {
+   "t": 19.4,
+   "kind": "stamp",
+   "gain_db": -5
+  },
+  {
+   "t": 21.3,
+   "kind": "stamp",
+   "gain_db": -5
+  },
+  {
+   "t": 21.75,
+   "kind": "impact",
+   "gain_db": -4
+  },
+  {
+   "t": 22.5,
+   "kind": "bell",
+   "gain_db": -6
+  },
+  {
+   "t": 27.4,
+   "kind": "riser",
+   "gain_db": -8
+  },
+  {
+   "t": 31.7,
+   "kind": "success",
+   "gain_db": -6
+  },
+  {
+   "t": 32.1,
+   "kind": "sting",
+   "gain_db": -4
+  }
+ ]
+}
