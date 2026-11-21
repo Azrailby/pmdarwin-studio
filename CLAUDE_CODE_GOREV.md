@@ -48,3 +48,4 @@ Hassas konular (radyum, nyos, filayagi, cambeyin): ceset/hastalık/yanık detay�
 - muz: hazır (22.11 00:46)
 - dans: hazır (22.11 00:49)
 - aglamak: hazır (22.11 00:52)
+- cambeyin: hazır (22.11 00:55)
