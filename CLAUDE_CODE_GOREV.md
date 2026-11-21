@@ -45,3 +45,4 @@ Hassas konular (radyum, nyos, filayagi, cambeyin): ceset/hastalık/yanık detay�
 - mantis: hazır (22.11 00:35)
 - radyum: hazır (22.11 00:40)
 - osborne: hazır (22.11 00:43)
+- muz: hazır (22.11 00:46)
