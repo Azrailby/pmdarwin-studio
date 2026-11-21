@@ -42,3 +42,4 @@ Hassas konular (radyum, nyos, filayagi, cambeyin): ceset/hastalık/yanık detay�
 - suayisi: hazır (21.11 23:50)
 - vucut: hazır (21.11 23:55)
 - sullivan: hazır (22.11 00:29)
+- mantis: hazır (22.11 00:35)
