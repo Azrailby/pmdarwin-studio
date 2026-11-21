@@ -29,3 +29,4 @@ Sen bu kanalın ikinci üretim istasyonusun. Bulut tarafındaki Claude konu, sen
 - Gerçek kişi birebir benzetilmez, marka/logo yok, kanlı/iğrenç detay yok.
 
 ## Durum
+- suayisi: hazır (21.11 23:50)
