@@ -3,3 +3,7 @@
 /*.wav
 *_mix.wav
 __pycache__/
+cizgi/*/frames/
+cizgi/*/out/
+cizgi/*/stills/
+__pycache__/
