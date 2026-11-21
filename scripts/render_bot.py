@@ -49,6 +49,10 @@ def one_pass():
     except subprocess.CalledProcessError as e:
         log(f"git pull hatası: {e.stderr.strip()[:300]}")
         return
+    try:
+        maybe_start_claude()
+    except Exception as e:
+        log(f"claude başlatıcı hatası: {e}")
     base = os.path.join(ROOT, "cizgi")
     if not os.path.isdir(base):
         return
@@ -81,6 +85,86 @@ def one_pass():
             shutil.copy2(qa, os.path.join(ROOT, "teslim", f"{name}_qa.jpg"))
         log(f"{name}: bitti ({time.time() - t0:.0f} sn) | {res.splitlines()[-1] if res else ''}")
         push(f"render teslim: {name}", [f"teslim/{name}.mp4", f"teslim/{name}_qa.jpg", "teslim/bot.log"])
+
+
+# ---------------------------------------------------------------------------
+# Claude Code otomatik başlatıcı
+# cizgi/<ad>/PLAN.md olup henüz READY'si olmayan işler varsa ve Claude Code şu an
+# çalışmıyorsa, Claude Code'u arka planda (headless, -p) CLAUDE_CODE_GOREV.md ile başlatır.
+# Böylece kullanıcının talimat yapıştırmasına gerek kalmaz.
+LOCK = os.path.join(ROOT, ".claude_lock")
+CLOG = os.path.join(ROOT, "teslim", "claude.log")
+LOCK_MAX_MIN = 150
+
+
+def find_claude():
+    for name in ("claude", "claude.exe", "claude.cmd"):
+        p = shutil.which(name)
+        if p:
+            return p
+    home = os.path.expanduser("~")
+    for p in (os.path.join(home, ".local", "bin", "claude.exe"),
+              os.path.join(os.environ.get("APPDATA", ""), "npm", "claude.cmd"),
+              os.path.join(home, "AppData", "Roaming", "npm", "claude.cmd")):
+        if os.path.isfile(p):
+            return p
+    return None
+
+
+def pid_alive(pid):
+    if os.name == "nt":
+        r = subprocess.run(["tasklist", "/FI", f"PID eq {pid}", "/NH"], capture_output=True, text=True, **NOWIN)
+        return str(pid) in r.stdout
+    try:
+        os.kill(pid, 0); return True
+    except OSError:
+        return False
+
+
+def pending_jobs():
+    base = os.path.join(ROOT, "cizgi")
+    if not os.path.isdir(base):
+        return []
+    return [n for n in sorted(os.listdir(base))
+            if os.path.isfile(os.path.join(base, n, "PLAN.md")) and not os.path.isfile(os.path.join(base, n, "READY"))]
+
+
+def maybe_start_claude():
+    jobs = pending_jobs()
+    if os.path.isfile(LOCK):
+        try:
+            info = json.load(open(LOCK, encoding="utf-8"))
+            age = (time.time() - info.get("t", 0)) / 60
+            if pid_alive(info.get("pid", -1)) and age < LOCK_MAX_MIN:
+                return  # hâlâ çalışıyor
+        except Exception:
+            pass
+        os.remove(LOCK)
+        log("claude: önceki oturum bitti")
+        push("claude günlüğü", ["teslim/claude.log", "teslim/bot.log"])
+    if not jobs:
+        return
+    exe = find_claude()
+    if not exe:
+        log("claude: claude komutu bulunamadı, otomatik başlatılamadı")
+        return
+    prompt = ("pmdarwin-studio reposundasın. Önce git pull yap. Sonra CLAUDE_CODE_GOREV.md dosyasını baştan sona oku ve uygula. "
+              f"Bekleyen işler: {', '.join(jobs)}. Bunları CLAUDE_CODE_GOREV.md içindeki 'Sıra' listesindeki sırayla yap (en erken yayın tarihi önce). Her biri için PLAN.md'ye göre story.js yaz, "
+              "kare kontrolünü en az 2 tur yap, sound.json ve meta.json yaz, audio.py çalıştır, READY oluştur, commit ve push et, "
+              "Durum bölümüne satır ekle. Ses dosyalarına ve script.txt'ye dokunma. Soru sorma, hepsini bitirene kadar devam et.")
+    cmd = [exe, "-p", prompt, "--allowedTools", "Read,Write,Edit,Glob,Grep,Bash,TodoWrite", "--permission-mode", "acceptEdits"]
+    if exe.lower().endswith(".cmd"):
+        cmd = ["cmd", "/c"] + cmd
+    os.makedirs(os.path.dirname(CLOG), exist_ok=True)
+    out = open(CLOG, "a", encoding="utf-8")
+    out.write(f"\n===== {datetime.datetime.now():%Y-%m-%d %H:%M} başlatıldı: {', '.join(jobs)}\n"); out.flush()
+    flags = {}
+    if os.name == "nt":
+        flags["creationflags"] = subprocess.CREATE_NO_WINDOW | subprocess.CREATE_NEW_PROCESS_GROUP
+    pr = subprocess.Popen(cmd, cwd=ROOT, stdout=out, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL, **flags)
+    json.dump({"pid": pr.pid, "t": time.time(), "jobs": jobs}, open(LOCK, "w", encoding="utf-8"))
+    log(f"claude: başlatıldı (pid {pr.pid}) işler: {', '.join(jobs)}")
+    push("claude başlatıldı", ["teslim/bot.log", "teslim/claude.log"])
 
 
 def push(msg, files):

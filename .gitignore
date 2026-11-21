@@ -7,3 +7,4 @@ cizgi/*/frames/
 cizgi/*/out/
 cizgi/*/stills/
 __pycache__/
+.claude_lock

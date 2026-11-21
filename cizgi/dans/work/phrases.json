@@ -1,0 +1,100 @@
+[
+ {
+  "text": "Bin beş yüz on sekizde bir kadın sokakta dans etmeye başladı.",
+  "s": 0.031,
+  "e": 3.729,
+  "w0": 0,
+  "w1": 10
+ },
+ {
+  "text": "Ve duramadı.",
+  "s": 4.0,
+  "e": 4.788,
+  "w0": 11,
+  "w1": 12
+ },
+ {
+  "text": "Şehir Strazburg.",
+  "s": 5.084,
+  "e": 6.236,
+  "w0": 13,
+  "w1": 14
+ },
+ {
+  "text": "Frau Trofeya adında bir kadın günlerce durmadan dans etti.",
+  "s": 6.567,
+  "e": 9.984,
+  "w0": 15,
+  "w1": 23
+ },
+ {
+  "text": "Bir hafta içinde ona otuzdan fazla kişi katıldı.",
+  "s": 10.385,
+  "e": 13.158,
+  "w0": 24,
+  "w1": 31
+ },
+ {
+  "text": "Bir ay sonra dans edenlerin sayısı dört yüze yaklaştı.",
+  "s": 13.456,
+  "e": 16.83,
+  "w0": 32,
+  "w1": 40
+ },
+ {
+  "text": "Yetkililer çözümü buldu sandı:",
+  "s": 17.096,
+  "e": 18.961,
+  "w0": 41,
+  "w1": 44
+ },
+ {
+  "text": "daha çok dans.",
+  "s": 19.111,
+  "e": 19.789,
+  "w0": 45,
+  "w1": 47
+ },
+ {
+  "text": "Müzisyen tuttular ve sahne kurdular.",
+  "s": 20.184,
+  "e": 22.433,
+  "w0": 48,
+  "w1": 52
+ },
+ {
+  "text": "Durum daha da kötüleşti.",
+  "s": 22.847,
+  "e": 24.211,
+  "w0": 53,
+  "w1": 56
+ },
+ {
+  "text": "Rivayete göre bazıları yorgunluktan öldü.",
+  "s": 24.464,
+  "e": 27.014,
+  "w0": 57,
+  "w1": 61
+ },
+ {
+  "text": "Bugün bile kimse bunun nedenini tam bilmiyor.",
+  "s": 27.268,
+  "e": 29.905,
+  "w0": 62,
+  "w1": 68
+ },
+ {
+  "text": "Tuhaf ama gerçek.",
+  "s": 30.205,
+  "e": 31.3,
+  "w0": 69,
+  "w1": 71
+ },
+ {
+  "text": "Her gün.",
+  "s": 31.529,
+  "e": 32.142,
+  "w0": 72,
+  "w1": 73
+ }
+]

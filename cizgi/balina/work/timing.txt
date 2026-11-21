@@ -1,0 +1,19 @@
+yöntem: cümle cümle TTS, kesin cümle sınırları · ses 34.01 sn · 74 kelime · 17 parça
+  P00   0.02-  0.64  kare    1-  19  w0-1  Bir kasaba,
+  P01   0.79-  4.37  kare   24- 131  w2-9  kıyıya vuran balinadan kurtulmak için onu dinamitle patlattı.
+  P02   4.76-  5.90  kare  143- 177  w10-14  Yıl bin dokuz yüz yetmiş,
+  P03   6.05-  8.00  kare  181- 240  w15-17  Amerika'nın Oregon eyaleti.
+  P04   8.25- 11.36  kare  247- 341  w18-26  Kumsala dev bir ölü balina vurdu ve korkunç kokuyordu.
+  P05  11.62- 13.22  kare  349- 396  w27-30  Yetkililer bir fikir buldu:
+  P06  13.37- 14.43  kare  401- 433  w31-33  yarım ton dinamit.
+  P07  14.81- 15.27  kare  444- 458  w34-35  Plan şuydu:
+  P08  15.41- 16.62  kare  462- 499  w36-37  balina parçalanacak,
+  P09  16.77- 18.59  kare  503- 558  w38-41  kalanları da martılar yiyecekti.
+  P10  18.84- 19.75  kare  565- 593  w42-43  Patlama oldu.
+  P11  20.01- 23.47  kare  600- 704  w44-50  Ve balina parçaları gökyüzünden izleyicilerin üstüne yağdı.
+  P12  23.80- 26.76  kare  714- 803  w51-58  Dört yüz metre ötedeki bir arabanın tavanı ezildi.
+  P13  27.00- 28.38  kare  810- 851  w59-61  Martılar ise kaçtı.
+  P14  28.67- 31.52  kare  860- 946  w62-68  Kumsalda hâlâ koca bir balina parçası duruyordu.
+  P15  31.88- 32.98  kare  957- 989  w69-71  Tuhaf ama gerçek.
+  P16  33.21- 33.81  kare  996-1014  w72-73  Her gün.
+toplam kare (30 fps): 1051

@@ -1,0 +1,107 @@
+[
+ {
+  "text": "Bir gece bir göl,",
+  "s": 0.025,
+  "e": 0.911,
+  "w0": 0,
+  "w1": 3
+ },
+ {
+  "text": "kimseye dokunmadan bin yedi yüzden fazla insanı öldürdü.",
+  "s": 1.061,
+  "e": 4.606,
+  "w0": 4,
+  "w1": 11
+ },
+ {
+  "text": "Yıl bin dokuz yüz seksen altı,",
+  "s": 4.955,
+  "e": 6.44,
+  "w0": 12,
+  "w1": 17
+ },
+ {
+  "text": "Kamerun.",
+  "s": 6.59,
+  "e": 7.086,
+  "w0": 18,
+  "w1": 18
+ },
+ {
+  "text": "Niyos Gölü'nün dibinde yıllarca karbondioksit birikmişti.",
+  "s": 7.493,
+  "e": 10.766,
+  "w0": 19,
+  "w1": 24
+ },
+ {
+  "text": "Bir gece bu gaz aniden yüzeye çıktı.",
+  "s": 11.045,
+  "e": 13.137,
+  "w0": 25,
+  "w1": 31
+ },
+ {
+  "text": "Havadan ağır olduğu için vadilere doğru aktı.",
+  "s": 13.378,
+  "e": 16.041,
+  "w0": 32,
+  "w1": 38
+ },
+ {
+  "text": "Köylerde uyuyanlar hiçbir şey hissetmedi.",
+  "s": 16.453,
+  "e": 18.692,
+  "w0": 39,
+  "w1": 43
+ },
+ {
+  "text": "Bin yedi yüz kırk altı kişi ve binlerce hayvan hayatını kaybetti.",
+  "s": 18.921,
+  "e": 22.72,
+  "w0": 44,
+  "w1": 54
+ },
+ {
+  "text": "Sabah her yer sessizdi.",
+  "s": 22.985,
+  "e": 24.447,
+  "w0": 55,
+  "w1": 58
+ },
+ {
+  "text": "Bugün gölün dibine borular yerleştirildi.",
+  "s": 24.673,
+  "e": 27.034,
+  "w0": 59,
+  "w1": 63
+ },
+ {
+  "text": "Gaz artık yavaş yavaş,",
+  "s": 27.465,
+  "e": 28.565,
+  "w0": 64,
+  "w1": 67
+ },
+ {
+  "text": "bir çeşme gibi dışarı salınıyor.",
+  "s": 28.715,
+  "e": 30.602,
+  "w0": 68,
+  "w1": 72
+ },
+ {
+  "text": "Tuhaf ama gerçek.",
+  "s": 30.984,
+  "e": 32.121,
+  "w0": 73,
+  "w1": 75
+ },
+ {
+  "text": "Her gün.",
+  "s": 32.324,
+  "e": 32.927,
+  "w0": 76,
+  "w1": 77
+ }
+]

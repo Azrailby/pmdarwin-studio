@@ -1,0 +1,121 @@
+[
+ {
+  "text": "Bir kasaba,",
+  "s": 0.021,
+  "e": 0.642,
+  "w0": 0,
+  "w1": 1
+ },
+ {
+  "text": "kıyıya vuran balinadan kurtulmak için onu dinamitle patlattı.",
+  "s": 0.792,
+  "e": 4.365,
+  "w0": 2,
+  "w1": 9
+ },
+ {
+  "text": "Yıl bin dokuz yüz yetmiş,",
+  "s": 4.757,
+  "e": 5.896,
+  "w0": 10,
+  "w1": 14
+ },
+ {
+  "text": "Amerika'nın Oregon eyaleti.",
+  "s": 6.046,
+  "e": 7.998,
+  "w0": 15,
+  "w1": 17
+ },
+ {
+  "text": "Kumsala dev bir ölü balina vurdu ve korkunç kokuyordu.",
+  "s": 8.246,
+  "e": 11.357,
+  "w0": 18,
+  "w1": 26
+ },
+ {
+  "text": "Yetkililer bir fikir buldu:",
+  "s": 11.618,
+  "e": 13.216,
+  "w0": 27,
+  "w1": 30
+ },
+ {
+  "text": "yarım ton dinamit.",
+  "s": 13.366,
+  "e": 14.431,
+  "w0": 31,
+  "w1": 33
+ },
+ {
+  "text": "Plan şuydu:",
+  "s": 14.812,
+  "e": 15.265,
+  "w0": 34,
+  "w1": 35
+ },
+ {
+  "text": "balina parçalanacak,",
+  "s": 15.415,
+  "e": 16.624,
+  "w0": 36,
+  "w1": 37
+ },
+ {
+  "text": "kalanları da martılar yiyecekti.",
+  "s": 16.774,
+  "e": 18.587,
+  "w0": 38,
+  "w1": 41
+ },
+ {
+  "text": "Patlama oldu.",
+  "s": 18.845,
+  "e": 19.754,
+  "w0": 42,
+  "w1": 43
+ },
+ {
+  "text": "Ve balina parçaları gökyüzünden izleyicilerin üstüne yağdı.",
+  "s": 20.006,
+  "e": 23.474,
+  "w0": 44,
+  "w1": 50
+ },
+ {
+  "text": "Dört yüz metre ötedeki bir arabanın tavanı ezildi.",
+  "s": 23.803,
+  "e": 26.758,
+  "w0": 51,
+  "w1": 58
+ },
+ {
+  "text": "Martılar ise kaçtı.",
+  "s": 27.001,
+  "e": 28.377,
+  "w0": 59,
+  "w1": 61
+ },
+ {
+  "text": "Kumsalda hâlâ koca bir balina parçası duruyordu.",
+  "s": 28.673,
+  "e": 31.517,
+  "w0": 62,
+  "w1": 68
+ },
+ {
+  "text": "Tuhaf ama gerçek.",
+  "s": 31.884,
+  "e": 32.982,
+  "w0": 69,
+  "w1": 71
+ },
+ {
+  "text": "Her gün.",
+  "s": 33.206,
+  "e": 33.811,
+  "w0": 72,
+  "w1": 73
+ }
+]

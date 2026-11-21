@@ -1,0 +1,15 @@
+yöntem: cümle cümle TTS, kesin cümle sınırları · ses 33.19 sn · 77 kelime · 13 parça
+  P00   0.00-  2.01  kare    0-  60  w0-4  Çernobil'in altında bir kütle var.
+  P01   2.34-  4.71  kare   70- 141  w5-9  Yanında beş dakika durmak öldürüyordu.
+  P02   4.97-  8.97  kare  149- 269  w10-19  Bin dokuz yüz seksen altı patlamasından sonra reaktörün çekirdeği eridi.
+  P03   9.37-  9.67  kare  281- 290  w20-20  Yakıt,
+  P04   9.82- 12.48  kare  295- 375  w21-27  beton ve kumla karışıp alttaki koridorlara aktı.
+  P05  12.74- 16.41  kare  382- 492  w28-36  Orada katılaşıp bir filin ayağına benzeyen bir kütle oluşturdu.
+  P06  16.66- 18.23  kare  500- 547  w37-42  Adı da bu yüzden Fil Ayağı.
+  P07  18.61- 22.37  kare  558- 671  w43-52  İlk ölçümlerde yanında üç yüz saniye durmak ölümcül doz demekti.
+  P08  22.62- 26.48  kare  679- 794  w53-61  Fotoğrafını çekmek için bazen makine tekerlekli bir arabayla itildi.
+  P09  26.73- 29.43  kare  802- 883  w62-68  Bugün radyasyonu çok azaldı ama hâlâ tehlikeli.
+  P10  29.69- 30.71  kare  891- 921  w69-71  Ve hâlâ orada.
+  P11  31.05- 32.16  kare  932- 965  w72-74  Tuhaf ama gerçek.
+  P12  32.39- 32.98  kare  972- 989  w75-76  Her gün.
+toplam kare (30 fps): 1026

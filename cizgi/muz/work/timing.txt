@@ -1,0 +1,17 @@
+yöntem: cümle cümle TTS, kesin cümle sınırları · ses 33.39 sn · 78 kelime · 15 parça
+  P00   0.04-  1.42  kare    1-  43  w0-2  Yediğin muz radyoaktif.
+  P01   1.66-  2.88  kare   50-  86  w3-6  Ve bu tamamen normal.
+  P02   3.13-  4.72  kare   94- 142  w7-10  Muzda bol potasyum var.
+  P03   5.06-  8.11  kare  152- 243  w11-18  Potasyumun çok küçük bir kısmı doğal olarak radyoaktif.
+  P04   8.35- 11.26  kare  250- 338  w19-26  Bilim insanları bu yüzden muzu ölçü birimi yaptı:
+  P05  11.41- 12.38  kare  342- 372  w27-29  muz eşdeğer dozu.
+  P06  12.74- 13.41  kare  382- 402  w30-32  Bir muz yemek,
+  P07  13.56- 16.89  kare  407- 507  w33-40  uçakta geçen bir iki dakikada aldığın radyasyon kadar.
+  P08  17.16- 19.67  kare  515- 590  w41-47  Peki tehlikeli olması için kaç muz gerekir?
+  P09  19.92- 23.08  kare  598- 692  w48-56  Yaklaşık otuz beş milyon muzu aynı anda yemen lazım.
+  P10  23.48- 26.62  kare  704- 799  w57-63  Üstelik vücudun fazla potasyumu zaten dışarı atıyor.
+  P11  26.98- 28.14  kare  810- 844  w64-66  Yani muzdan korkma.
+  P12  28.47- 30.76  kare  854- 923  w67-72  Ama artık ona biraz farklı bakacaksın.
+  P13  31.14- 32.34  kare  934- 970  w73-75  Tuhaf ama gerçek.
+  P14  32.61- 33.16  kare  978- 995  w76-77  Her gün.
+toplam kare (30 fps): 1032

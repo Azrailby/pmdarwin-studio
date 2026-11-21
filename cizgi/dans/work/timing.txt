@@ -1,0 +1,16 @@
+yöntem: cümle cümle TTS, kesin cümle sınırları · ses 32.39 sn · 74 kelime · 14 parça
+  P00   0.03-  3.73  kare    1- 112  w0-10  Bin beş yüz on sekizde bir kadın sokakta dans etmeye başladı.
+  P01   4.00-  4.79  kare  120- 144  w11-12  Ve duramadı.
+  P02   5.08-  6.24  kare  153- 187  w13-14  Şehir Strazburg.
+  P03   6.57-  9.98  kare  197- 300  w15-23  Frau Trofeya adında bir kadın günlerce durmadan dans etti.
+  P04  10.38- 13.16  kare  312- 395  w24-31  Bir hafta içinde ona otuzdan fazla kişi katıldı.
+  P05  13.46- 16.83  kare  404- 505  w32-40  Bir ay sonra dans edenlerin sayısı dört yüze yaklaştı.
+  P06  17.10- 18.96  kare  513- 569  w41-44  Yetkililer çözümü buldu sandı:
+  P07  19.11- 19.79  kare  573- 594  w45-47  daha çok dans.
+  P08  20.18- 22.43  kare  606- 673  w48-52  Müzisyen tuttular ve sahne kurdular.
+  P09  22.85- 24.21  kare  685- 726  w53-56  Durum daha da kötüleşti.
+  P10  24.46- 27.01  kare  734- 810  w57-61  Rivayete göre bazıları yorgunluktan öldü.
+  P11  27.27- 29.91  kare  818- 897  w62-68  Bugün bile kimse bunun nedenini tam bilmiyor.
+  P12  30.20- 31.30  kare  906- 939  w69-71  Tuhaf ama gerçek.
+  P13  31.53- 32.14  kare  946- 964  w72-73  Her gün.
+toplam kare (30 fps): 1002

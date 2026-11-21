@@ -1,0 +1,93 @@
+[
+ {
+  "text": "Uzayda ağlarsan gözyaşın akmaz.",
+  "s": 0.024,
+  "e": 2.09,
+  "w0": 0,
+  "w1": 3
+ },
+ {
+  "text": "Gözünde bir su topu olarak kalır.",
+  "s": 2.354,
+  "e": 4.311,
+  "w0": 4,
+  "w1": 9
+ },
+ {
+  "text": "Dünyada gözyaşını yerçekimi aşağı çeker.",
+  "s": 4.655,
+  "e": 6.993,
+  "w0": 10,
+  "w1": 14
+ },
+ {
+  "text": "Ama uzay istasyonunda yerçekimi hissedilmez.",
+  "s": 7.375,
+  "e": 10.079,
+  "w0": 15,
+  "w1": 19
+ },
+ {
+  "text": "Kanadalı astronot Kris Hedfild bunu yörüngede gösterdi.",
+  "s": 10.49,
+  "e": 13.735,
+  "w0": 20,
+  "w1": 26
+ },
+ {
+  "text": "Gözüne su sıktı.",
+  "s": 14.013,
+  "e": 15.085,
+  "w0": 27,
+  "w1": 29
+ },
+ {
+  "text": "Su akmadı,",
+  "s": 15.309,
+  "e": 15.949,
+  "w0": 30,
+  "w1": 31
+ },
+ {
+  "text": "gözünün üstünde büyüyen bir baloncuğa dönüştü.",
+  "s": 16.099,
+  "e": 18.818,
+  "w0": 32,
+  "w1": 37
+ },
+ {
+  "text": "Ve bu baloncuk gözü yakıyor.",
+  "s": 19.177,
+  "e": 20.767,
+  "w0": 38,
+  "w1": 42
+ },
+ {
+  "text": "Astronotlar onu bir havluyla silmek zorunda.",
+  "s": 21.116,
+  "e": 23.755,
+  "w0": 43,
+  "w1": 48
+ },
+ {
+  "text": "Yani uzayda ağlamak hem daha zor hem daha acı verici.",
+  "s": 24.156,
+  "e": 27.42,
+  "w0": 49,
+  "w1": 58
+ },
+ {
+  "text": "Tuhaf ama gerçek.",
+  "s": 27.662,
+  "e": 28.833,
+  "w0": 59,
+  "w1": 61
+ },
+ {
+  "text": "Her gün.",
+  "s": 29.11,
+  "e": 29.752,
+  "w0": 62,
+  "w1": 63
+ }
+]

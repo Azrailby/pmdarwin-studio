@@ -1,0 +1,15 @@
+yöntem: cümle cümle TTS, kesin cümle sınırları · ses 29.96 sn · 64 kelime · 13 parça
+  P00   0.02-  2.09  kare    1-  63  w0-3  Uzayda ağlarsan gözyaşın akmaz.
+  P01   2.35-  4.31  kare   71- 129  w4-9  Gözünde bir su topu olarak kalır.
+  P02   4.66-  6.99  kare  140- 210  w10-14  Dünyada gözyaşını yerçekimi aşağı çeker.
+  P03   7.38- 10.08  kare  221- 302  w15-19  Ama uzay istasyonunda yerçekimi hissedilmez.
+  P04  10.49- 13.73  kare  315- 412  w20-26  Kanadalı astronot Kris Hedfild bunu yörüngede gösterdi.
+  P05  14.01- 15.09  kare  420- 453  w27-29  Gözüne su sıktı.
+  P06  15.31- 15.95  kare  459- 478  w30-31  Su akmadı,
+  P07  16.10- 18.82  kare  483- 565  w32-37  gözünün üstünde büyüyen bir baloncuğa dönüştü.
+  P08  19.18- 20.77  kare  575- 623  w38-42  Ve bu baloncuk gözü yakıyor.
+  P09  21.12- 23.75  kare  633- 713  w43-48  Astronotlar onu bir havluyla silmek zorunda.
+  P10  24.16- 27.42  kare  725- 823  w49-58  Yani uzayda ağlamak hem daha zor hem daha acı verici.
+  P11  27.66- 28.83  kare  830- 865  w59-61  Tuhaf ama gerçek.
+  P12  29.11- 29.75  kare  873- 893  w62-63  Her gün.
+toplam kare (30 fps): 929

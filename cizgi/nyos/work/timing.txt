@@ -1,0 +1,17 @@
+yöntem: cümle cümle TTS, kesin cümle sınırları · ses 33.16 sn · 78 kelime · 15 parça
+  P00   0.03-  0.91  kare    1-  27  w0-3  Bir gece bir göl,
+  P01   1.06-  4.61  kare   32- 138  w4-11  kimseye dokunmadan bin yedi yüzden fazla insanı öldürdü.
+  P02   4.96-  6.44  kare  149- 193  w12-17  Yıl bin dokuz yüz seksen altı,
+  P03   6.59-  7.09  kare  198- 213  w18-18  Kamerun.
+  P04   7.49- 10.77  kare  225- 323  w19-24  Niyos Gölü'nün dibinde yıllarca karbondioksit birikmişti.
+  P05  11.04- 13.14  kare  331- 394  w25-31  Bir gece bu gaz aniden yüzeye çıktı.
+  P06  13.38- 16.04  kare  401- 481  w32-38  Havadan ağır olduğu için vadilere doğru aktı.
+  P07  16.45- 18.69  kare  494- 561  w39-43  Köylerde uyuyanlar hiçbir şey hissetmedi.
+  P08  18.92- 22.72  kare  568- 682  w44-54  Bin yedi yüz kırk altı kişi ve binlerce hayvan hayatını kaybetti.
+  P09  22.98- 24.45  kare  690- 733  w55-58  Sabah her yer sessizdi.
+  P10  24.67- 27.03  kare  740- 811  w59-63  Bugün gölün dibine borular yerleştirildi.
+  P11  27.46- 28.57  kare  824- 857  w64-67  Gaz artık yavaş yavaş,
+  P12  28.71- 30.60  kare  861- 918  w68-72  bir çeşme gibi dışarı salınıyor.
+  P13  30.98- 32.12  kare  930- 964  w73-75  Tuhaf ama gerçek.
+  P14  32.32- 32.93  kare  970- 988  w76-77  Her gün.
+toplam kare (30 fps): 1025

@@ -1,0 +1,16 @@
+yöntem: cümle cümle TTS, kesin cümle sınırları · ses 34.22 sn · 72 kelime · 14 parça
+  P00   0.02-  3.11  kare    1-  93  w0-5  Bu kadınlar parlayan boyayı dudaklarıyla sivriltiyordu.
+  P01   3.37-  6.10  kare  101- 183  w6-11  Ve patronları bunun güvenli olduğunu söylüyordu.
+  P02   6.42-  7.80  kare  193- 234  w12-16  Bin dokuz yüz yirmili yıllar,
+  P03   7.95-  8.57  kare  239- 257  w17-17  Amerika.
+  P04   8.85- 13.26  kare  265- 398  w18-26  Genç kadınlar saat kadranlarını karanlıkta parlayan radyum boyasıyla boyuyordu.
+  P05  13.46- 16.44  kare  404- 493  w27-32  Fırçanın ucunu inceltmek için dudaklarına alıyorlardı.
+  P06  16.69- 19.93  kare  501- 598  w33-40  Bazıları eğlenmek için dişlerini ve tırnaklarını bile boyadı.
+  P07  20.16- 22.02  kare  605- 661  w41-44  Sonra çeneleri çürümeye başladı.
+  P08  22.27- 25.40  kare  668- 762  w45-53  Bin dokuz yüz yirmi yediye kadar otuzdan fazlası öldü.
+  P09  25.69- 27.74  kare  771- 832  w54-58  Kadınlar mahkemeye gitti ve kazandı.
+  P10  27.96- 28.84  kare  839- 865  w59-60  Onların davası,
+  P11  28.98- 31.61  kare  870- 948  w61-66  bugünkü iş güvenliği kurallarının temeli oldu.
+  P12  31.92- 33.03  kare  958- 991  w67-69  Tuhaf ama gerçek.
+  P13  33.37- 33.94  kare 1001-1018  w70-71  Her gün.
+toplam kare (30 fps): 1057

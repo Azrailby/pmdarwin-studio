@@ -1,0 +1,16 @@
+yöntem: cümle cümle TTS, kesin cümle sınırları · ses 32.16 sn · 73 kelime · 14 parça
+  P00   0.04-  2.03  kare    1-  61  w0-5  Bu adama yedi kez yıldırım çarptı.
+  P01   2.41-  4.19  kare   72- 126  w6-10  Ve yedisinde de hayatta kaldı.
+  P02   4.48-  5.09  kare  134- 153  w11-12  Roy Sullivan,
+  P03   5.24-  7.41  kare  157- 222  w13-17  Amerika'da bir milli parkta korucuydu.
+  P04   7.69- 11.85  kare  231- 356  w18-28  İlk yıldırım bin dokuz yüz kırk ikide ayak başparmağının tırnağını kopardı.
+  P05  12.11- 13.45  kare  363- 404  w29-31  Sonra kaşları yandı.
+  P06  13.75- 14.62  kare  412- 439  w32-33  Sonra omzu.
+  P07  14.90- 16.91  kare  447- 507  w34-38  Sonra saçları iki kez tutuştu.
+  P08  17.25- 19.38  kare  517- 581  w39-45  Son darbe bin dokuz yüz yetmiş yedide,
+  P09  19.53- 20.78  kare  586- 623  w46-48  balık tutarken geldi.
+  P10  21.03- 25.24  kare  631- 757  w49-59  Guinness Rekorlar Kitabı onu en çok yıldırım çarpan insan olarak kaydetti.
+  P11  25.50- 29.54  kare  765- 886  w60-67  Anlatılana göre insanlar fırtınada onun yanında durmaktan korkuyordu.
+  P12  29.82- 31.07  kare  895- 932  w68-70  Tuhaf ama gerçek.
+  P13  31.32- 31.94  kare  940- 958  w71-72  Her gün.
+toplam kare (30 fps): 995

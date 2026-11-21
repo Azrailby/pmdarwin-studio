@@ -1,0 +1,100 @@
+[
+ {
+  "text": "Bu adama yedi kez yıldırım çarptı.",
+  "s": 0.037,
+  "e": 2.033,
+  "w0": 0,
+  "w1": 5
+ },
+ {
+  "text": "Ve yedisinde de hayatta kaldı.",
+  "s": 2.411,
+  "e": 4.191,
+  "w0": 6,
+  "w1": 10
+ },
+ {
+  "text": "Roy Sullivan,",
+  "s": 4.477,
+  "e": 5.094,
+  "w0": 11,
+  "w1": 12
+ },
+ {
+  "text": "Amerika'da bir milli parkta korucuydu.",
+  "s": 5.244,
+  "e": 7.405,
+  "w0": 13,
+  "w1": 17
+ },
+ {
+  "text": "İlk yıldırım bin dokuz yüz kırk ikide ayak başparmağının tırnağını kopardı.",
+  "s": 7.69,
+  "e": 11.853,
+  "w0": 18,
+  "w1": 28
+ },
+ {
+  "text": "Sonra kaşları yandı.",
+  "s": 12.111,
+  "e": 13.454,
+  "w0": 29,
+  "w1": 31
+ },
+ {
+  "text": "Sonra omzu.",
+  "s": 13.75,
+  "e": 14.623,
+  "w0": 32,
+  "w1": 33
+ },
+ {
+  "text": "Sonra saçları iki kez tutuştu.",
+  "s": 14.899,
+  "e": 16.906,
+  "w0": 34,
+  "w1": 38
+ },
+ {
+  "text": "Son darbe bin dokuz yüz yetmiş yedide,",
+  "s": 17.245,
+  "e": 19.381,
+  "w0": 39,
+  "w1": 45
+ },
+ {
+  "text": "balık tutarken geldi.",
+  "s": 19.531,
+  "e": 20.777,
+  "w0": 46,
+  "w1": 48
+ },
+ {
+  "text": "Guinness Rekorlar Kitabı onu en çok yıldırım çarpan insan olarak kaydetti.",
+  "s": 21.032,
+  "e": 25.242,
+  "w0": 49,
+  "w1": 59
+ },
+ {
+  "text": "Anlatılana göre insanlar fırtınada onun yanında durmaktan korkuyordu.",
+  "s": 25.499,
+  "e": 29.543,
+  "w0": 60,
+  "w1": 67
+ },
+ {
+  "text": "Tuhaf ama gerçek.",
+  "s": 29.819,
+  "e": 31.069,
+  "w0": 68,
+  "w1": 70
+ },
+ {
+  "text": "Her gün.",
+  "s": 31.321,
+  "e": 31.944,
+  "w0": 71,
+  "w1": 72
+ }
+]

@@ -1,0 +1,107 @@
+[
+ {
+  "text": "Yediğin muz radyoaktif.",
+  "s": 0.035,
+  "e": 1.417,
+  "w0": 0,
+  "w1": 2
+ },
+ {
+  "text": "Ve bu tamamen normal.",
+  "s": 1.66,
+  "e": 2.881,
+  "w0": 3,
+  "w1": 6
+ },
+ {
+  "text": "Muzda bol potasyum var.",
+  "s": 3.135,
+  "e": 4.719,
+  "w0": 7,
+  "w1": 10
+ },
+ {
+  "text": "Potasyumun çok küçük bir kısmı doğal olarak radyoaktif.",
+  "s": 5.063,
+  "e": 8.105,
+  "w0": 11,
+  "w1": 18
+ },
+ {
+  "text": "Bilim insanları bu yüzden muzu ölçü birimi yaptı:",
+  "s": 8.347,
+  "e": 11.262,
+  "w0": 19,
+  "w1": 26
+ },
+ {
+  "text": "muz eşdeğer dozu.",
+  "s": 11.412,
+  "e": 12.384,
+  "w0": 27,
+  "w1": 29
+ },
+ {
+  "text": "Bir muz yemek,",
+  "s": 12.743,
+  "e": 13.408,
+  "w0": 30,
+  "w1": 32
+ },
+ {
+  "text": "uçakta geçen bir iki dakikada aldığın radyasyon kadar.",
+  "s": 13.558,
+  "e": 16.885,
+  "w0": 33,
+  "w1": 40
+ },
+ {
+  "text": "Peki tehlikeli olması için kaç muz gerekir?",
+  "s": 17.155,
+  "e": 19.673,
+  "w0": 41,
+  "w1": 47
+ },
+ {
+  "text": "Yaklaşık otuz beş milyon muzu aynı anda yemen lazım.",
+  "s": 19.923,
+  "e": 23.076,
+  "w0": 48,
+  "w1": 56
+ },
+ {
+  "text": "Üstelik vücudun fazla potasyumu zaten dışarı atıyor.",
+  "s": 23.481,
+  "e": 26.62,
+  "w0": 57,
+  "w1": 63
+ },
+ {
+  "text": "Yani muzdan korkma.",
+  "s": 26.984,
+  "e": 28.137,
+  "w0": 64,
+  "w1": 66
+ },
+ {
+  "text": "Ama artık ona biraz farklı bakacaksın.",
+  "s": 28.471,
+  "e": 30.761,
+  "w0": 67,
+  "w1": 72
+ },
+ {
+  "text": "Tuhaf ama gerçek.",
+  "s": 31.141,
+  "e": 32.345,
+  "w0": 73,
+  "w1": 75
+ },
+ {
+  "text": "Her gün.",
+  "s": 32.61,
+  "e": 33.159,
+  "w0": 76,
+  "w1": 77
+ }
+]

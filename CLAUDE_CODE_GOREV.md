@@ -4,7 +4,8 @@ Sen bu kanalın ikinci üretim istasyonusun. Bulut tarafındaki Claude konu, sen
 
 ## İş bulma
 1. `git pull`
-2. `cizgi/*/PLAN.md` olup içinde `story.js` ve `READY` OLMAYAN klasörler senin işin. (Şu an: `cizgi/suayisi`, `cizgi/vucut`)
+2. `cizgi/*/PLAN.md` olup içinde `READY` OLMAYAN klasörler senin işin. Aşağıdaki "Sıra" listesine göre çalış.
+   Bu dosya otomatik çalışır: render botu bekleyen iş görünce seni kendisi başlatır (claude -p). Kullanıcı yok, soru sorma.
 3. Her klasörde hazır: `script.txt`, `work/voice.wav`, `work/words.json`, `work/phrases.json`, motor + araçlar. Sesi/senaryoyu DEĞİŞTİRME.
 
 ## Her video için adımlar
@@ -27,6 +28,15 @@ Sen bu kanalın ikinci üretim istasyonusun. Bulut tarafındaki Claude konu, sen
 - Aynı model iki kez yaratılıyorsa referansları `g.userData` içinde tut (R.xxx üzerine yazılmasın).
 - Altyazı motor tarafından otomatik; overlay yazıları ekranın üstünde (y≈330) ve kartlar altta (y≈1390) dursun.
 - Gerçek kişi birebir benzetilmez, marka/logo yok, kanlı/iğrenç detay yok.
+
+## Sıra (yayın tarihine göre)
+1. sullivan (Çar 09:30) 2. mantis (Çar 13:30) 3. radyum (Çar 20:30)
+4. osborne (Per 09:30) 5. muz (Per 13:30) 6. dans (Per 20:30)
+7. aglamak (Cum 09:30) 8. cambeyin (Cum 13:30) 9. nyos (Cum 20:30)
+10. balina (Cmt 09:30) 11. mumya (Cmt 13:30) 12. filayagi (Cmt 20:30)
+
+Her videoyu bitirip push ettikten sonra sıradakine geç; böylece bot sen çalışırken bitenleri render eder.
+Hassas konular (radyum, nyos, filayagi, cambeyin): ceset/hastalık/yanık detayı yok, saygılı ton.
 
 ## Durum
 - suayisi: hazır (21.11 23:50)

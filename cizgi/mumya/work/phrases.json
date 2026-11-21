@@ -1,0 +1,100 @@
+[
+ {
+  "text": "Avrupalılar yüzyıllarca ilaç diye mumya yedi.",
+  "s": 0.001,
+  "e": 2.562,
+  "w0": 0,
+  "w1": 5
+ },
+ {
+  "text": "Hem de bir çeviri hatası yüzünden.",
+  "s": 2.866,
+  "e": 4.689,
+  "w0": 6,
+  "w1": 11
+ },
+ {
+  "text": "Arapça mumya kelimesi aslında doğal zift,",
+  "s": 4.92,
+  "e": 7.4,
+  "w0": 12,
+  "w1": 17
+ },
+ {
+  "text": "yani bitüm demekti.",
+  "s": 7.55,
+  "e": 8.707,
+  "w0": 18,
+  "w1": 20
+ },
+ {
+  "text": "Bitüm o dönemde yaralara ve ağrılara ilaç olarak kullanılıyordu.",
+  "s": 8.928,
+  "e": 12.535,
+  "w0": 21,
+  "w1": 29
+ },
+ {
+  "text": "Ama çevirmenler bu kelimeyi,",
+  "s": 12.871,
+  "e": 14.52,
+  "w0": 30,
+  "w1": 33
+ },
+ {
+  "text": "mumyalardaki siyah maddeyle karıştırdı.",
+  "s": 14.67,
+  "e": 16.769,
+  "w0": 34,
+  "w1": 37
+ },
+ {
+  "text": "Böylece eczanelerde öğütülmüş mumya tozu satılmaya başladı.",
+  "s": 17.023,
+  "e": 20.63,
+  "w0": 38,
+  "w1": 44
+ },
+ {
+  "text": "İnsanlar onu baş ağrısından morluklara kadar her şeye kullandı.",
+  "s": 21.031,
+  "e": 24.643,
+  "w0": 45,
+  "w1": 53
+ },
+ {
+  "text": "Talep o kadar arttı ki sahte mumyalar bile üretildi.",
+  "s": 24.881,
+  "e": 27.877,
+  "w0": 54,
+  "w1": 62
+ },
+ {
+  "text": "Yani bir yanlış çeviri,",
+  "s": 28.132,
+  "e": 29.415,
+  "w0": 63,
+  "w1": 66
+ },
+ {
+  "text": "insanları mezar soymaya götürdü.",
+  "s": 29.565,
+  "e": 31.49,
+  "w0": 67,
+  "w1": 70
+ },
+ {
+  "text": "Tuhaf ama gerçek.",
+  "s": 31.804,
+  "e": 33.011,
+  "w0": 71,
+  "w1": 73
+ },
+ {
+  "text": "Her gün.",
+  "s": 33.235,
+  "e": 33.835,
+  "w0": 74,
+  "w1": 75
+ }
+]

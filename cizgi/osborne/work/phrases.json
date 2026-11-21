@@ -1,0 +1,86 @@
+[
+ {
+  "text": "Bu adam tam altmış sekiz yıl boyunca hıçkırdı.",
+  "s": 0.021,
+  "e": 2.835,
+  "w0": 0,
+  "w1": 7
+ },
+ {
+  "text": "Çarlz Ozborn,",
+  "s": 3.061,
+  "e": 3.568,
+  "w0": 8,
+  "w1": 9
+ },
+ {
+  "text": "bin dokuz yüz yirmi ikide bir domuzu kaldırırken düştü.",
+  "s": 3.718,
+  "e": 6.93,
+  "w0": 10,
+  "w1": 18
+ },
+ {
+  "text": "O andan sonra hıçkırık başladı.",
+  "s": 7.167,
+  "e": 9.158,
+  "w0": 19,
+  "w1": 23
+ },
+ {
+  "text": "Ve durmadı.",
+  "s": 9.404,
+  "e": 10.093,
+  "w0": 24,
+  "w1": 25
+ },
+ {
+  "text": "İlk yıllarda dakikada kırk kez hıçkırıyordu.",
+  "s": 10.329,
+  "e": 12.97,
+  "w0": 26,
+  "w1": 31
+ },
+ {
+  "text": "Bu sürede iki kez evlendi ve sekiz çocuk sahibi oldu.",
+  "s": 13.29,
+  "e": 16.499,
+  "w0": 32,
+  "w1": 41
+ },
+ {
+  "text": "Tahminlere göre hayatı boyunca yaklaşık dört yüz otuz milyon kez hıçkırdı.",
+  "s": 16.876,
+  "e": 21.129,
+  "w0": 42,
+  "w1": 52
+ },
+ {
+  "text": "Bin dokuz yüz doksanda hıçkırıklar kendiliğinden kesildi.",
+  "s": 21.395,
+  "e": 24.739,
+  "w0": 53,
+  "w1": 59
+ },
+ {
+  "text": "Ve bir yıl sonra hayatını kaybetti.",
+  "s": 25.019,
+  "e": 27.065,
+  "w0": 60,
+  "w1": 65
+ },
+ {
+  "text": "Tuhaf ama gerçek.",
+  "s": 27.461,
+  "e": 28.556,
+  "w0": 66,
+  "w1": 68
+ },
+ {
+  "text": "Her gün.",
+  "s": 28.896,
+  "e": 29.496,
+  "w0": 69,
+  "w1": 70
+ }
+]

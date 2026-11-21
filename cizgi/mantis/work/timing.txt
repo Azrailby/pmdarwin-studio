@@ -1,0 +1,19 @@
+yöntem: cümle cümle TTS, kesin cümle sınırları · ses 33.11 sn · 73 kelime · 17 parça
+  P00   0.04-  0.97  kare    1-  29  w0-2  Bu küçük karides,
+  P01   1.12-  3.28  kare   34-  98  w3-6  akvaryum camını yumrukla kırabiliyor.
+  P02   3.63-  4.94  kare  109- 148  w7-9  Adı mantis karidesi.
+  P03   5.35-  6.56  kare  160- 197  w10-13  Boyu bir avuç kadar.
+  P04   6.97-  9.43  kare  209- 283  w14-20  Ama ön kollarını bir mermi gibi fırlatıyor.
+  P05   9.79- 11.73  kare  294- 352  w21-25  Saniyede yirmi üç metre hızla.
+  P06  12.09- 13.33  kare  363- 400  w26-30  Darbe o kadar hızlı ki,
+  P07  13.48- 16.42  kare  404- 493  w31-37  suyun içinde minik baloncuklar oluşuyor ve patlıyor.
+  P08  16.81- 18.44  kare  504- 553  w38-42  Yani av iki kez vuruluyor:
+  P09  18.59- 19.40  kare  558- 582  w43-44  önce yumrukla,
+  P10  19.55- 21.02  kare  587- 631  w45-47  sonra patlayan baloncukla.
+  P11  21.41- 24.18  kare  642- 726  w48-55  Bu baloncuk bir an için binlerce derece ısınıyor.
+  P12  24.55- 27.41  kare  736- 822  w56-61  Akvaryumcular onu kalın camlı tanklarda tutuyor.
+  P13  27.68- 28.82  kare  831- 865  w62-64  Çünkü canı sıkılırsa,
+  P14  28.97- 30.40  kare  869- 912  w65-67  evini kırıp çıkabiliyor.
+  P15  30.79- 31.97  kare  924- 959  w68-70  Tuhaf ama gerçek.
+  P16  32.29- 32.89  kare  969- 987  w71-72  Her gün.
+toplam kare (30 fps): 1024

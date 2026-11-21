@@ -1,0 +1,14 @@
+yöntem: cümle cümle TTS, kesin cümle sınırları · ses 29.73 sn · 71 kelime · 12 parça
+  P00   0.02-  2.83  kare    1-  85  w0-7  Bu adam tam altmış sekiz yıl boyunca hıçkırdı.
+  P01   3.06-  3.57  kare   92- 107  w8-9  Çarlz Ozborn,
+  P02   3.72-  6.93  kare  112- 208  w10-18  bin dokuz yüz yirmi ikide bir domuzu kaldırırken düştü.
+  P03   7.17-  9.16  kare  215- 275  w19-23  O andan sonra hıçkırık başladı.
+  P04   9.40- 10.09  kare  282- 303  w24-25  Ve durmadı.
+  P05  10.33- 12.97  kare  310- 389  w26-31  İlk yıllarda dakikada kırk kez hıçkırıyordu.
+  P06  13.29- 16.50  kare  399- 495  w32-41  Bu sürede iki kez evlendi ve sekiz çocuk sahibi oldu.
+  P07  16.88- 21.13  kare  506- 634  w42-52  Tahminlere göre hayatı boyunca yaklaşık dört yüz otuz milyon kez hıçkırdı.
+  P08  21.39- 24.74  kare  642- 742  w53-59  Bin dokuz yüz doksanda hıçkırıklar kendiliğinden kesildi.
+  P09  25.02- 27.07  kare  751- 812  w60-65  Ve bir yıl sonra hayatını kaybetti.
+  P10  27.46- 28.56  kare  824- 857  w66-68  Tuhaf ama gerçek.
+  P11  28.90- 29.50  kare  867- 885  w69-70  Her gün.
+toplam kare (30 fps): 922

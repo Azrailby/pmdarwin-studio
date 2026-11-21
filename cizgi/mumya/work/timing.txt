@@ -1,0 +1,16 @@
+yöntem: cümle cümle TTS, kesin cümle sınırları · ses 34.07 sn · 76 kelime · 14 parça
+  P00   0.00-  2.56  kare    0-  77  w0-5  Avrupalılar yüzyıllarca ilaç diye mumya yedi.
+  P01   2.87-  4.69  kare   86- 141  w6-11  Hem de bir çeviri hatası yüzünden.
+  P02   4.92-  7.40  kare  148- 222  w12-17  Arapça mumya kelimesi aslında doğal zift,
+  P03   7.55-  8.71  kare  226- 261  w18-20  yani bitüm demekti.
+  P04   8.93- 12.54  kare  268- 376  w21-29  Bitüm o dönemde yaralara ve ağrılara ilaç olarak kullanılıyordu.
+  P05  12.87- 14.52  kare  386- 436  w30-33  Ama çevirmenler bu kelimeyi,
+  P06  14.67- 16.77  kare  440- 503  w34-37  mumyalardaki siyah maddeyle karıştırdı.
+  P07  17.02- 20.63  kare  511- 619  w38-44  Böylece eczanelerde öğütülmüş mumya tozu satılmaya başladı.
+  P08  21.03- 24.64  kare  631- 739  w45-53  İnsanlar onu baş ağrısından morluklara kadar her şeye kullandı.
+  P09  24.88- 27.88  kare  746- 836  w54-62  Talep o kadar arttı ki sahte mumyalar bile üretildi.
+  P10  28.13- 29.41  kare  844- 882  w63-66  Yani bir yanlış çeviri,
+  P11  29.57- 31.49  kare  887- 945  w67-70  insanları mezar soymaya götürdü.
+  P12  31.80- 33.01  kare  954- 990  w71-73  Tuhaf ama gerçek.
+  P13  33.23- 33.84  kare  997-1015  w74-75  Her gün.
+toplam kare (30 fps): 1053
