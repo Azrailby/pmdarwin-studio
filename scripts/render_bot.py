@@ -18,6 +18,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GIT = shutil.which("git") or r"C:\Program Files\Git\cmd\git.exe"
 PY = sys.executable
 LOG = os.path.join(ROOT, "teslim", "bot.log")
+# Windows'ta pythonw altında git/python/ffmpeg her çağrıda konsol penceresi açmasın.
+# Gizli konsol alt süreçlere de geçer (ör. finish.py içindeki ffmpeg).
+NOWIN = {"creationflags": subprocess.CREATE_NO_WINDOW} if os.name == "nt" else {}
 
 
 def log(msg):
@@ -29,11 +32,11 @@ def log(msg):
 
 
 def git(*args, check=True):
-    return subprocess.run([GIT, *args], cwd=ROOT, check=check, capture_output=True, text=True)
+    return subprocess.run([GIT, *args], cwd=ROOT, check=check, capture_output=True, text=True, **NOWIN)
 
 
 def run(cmd, cwd):
-    r = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    r = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, encoding="utf-8", errors="replace", **NOWIN)
     tail = (r.stdout + r.stderr).strip().splitlines()[-6:]
     if r.returncode != 0:
         raise RuntimeError(f"{' '.join(cmd)} başarısız:\n" + "\n".join(tail))
