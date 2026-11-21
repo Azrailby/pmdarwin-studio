@@ -1,0 +1,91 @@
+{
+ "voice": "work/voice.wav",
+ "music": {
+  "style": "tense",
+  "bpm": 96,
+  "start": 0,
+  "stop": 32.43,
+  "sting": true,
+  "level_db": -16
+ },
+ "sfx": [
+  {
+   "t": 0.82,
+   "kind": "zip"
+  },
+  {
+   "t": 2.46,
+   "kind": "magic",
+   "gain_db": -2
+  },
+  {
+   "t": 2.56,
+   "kind": "impact",
+   "gain_db": -4
+  },
+  {
+   "t": 3.7,
+   "kind": "whoosh"
+  },
+  {
+   "t": 5.8,
+   "kind": "whoosh",
+   "gain_db": -4
+  },
+  {
+   "t": 11.1,
+   "kind": "click"
+  },
+  {
+   "t": 14.6,
+   "kind": "whoosh",
+   "gain_db": -4
+  },
+  {
+   "t": 19.799999999999997,
+   "kind": "zip"
+  },
+  {
+   "t": 20.7,
+   "kind": "stamp"
+  },
+  {
+   "t": 21.25,
+   "kind": "magic"
+  },
+  {
+   "t": 21.3,
+   "kind": "impact",
+   "gain_db": -3
+  },
+  {
+   "t": 24.68,
+   "kind": "swish"
+  },
+  {
+   "t": 25.18,
+   "kind": "crash",
+   "gain_db": -6
+  },
+  {
+   "t": 26.95,
+   "kind": "whoosh",
+   "gain_db": -5
+  },
+  {
+   "t": 27.6,
+   "kind": "tick",
+   "gain_db": -6
+  },
+  {
+   "t": 29.0,
+   "kind": "riser",
+   "gain_db": -6
+  },
+  {
+   "t": 32.480000000000004,
+   "kind": "impact",
+   "gain_db": -2
+  }
+ ]
+}

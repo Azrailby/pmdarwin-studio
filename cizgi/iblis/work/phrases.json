@@ -1,0 +1,100 @@
+[
+ {
+  "text": "Bir tornavida kaydı ve odadaki herkes mavi bir ışık gördü.",
+  "s": 0.03,
+  "e": 3.735,
+  "w0": 0,
+  "w1": 9
+ },
+ {
+  "text": "Los Alamos,",
+  "s": 3.735,
+  "e": 4.409,
+  "w0": 10,
+  "w1": 11
+ },
+ {
+  "text": "bin dokuz yüz kırk altı.",
+  "s": 4.409,
+  "e": 5.756,
+  "w0": 12,
+  "w1": 16
+ },
+ {
+  "text": "Fizikçi Lui Slotin,",
+  "s": 5.756,
+  "e": 6.935,
+  "w0": 17,
+  "w1": 19
+ },
+ {
+  "text": "bir plütonyum küresinin üstüne yarım bir kubbe indiriyordu.",
+  "s": 6.935,
+  "e": 10.977,
+  "w0": 20,
+  "w1": 27
+ },
+ {
+  "text": "Arayı sadece bir tornavidayla açık tutuyordu.",
+  "s": 10.977,
+  "e": 14.514,
+  "w0": 28,
+  "w1": 33
+ },
+ {
+  "text": "Bilim insanları bu deneye ejderhanın kuyruğunu gıdıklamak diyordu.",
+  "s": 14.514,
+  "e": 19.229,
+  "w0": 34,
+  "w1": 41
+ },
+ {
+  "text": "Tornavida kaydı.",
+  "s": 19.229,
+  "e": 20.408,
+  "w0": 42,
+  "w1": 43
+ },
+ {
+  "text": "Kubbe kapandı.",
+  "s": 20.408,
+  "e": 21.25,
+  "w0": 44,
+  "w1": 45
+ },
+ {
+  "text": "Odayı mavi bir ışık doldurdu.",
+  "s": 21.25,
+  "e": 23.271,
+  "w0": 46,
+  "w1": 50
+ },
+ {
+  "text": "Slotin eliyle kubbeyi fırlattı ve tepkimeyi durdurdu.",
+  "s": 23.271,
+  "e": 26.977,
+  "w0": 51,
+  "w1": 57
+ },
+ {
+  "text": "Ama kendisi dokuz gün sonra öldü.",
+  "s": 26.977,
+  "e": 28.998,
+  "w0": 58,
+  "w1": 63
+ },
+ {
+  "text": "Bu küre bir yıl önce de bir fizikçiyi öldürmüştü.",
+  "s": 28.998,
+  "e": 32.197,
+  "w0": 64,
+  "w1": 72
+ },
+ {
+  "text": "Ona İblis Çekirdeği dediler.",
+  "s": 32.197,
+  "e": 34.05,
+  "w0": 73,
+  "w1": 76
+ }
+]
