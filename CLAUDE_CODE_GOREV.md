@@ -46,3 +46,4 @@ Hassas konular (radyum, nyos, filayagi, cambeyin): ceset/hastalık/yanık detay�
 - radyum: hazır (22.11 00:40)
 - osborne: hazır (22.11 00:43)
 - muz: hazır (22.11 00:46)
+- dans: hazır (22.11 00:49)
