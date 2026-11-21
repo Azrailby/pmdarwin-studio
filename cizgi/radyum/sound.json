@@ -1,0 +1,23 @@
+{"voice": "work/voice.wav",
+ "music": {"style": "mystery", "start": 0.0, "stop": 33.4, "sting": true, "level_db": -19},
+ "sfx": [
+  {"t": 0.05, "kind": "magic", "gain_db": -10},
+  {"t": 1.5, "kind": "sparkle", "gain_db": -10},
+  {"t": 4.3, "kind": "stamp", "gain_db": -8},
+  {"t": 6.4, "kind": "whoosh", "gain_db": -8},
+  {"t": 7.95, "kind": "paper", "gain_db": -9},
+  {"t": 10.4, "kind": "click", "gain_db": -8},
+  {"t": 10.55, "kind": "magic", "gain_db": -9},
+  {"t": 13.5, "kind": "swish", "gain_db": -10},
+  {"t": 15.0, "kind": "swish", "gain_db": -10},
+  {"t": 17.8, "kind": "magic", "gain_db": -9},
+  {"t": 20.1, "kind": "whoosh", "gain_db": -11},
+  {"t": 22.2, "kind": "bell", "gain_db": -10},
+  {"t": 26.9, "kind": "stamp", "gain_db": -4},
+  {"t": 27.3, "kind": "success", "gain_db": -7},
+  {"t": 28.9, "kind": "whoosh", "gain_db": -8},
+  {"t": 29.4, "kind": "ding", "gain_db": -8},
+  {"t": 31.9, "kind": "tick", "gain_db": -10},
+  {"t": 32.4, "kind": "tick", "gain_db": -10},
+  {"t": 32.9, "kind": "tick", "gain_db": -10}
+ ]}
