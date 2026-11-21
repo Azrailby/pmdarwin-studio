@@ -1,0 +1,114 @@
+[
+ {
+  "text": "Bir doktor,",
+  "s": 0.02,
+  "e": 0.531,
+  "w0": 0,
+  "w1": 1
+ },
+ {
+  "text": "hastalığı kanıtlamak için kendini bir sivrisineğe ısırttı.",
+  "s": 0.531,
+  "e": 4.281,
+  "w0": 2,
+  "w1": 8
+ },
+ {
+  "text": "Yıl bin dokuz yüz.",
+  "s": 4.281,
+  "e": 5.303,
+  "w0": 9,
+  "w1": 12
+ },
+ {
+  "text": "Küba'da sarı humma askerleri öldürüyordu.",
+  "s": 5.303,
+  "e": 8.2,
+  "w0": 13,
+  "w1": 17
+ },
+ {
+  "text": "Kimse hastalığın nasıl bulaştığını bilmiyordu.",
+  "s": 8.2,
+  "e": 11.268,
+  "w0": 18,
+  "w1": 22
+ },
+ {
+  "text": "Doktor Cessi Leyzır sivrisineklerden şüpheleniyordu.",
+  "s": 11.268,
+  "e": 14.676,
+  "w0": 23,
+  "w1": 27
+ },
+ {
+  "text": "Hasta insanları ısıran sivrisinekleri sağlıklı gönüllülerle buluşturdu.",
+  "s": 14.676,
+  "e": 19.278,
+  "w0": 28,
+  "w1": 34
+ },
+ {
+  "text": "Ve bir gün kendisi de ısırıldı.",
+  "s": 19.278,
+  "e": 21.152,
+  "w0": 35,
+  "w1": 40
+ },
+ {
+  "text": "Rivayete göre bunu bilerek yaptı.",
+  "s": 21.152,
+  "e": 23.709,
+  "w0": 41,
+  "w1": 45
+ },
+ {
+  "text": "Defteri kaybolduğu için kimse emin değil.",
+  "s": 23.709,
+  "e": 26.435,
+  "w0": 46,
+  "w1": 51
+ },
+ {
+  "text": "Birkaç gün içinde ateşlendi ve yirmi beş eylülde öldü.",
+  "s": 26.435,
+  "e": 30.014,
+  "w0": 52,
+  "w1": 60
+ },
+ {
+  "text": "Ama haklıydı.",
+  "s": 30.014,
+  "e": 31.037,
+  "w0": 61,
+  "w1": 62
+ },
+ {
+  "text": "Ölümü,",
+  "s": 31.037,
+  "e": 31.548,
+  "w0": 63,
+  "w1": 63
+ },
+ {
+  "text": "milyonlarca hayatı kurtaran kanıtın parçası oldu.",
+  "s": 31.548,
+  "e": 34.957,
+  "w0": 64,
+  "w1": 69
+ },
+ {
+  "text": "Tuhaf ama gerçek.",
+  "s": 34.957,
+  "e": 35.979,
+  "w0": 70,
+  "w1": 72
+ },
+ {
+  "text": "Her gün.",
+  "s": 35.979,
+  "e": 36.32,
+  "w0": 73,
+  "w1": 74
+ }
+]
