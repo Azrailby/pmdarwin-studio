@@ -1,0 +1,21 @@
+{"voice": "work/voice.wav",
+ "music": {"style": "mystery", "bpm": 92, "start": 0.0, "stop": 34.55, "sting": true, "level_db": -16},
+ "sfx": [
+  {"t": 0.05, "kind": "whoosh"},
+  {"t": 2.9, "kind": "magic", "gain_db": -4},
+  {"t": 4.67, "kind": "swish", "gain_db": -4},
+  {"t": 5.85, "kind": "pop", "gain_db": -5},
+  {"t": 7.4, "kind": "footsteps", "gain_db": -9},
+  {"t": 8.2, "kind": "pop", "gain_db": -6},
+  {"t": 10.0, "kind": "magic", "gain_db": -4},
+  {"t": 11.17, "kind": "stamp", "gain_db": -4},
+  {"t": 12.65, "kind": "whoosh", "gain_db": -3},
+  {"t": 15.9, "kind": "footsteps", "gain_db": -10},
+  {"t": 20.05, "kind": "impact"},
+  {"t": 21.5, "kind": "success", "gain_db": -7},
+  {"t": 22.96, "kind": "thud", "gain_db": -6},
+  {"t": 26.4, "kind": "swish", "gain_db": -5},
+  {"t": 28.85, "kind": "ding", "gain_db": -6},
+  {"t": 30.2, "kind": "pop", "gain_db": -6},
+  {"t": 32.5, "kind": "riser", "gain_db": -6}
+ ]}

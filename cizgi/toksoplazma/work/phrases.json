@@ -1,0 +1,121 @@
+[
+ {
+  "text": "Beyninde şu an bir parazit yaşıyor olabilir.",
+  "s": 0.03,
+  "e": 2.58,
+  "w0": 0,
+  "w1": 6
+ },
+ {
+  "text": "Adı Toksoplazma.",
+  "s": 2.89,
+  "e": 4.03,
+  "w0": 7,
+  "w1": 8
+ },
+ {
+  "text": "Tek bir hayali var:",
+  "s": 4.38,
+  "e": 4.55,
+  "w0": 9,
+  "w1": 12
+ },
+ {
+  "text": "bir kedinin bağırsağı.",
+  "s": 4.67,
+  "e": 5.53,
+  "w0": 13,
+  "w1": 15
+ },
+ {
+  "text": "Çünkü yalnızca orada çoğalabiliyor.",
+  "s": 5.81,
+  "e": 7.03,
+  "w0": 16,
+  "w1": 19
+ },
+ {
+  "text": "Ama önce bir fareye girmesi gerekiyor.",
+  "s": 7.38,
+  "e": 9.65,
+  "w0": 20,
+  "w1": 25
+ },
+ {
+  "text": "Farenin beynine yerleşiyor ve kedi korkusunu siliyor.",
+  "s": 9.97,
+  "e": 12.28,
+  "w0": 26,
+  "w1": 32
+ },
+ {
+  "text": "Normalde kedi kokusundan kaçan fare,",
+  "s": 12.64,
+  "e": 15.51,
+  "w0": 33,
+  "w1": 37
+ },
+ {
+  "text": "artık o kokuya doğru yürüyor.",
+  "s": 15.85,
+  "e": 19.65,
+  "w0": 38,
+  "w1": 42
+ },
+ {
+  "text": "Kedi onu yakalıyor.",
+  "s": 20.02,
+  "e": 21.15,
+  "w0": 43,
+  "w1": 45
+ },
+ {
+  "text": "Parazit eve döndü.",
+  "s": 21.47,
+  "e": 22.73,
+  "w0": 46,
+  "w1": 48
+ },
+ {
+  "text": "Sorun şu:",
+  "s": 22.96,
+  "e": 23.52,
+  "w0": 49,
+  "w1": 50
+ },
+ {
+  "text": "insanlar da bu döngüye karışabiliyor.",
+  "s": 23.77,
+  "e": 26.03,
+  "w0": 51,
+  "w1": 55
+ },
+ {
+  "text": "Az pişmiş etle ya da kedi kumuyla.",
+  "s": 26.39,
+  "e": 28.47,
+  "w0": 56,
+  "w1": 62
+ },
+ {
+  "text": "Dünyada yaklaşık her üç kişiden biri bunu taşıyor olabilir.",
+  "s": 28.84,
+  "e": 32.09,
+  "w0": 63,
+  "w1": 71
+ },
+ {
+  "text": "Fare de hiçbir şey hissetmemişti.",
+  "s": 32.51,
+  "e": 34.38,
+  "w0": 72,
+  "w1": 76
+ },
+ {
+  "text": "Peki ya sen?",
+  "s": 34.62,
+  "e": 35.34,
+  "w0": 77,
+  "w1": 79
+ }
+]
