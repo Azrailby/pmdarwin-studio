@@ -50,3 +50,4 @@ Hassas konular (radyum, nyos, filayagi, cambeyin): ceset/hastalık/yanık detay�
 - aglamak: hazır (22.11 00:52)
 - cambeyin: hazır (22.11 00:55)
 - nyos: hazır (22.11 00:58)
+- balina: hazır (22.11 01:02)
