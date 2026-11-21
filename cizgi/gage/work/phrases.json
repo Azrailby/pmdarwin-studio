@@ -1,0 +1,135 @@
+[
+ {
+  "text": "Bir adamın kafasından bir metrelik demir çubuk geçti.",
+  "s": 0.02,
+  "e": 3.097,
+  "w0": 0,
+  "w1": 7
+ },
+ {
+  "text": "Ve adam ayağa kalkıp konuştu.",
+  "s": 3.097,
+  "e": 5.148,
+  "w0": 8,
+  "w1": 12
+ },
+ {
+  "text": "Vermont,",
+  "s": 5.148,
+  "e": 5.49,
+  "w0": 13,
+  "w1": 13
+ },
+ {
+  "text": "bin sekiz yüz kırk sekiz.",
+  "s": 5.49,
+  "e": 6.857,
+  "w0": 14,
+  "w1": 18
+ },
+ {
+  "text": "Fineas Geyç,",
+  "s": 6.857,
+  "e": 7.712,
+  "w0": 19,
+  "w1": 20
+ },
+ {
+  "text": "demiryolu için kaya patlatan bir ustabaşıydı.",
+  "s": 7.712,
+  "e": 11.131,
+  "w0": 21,
+  "w1": 26
+ },
+ {
+  "text": "Barutu demir çubukla sıkıştırırken bir kıvılcım çıktı.",
+  "s": 11.131,
+  "e": 14.379,
+  "w0": 27,
+  "w1": 33
+ },
+ {
+  "text": "Çubuk sol yanağından girdi,",
+  "s": 14.379,
+  "e": 16.088,
+  "w0": 34,
+  "w1": 37
+ },
+ {
+  "text": "kafatasının tepesinden çıktı.",
+  "s": 16.088,
+  "e": 17.968,
+  "w0": 38,
+  "w1": 40
+ },
+ {
+  "text": "Ama Geyç bayılmadı bile.",
+  "s": 17.968,
+  "e": 19.849,
+  "w0": 41,
+  "w1": 44
+ },
+ {
+  "text": "Bir öküz arabasına oturup konuşa konuşa kasabaya gitti.",
+  "s": 19.849,
+  "e": 23.951,
+  "w0": 45,
+  "w1": 52
+ },
+ {
+  "text": "Aylar sonra arkadaşları tek bir şey söyledi:",
+  "s": 23.951,
+  "e": 27.028,
+  "w0": 53,
+  "w1": 59
+ },
+ {
+  "text": "Bu artık Geyç değil.",
+  "s": 27.028,
+  "e": 28.224,
+  "w0": 60,
+  "w1": 63
+ },
+ {
+  "text": "Kibar usta gitmiş,",
+  "s": 28.224,
+  "e": 29.25,
+  "w0": 64,
+  "w1": 66
+ },
+ {
+  "text": "yerine sabırsız ve öfkeli bir adam gelmişti.",
+  "s": 29.25,
+  "e": 32.156,
+  "w0": 67,
+  "w1": 73
+ },
+ {
+  "text": "Bilim ilk kez şunu gördü:",
+  "s": 32.156,
+  "e": 33.523,
+  "w0": 74,
+  "w1": 78
+ },
+ {
+  "text": "kişiliğimiz beynin ön kısmında yaşıyor.",
+  "s": 33.523,
+  "e": 36.429,
+  "w0": 79,
+  "w1": 83
+ },
+ {
+  "text": "Bugün o kafatası ve o çubuk,",
+  "s": 36.429,
+  "e": 38.31,
+  "w0": 84,
+  "w1": 89
+ },
+ {
+  "text": "yan yana sergileniyor.",
+  "s": 38.31,
+  "e": 40.19,
+  "w0": 90,
+  "w1": 92
+ }
+]
