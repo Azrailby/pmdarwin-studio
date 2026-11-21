@@ -1,0 +1,100 @@
+[
+ {
+  "text": "Bu arı bir hamamböceğini tasmayla yürütür gibi yuvasına götürüyor.",
+  "s": 0.0,
+  "e": 4.729,
+  "w0": 0,
+  "w1": 8
+ },
+ {
+  "text": "Adı zümrüt hamamböceği eşekarısı.",
+  "s": 4.729,
+  "e": 6.935,
+  "w0": 9,
+  "w1": 12
+ },
+ {
+  "text": "Önce bir kez sokuyor ve hamamböceğinin ön bacaklarını felç ediyor.",
+  "s": 6.935,
+  "e": 11.033,
+  "w0": 13,
+  "w1": 22
+ },
+ {
+  "text": "Sonra ikinci iğneyi doğrudan beynine batırıyor.",
+  "s": 11.033,
+  "e": 14.344,
+  "w0": 23,
+  "w1": 28
+ },
+ {
+  "text": "Hamamböceği ölmüyor.",
+  "s": 14.344,
+  "e": 15.762,
+  "w0": 29,
+  "w1": 30
+ },
+ {
+  "text": "Ama kaçma isteği tamamen kayboluyor.",
+  "s": 15.762,
+  "e": 18.284,
+  "w0": 31,
+  "w1": 35
+ },
+ {
+  "text": "Arı onu antenlerinden tutup yuvaya kadar yürütüyor.",
+  "s": 18.284,
+  "e": 22.067,
+  "w0": 36,
+  "w1": 42
+ },
+ {
+  "text": "İçeride üstüne tek bir yumurta bırakıyor ve kapıyı taşlarla kapatıyor.",
+  "s": 22.067,
+  "e": 26.953,
+  "w0": 43,
+  "w1": 52
+ },
+ {
+  "text": "Yumurtadan çıkan larva,",
+  "s": 26.953,
+  "e": 28.214,
+  "w0": 53,
+  "w1": 55
+ },
+ {
+  "text": "hamamböceğini canlı canlı içeriden yiyor.",
+  "s": 28.214,
+  "e": 31.051,
+  "w0": 56,
+  "w1": 60
+ },
+ {
+  "text": "Hamamböceği hiç direnmiyor.",
+  "s": 31.051,
+  "e": 32.785,
+  "w0": 61,
+  "w1": 63
+ },
+ {
+  "text": "Çünkü artık karar veren o değil.",
+  "s": 32.785,
+  "e": 34.519,
+  "w0": 64,
+  "w1": 69
+ },
+ {
+  "text": "Tuhaf ama gerçek.",
+  "s": 34.519,
+  "e": 35.465,
+  "w0": 70,
+  "w1": 72
+ },
+ {
+  "text": "Her gün.",
+  "s": 35.465,
+  "e": 35.78,
+  "w0": 73,
+  "w1": 74
+ }
+]

@@ -1,0 +1,108 @@
+{
+ "voice": "work/voice.wav",
+ "music": {
+  "style": "mystery",
+  "bpm": 100,
+  "start": 0,
+  "stop": 34.4,
+  "sting": true,
+  "level_db": -16
+ },
+ "sfx": [
+  {
+   "t": 0.05,
+   "kind": "footsteps",
+   "gain_db": -8
+  },
+  {
+   "t": 4.75,
+   "kind": "buzz",
+   "gain_db": -6
+  },
+  {
+   "t": 6.9,
+   "kind": "whoosh",
+   "gain_db": -4
+  },
+  {
+   "t": 7.46,
+   "kind": "impact",
+   "gain_db": -4
+  },
+  {
+   "t": 9.98,
+   "kind": "stamp",
+   "gain_db": -4
+  },
+  {
+   "t": 11.0,
+   "kind": "whoosh",
+   "gain_db": -4
+  },
+  {
+   "t": 13.11,
+   "kind": "impact",
+   "gain_db": -3
+  },
+  {
+   "t": 13.26,
+   "kind": "magic",
+   "gain_db": -5
+  },
+  {
+   "t": 14.5,
+   "kind": "ding",
+   "gain_db": -6
+  },
+  {
+   "t": 16.1,
+   "kind": "buzz",
+   "gain_db": -8
+  },
+  {
+   "t": 18.3,
+   "kind": "footsteps",
+   "gain_db": -8
+  },
+  {
+   "t": 23.37,
+   "kind": "pop",
+   "gain_db": -4
+  },
+  {
+   "t": 24.82,
+   "kind": "thud",
+   "gain_db": -5
+  },
+  {
+   "t": 25.42,
+   "kind": "thud",
+   "gain_db": -6
+  },
+  {
+   "t": 26.02,
+   "kind": "thud",
+   "gain_db": -6
+  },
+  {
+   "t": 27.55,
+   "kind": "pop",
+   "gain_db": -4
+  },
+  {
+   "t": 28.3,
+   "kind": "riser",
+   "gain_db": -8
+  },
+  {
+   "t": 32.8,
+   "kind": "sting",
+   "gain_db": -4
+  },
+  {
+   "t": 34.55,
+   "kind": "swish",
+   "gain_db": -6
+  }
+ ]
+}
