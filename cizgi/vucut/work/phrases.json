@@ -1,0 +1,86 @@
+[
+ {
+  "text": "Vücudundaki hücrelerin yarısı aslında sen değilsin.",
+  "s": 0.03,
+  "e": 2.99,
+  "w0": 0,
+  "w1": 5
+ },
+ {
+  "text": "Bir insanda yaklaşık otuz trilyon kendi hücresi var.",
+  "s": 3.22,
+  "e": 6.34,
+  "w0": 6,
+  "w1": 13
+ },
+ {
+  "text": "Ama bağırsaklarında otuz sekiz trilyon bakteri yaşıyor.",
+  "s": 6.67,
+  "e": 9.75,
+  "w0": 14,
+  "w1": 20
+ },
+ {
+  "text": "Yani sayıca misafirler ev sahibinden fazla.",
+  "s": 10.14,
+  "e": 12.91,
+  "w0": 21,
+  "w1": 26
+ },
+ {
+  "text": "Uzun süre bu oranın ona bir olduğu sanıldı.",
+  "s": 13.14,
+  "e": 15.5,
+  "w0": 27,
+  "w1": 34
+ },
+ {
+  "text": "İki bin on altıdaki yeni hesap,",
+  "s": 15.86,
+  "e": 17.5,
+  "w0": 35,
+  "w1": 40
+ },
+ {
+  "text": "oranı neredeyse bire bire indirdi.",
+  "s": 17.66,
+  "e": 19.56,
+  "w0": 41,
+  "w1": 45
+ },
+ {
+  "text": "Bakteriler çok küçük olduğu için hepsi birlikte sadece iki yüz gram kadar.",
+  "s": 19.81,
+  "e": 24.01,
+  "w0": 46,
+  "w1": 57
+ },
+ {
+  "text": "Ve her tuvalete gidişte bu denge değişiyor.",
+  "s": 24.26,
+  "e": 26.73,
+  "w0": 58,
+  "w1": 64
+ },
+ {
+  "text": "Yani her sabah biraz daha az ya da biraz daha çok sen oluyorsun.",
+  "s": 27.09,
+  "e": 30.64,
+  "w0": 65,
+  "w1": 77
+ },
+ {
+  "text": "Tuhaf ama gerçek.",
+  "s": 31.04,
+  "e": 32.16,
+  "w0": 78,
+  "w1": 80
+ },
+ {
+  "text": "Her gün.",
+  "s": 32.38,
+  "e": 32.94,
+  "w0": 81,
+  "w1": 82
+ }
+]

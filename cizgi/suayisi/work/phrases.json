@@ -1,0 +1,100 @@
+[
+ {
+  "text": "Bu hayvan uzay boşluğuna çıplak bırakıldı ve hayatta kaldı.",
+  "s": 0.04,
+  "e": 3.865,
+  "w0": 0,
+  "w1": 8
+ },
+ {
+  "text": "Adı su ayısı.",
+  "s": 3.865,
+  "e": 4.98,
+  "w0": 9,
+  "w1": 11
+ },
+ {
+  "text": "Boyu yarım milimetre bile değil.",
+  "s": 4.98,
+  "e": 7.211,
+  "w0": 12,
+  "w1": 16
+ },
+ {
+  "text": "İki bin yedi yılında bilim insanları onları bir uyduyla uzaya gönderdi.",
+  "s": 7.211,
+  "e": 12.311,
+  "w0": 17,
+  "w1": 27
+ },
+ {
+  "text": "On gün boyunca havasız boşlukta ve güneş ışınlarının altında kaldılar.",
+  "s": 12.311,
+  "e": 16.455,
+  "w0": 28,
+  "w1": 37
+ },
+ {
+  "text": "Dünyaya döndüklerinde birçoğu uyandı.",
+  "s": 16.455,
+  "e": 19.164,
+  "w0": 38,
+  "w1": 41
+ },
+ {
+  "text": "Hatta yumurtladılar ve yavruları sağlıklı çıktı.",
+  "s": 19.164,
+  "e": 22.192,
+  "w0": 42,
+  "w1": 47
+ },
+ {
+  "text": "Sırrı şu:",
+  "s": 22.192,
+  "e": 22.67,
+  "w0": 48,
+  "w1": 49
+ },
+ {
+  "text": "kurur,",
+  "s": 22.67,
+  "e": 22.989,
+  "w0": 50,
+  "w1": 50
+ },
+ {
+  "text": "top gibi büzülür ve neredeyse ölü gibi bekler.",
+  "s": 22.989,
+  "e": 25.857,
+  "w0": 51,
+  "w1": 58
+ },
+ {
+  "text": "Su ayısı için uzay,",
+  "s": 25.857,
+  "e": 27.451,
+  "w0": 59,
+  "w1": 62
+ },
+ {
+  "text": "sadece uzun bir uyku.",
+  "s": 27.451,
+  "e": 28.885,
+  "w0": 63,
+  "w1": 66
+ },
+ {
+  "text": "Tuhaf ama gerçek.",
+  "s": 28.885,
+  "e": 29.841,
+  "w0": 67,
+  "w1": 69
+ },
+ {
+  "text": "Her gün.",
+  "s": 29.841,
+  "e": 30.16,
+  "w0": 70,
+  "w1": 71
+ }
+]
