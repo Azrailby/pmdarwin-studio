@@ -30,3 +30,4 @@ Sen bu kanalın ikinci üretim istasyonusun. Bulut tarafındaki Claude konu, sen
 
 ## Durum
 - suayisi: hazır (21.11 23:50)
+- vucut: hazır (21.11 23:55)
