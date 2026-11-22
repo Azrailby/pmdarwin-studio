@@ -69,3 +69,34 @@ You've hit your 5-hour limit · resets 4:50am (Europe/Istanbul)
 You've hit your 5-hour limit · resets 4:50am (Europe/Istanbul)
 
 ===== 2026-11-22 04:52 başlatıldı: filayagi, mumya
+Mumya ve filayagi tamam; ikisi de READY ile push edildi, bot render edebilir. Sırayla önce mumya (Cmt 13:30), sonra filayagi (Cmt 20:30) yapıldı. `voice.wav` ve `script.txt` değişmedi.
+
+**mumya ("Mumya Tozu")**
+- Önceki yarım kalan çalışmadan bir `story.js` taslağı vardı. Onu temel aldım ve 3 tur kare kontrolüyle düzelttim:
+  - Kancada eczacıyı tezgâhın önüne aldım, kaşıkla toz verirken görünüyor.
+  - Başlığın üstüne binen asılı otları kaldırdım.
+  - Mumya ile zift kabı sahnesini ortaladım, ok ve çarpı artık yüzün ya da altyazının üstüne gelmiyor.
+  - Çevirmenin kesilen kafasını ve kitaptaki taşan yazıyı düzelttim.
+  - Son plandaki mumyayı geriden çektim.
+- `sound.json` (mystery müziği + kelimelere oturan efektler) ve `meta.json` yazıldı, `audio.py` sorunsuz çalıştı.
+
+**filayagi ("Cernobil Fil Ayagi")**
+- `story.js` sıfırdan yazıldı:
+  - El feneriyle aydınlanan karanlık beton koridor ve sonunda kütle (kare 0'dan dolu).
+  - 5 dakika sayacı.
+  - 1986 reaktör binası, duman.
+  - Kesitte çekirdeğin erimesi ve eriyiğin koridora akması.
+  - Kütlenin soğuyup katılaşması ve yanında fil bacağı karşılaştırması.
+  - "300 saniye" dozimetresi, bugün iğnenin kırmızıdan sarıya inmesi.
+  - Uzun sopayla itilen tekerlekli kamera arabası.
+  - Sonda uyarı işaretli kapının kapanması.
+- Kurban ya da hastalık gösterilmiyor, ton sakin. Kare kontrolü 3 tur yapıldı.
+- `sound.json`, `meta.json` yazıldı, `audio.py` çalıştı.
+
+"Durum" bölümüne iki satır eklendi ve push edildi:
+- `mumya: hazır (22.11 04:55)`
+- `filayagi: hazır (22.11 05:01)`
+
+Saatler makinenin saatinden alındı. Makine 22.11 gösteriyor, oturumun tarihi ise 22 Kasım değildi; satırlar eski girdilerle aynı biçimde yazıldı.
+
+Repoda `cizgi/toksoplazma/work/` altında commit edilmemiş `music.wav` ve `sfx.wav` var. Bu işin parçası olmadıkları için onlara dokunmadım.
