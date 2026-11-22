@@ -37,6 +37,11 @@ Sen bu kanalın ikinci üretim istasyonusun. Bulut tarafındaki Claude konu, sen
 
 Her videoyu bitirip push ettikten sonra sıradakine geç; böylece bot sen çalışırken bitenleri render eder.
 Hassas konular (radyum, nyos, filayagi, cambeyin): ceset/hastalık/yanık detayı yok, saygılı ton.
+- Büyük overlay yazısı ekran genişliğini aşmasın: uzun başlıkta fontu küçült ya da `g.measureText` ile ölçüp sığdır (örn. "KARANLIKTA PARLAR" iki yandan kesildi).
+- Hiçbir çekim boş/karanlık duvar olarak kalmasın; her karede kadrajda bir özne (karakter/nesne) olsun. Açılış (kare 0-90) özellikle dolu ve dikkat çekici olsun.
+- Karanlık sahnede ya da parlama efektinde yüzler okunabilir kalsın; karakteri siyaha boyama.
+- Yüzün önüne düz kutu/kare koyma (havlu gibi); hata gibi görünür. Nesneyi elde ya da yüzün yanında göster.
+- Yakın planda kafanın üstü kesilmesin.
 
 ## Durum
 - suayisi: hazır (21.11 23:50)
