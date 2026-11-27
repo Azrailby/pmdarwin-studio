@@ -58,3 +58,7 @@ Hassas konular (radyum, nyos, filayagi, cambeyin): ceset/hastalık/yanık detay�
 - balina: hazır (22.11 01:02)
 - mumya: hazır (22.11 04:55)
 - filayagi: hazır (22.11 05:01)
+
+## Dosya düzeni (kanal sahibinin kuralı, 27.11)
+Kullanıcının bilgisayarında repo dışı üretilen her dosya (ses kaydı, örnek, rapor, dışa aktarım) masaüstündeki
+`%USERPROFILE%\OneDrive\Masaüstü\PMDARWIN\` klasörüne, konusuna göre alt klasöre konur. İndirilenler'e ya da başka yere dağınık dosya bırakma.

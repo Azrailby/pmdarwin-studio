@@ -1,11 +1,23 @@
 # Görev: Kanal sahibinin sesiyle anlatıcı ses örneği (Chatterbox Multilingual)
 
 Kanal sahibi kendi sesinin klonlanmasını ve videolarda anlatıcı olarak kullanılmasını istedi (27.11.2026, ana sohbette açık izin).
-Referans kayıt: `%USERPROFILE%\Downloads\pmdarwin_ses\ref_baris.wav` (17 sn, 24 kHz mono, temizlenmiş).
+## ÇALIŞMA KLASÖRÜ (kanal sahibinin kuralı)
+Kanal sahibi tüm işlerin masaüstünde, bulması kolay ve düzenli bir klasörde yapılmasını istiyor; İndirilenler'e dağınık dosya bırakılmayacak.
+Masaüstü: `%USERPROFILE%\OneDrive\Masaüstü` (OneDrive altında).
+0. Önce şu klasörleri oluştur:
+   `%USERPROFILE%\OneDrive\Masaüstü\PMDARWIN\`
+   `%USERPROFILE%\OneDrive\Masaüstü\PMDARWIN\Ses\`   (referans kayıt ve ses örnekleri)
+   `%USERPROFILE%\OneDrive\Masaüstü\PMDARWIN\Ses\Ornekler\`
+   Sonra `%USERPROFILE%\Downloads\pmdarwin_ses\ref_baris.wav` dosyasını `PMDARWIN\Ses\ref_baris.wav` olarak TAŞI,
+   boş kalan `Downloads\pmdarwin_ses` klasörünü sil. `Downloads` içindeki 0 baytlık `ses_ornegi_edge_AhmetNeural.mp3` ve
+   `ses_ornegi_edge_EmelNeural.mp3` dosyalarını da sil (başarısız denemeden kalma boş dosyalar). Başka hiçbir dosyaya dokunma.
+   `PMDARWIN\BENIOKU.txt` yaz: klasörlerin ne için olduğunu 3-4 satırda Türkçe açıkla.
+
+Referans kayıt (taşıdıktan sonra): `%USERPROFILE%\OneDrive\Masaüstü\PMDARWIN\Ses\ref_baris.wav` (17 sn, 24 kHz mono, temizlenmiş).
 
 ## GİZLİLİK (çok önemli)
 Repo herkese açık. Referans kaydı ve üretilen ses örneklerini ASLA repoya ekleme/commit etme/push etme.
-Tüm ses dosyaları sadece `%USERPROFILE%\Downloads\pmdarwin_ses\` içinde kalsın.
+Tüm ses dosyaları sadece masaüstündeki `PMDARWIN\Ses\` içinde kalsın.
 
 ## Adımlar
 1. Ayrı bir sanal ortam kur: `py -3.11 -m venv %USERPROFILE%\pmdarwin_tts` (3.11 yoksa 3.10; 3.12+ değil). Bu ortamı kullan.
@@ -24,7 +36,7 @@ Tüm ses dosyaları sadece `%USERPROFILE%\Downloads\pmdarwin_ses\` içinde kals�
    - `ornek_1_sakin.mp3`   exaggeration 0.4, cfg 0.5
    - `ornek_2_anlatici.mp3` exaggeration 0.6, cfg 0.4
    - `ornek_3_dramatik.mp3` exaggeration 0.8, cfg 0.3
-   Hepsini `%USERPROFILE%\Downloads\pmdarwin_ses\` içine mp3 (128k) olarak yaz.
+   Hepsini `%USERPROFILE%\OneDrive\Masaüstü\PMDARWIN\Ses\Ornekler\` içine mp3 (128k) olarak yaz.
 5. Kontrol: her dosyanın süresi 8–20 sn arası olmalı, boş/kırpık olmamalı. Türkçe karakterler (ö, ü, ş, ğ, ı) doğru okunuyor mu bilemezsin;
    sadece teknik kontrol yap. Sorun varsa düzeltmeyi dene.
 6. Sonuç notu: `gorevler/ses_klon/SONUC.md` dosyasına kısa not yaz (kurulum başarılı mı, GPU kullanıldı mı, her örneğin üretim süresi, hata varsa ne).
