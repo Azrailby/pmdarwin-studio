@@ -129,8 +129,18 @@ def pending_jobs():
             if os.path.isfile(os.path.join(base, n, "PLAN.md")) and not os.path.isfile(os.path.join(base, n, "READY"))]
 
 
+def pending_tasks():
+    # gorevler/<ad>/GOREV.md olup DONE'u olmayan özel görevler (ses, kurulum vb.)
+    base = os.path.join(ROOT, "gorevler")
+    if not os.path.isdir(base):
+        return []
+    return [n for n in sorted(os.listdir(base))
+            if os.path.isfile(os.path.join(base, n, "GOREV.md")) and not os.path.isfile(os.path.join(base, n, "DONE"))]
+
+
 def maybe_start_claude():
-    jobs = pending_jobs()
+    tasks = pending_tasks()
+    jobs = pending_jobs() + [f"gorev:{t}" for t in tasks]
     if os.path.isfile(LOCK):
         try:
             info = json.load(open(LOCK, encoding="utf-8"))
@@ -148,7 +158,13 @@ def maybe_start_claude():
     if not exe:
         log("claude: claude komutu bulunamadı, otomatik başlatılamadı")
         return
-    prompt = ("pmdarwin-studio reposundasın. Önce git pull yap. Sonra CLAUDE_CODE_GOREV.md dosyasını baştan sona oku ve uygula. "
+    if tasks:
+        prompt = ("pmdarwin-studio reposundasın. Önce git pull yap. Özel görevler var: "
+                  + ", ".join(f"gorevler/{t}/GOREV.md" for t in tasks)
+                  + ". Her birini baştan sona oku ve aynen uygula; bitince o klasöre DONE dosyası koy, commit ve push et. "
+                  "Soru sorma. Görevler bittikten sonra cizgi/ altında bekleyen video işi varsa CLAUDE_CODE_GOREV.md'ye göre onları da yap.")
+    else:
+      prompt = ("pmdarwin-studio reposundasın. Önce git pull yap. Sonra CLAUDE_CODE_GOREV.md dosyasını baştan sona oku ve uygula. "
               f"Bekleyen işler: {', '.join(jobs)}. Bunları CLAUDE_CODE_GOREV.md içindeki 'Sıra' listesindeki sırayla yap (en erken yayın tarihi önce). Her biri için PLAN.md'ye göre story.js yaz, "
               "kare kontrolünü en az 2 tur yap, sound.json ve meta.json yaz, audio.py çalıştır, READY oluştur, commit ve push et, "
               "Durum bölümüne satır ekle. Ses dosyalarına ve script.txt'ye dokunma. Soru sorma, hepsini bitirene kadar devam et.")
