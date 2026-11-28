@@ -14,7 +14,7 @@ Seslendirme artık kanal sahibinin klon sesi "Barış anlatıcı" (Chatterbox Mu
 Bulut tarafı sadece `script.txt` (+ varsa `okunus.json`) ve `PLAN.md` gönderir; `work/voice.wav` YOKTUR. Her yeni projede İLK adım:
 `%USERPROFILE%\pmdarwin_tts\Scripts\python scripts/ses_uret.py cizgi/<ad>`
 → work/voice.wav, words.json, phrases.json, timing.txt oluşur. PLAN.md'deki çekim tablosu cümle cümle verilir; kare aralıklarını timing.txt'deki P parçalarından sen eşleştir.
-- Sesi dinleyemezsin: timing.txt'deki toplam süreyi kontrol et (30–45 sn arası olmalı); bir cümle anormal kısa/uzunsa ses_uret.py'yi o proje için tekrar çalıştır.
+- Sesi dinleyemezsin: timing.txt'deki toplam süreyi kontrol et (30–45 sn arası olmalı; 53–58 kelimelik senaryolarda 27–30 sn de normaldir, sırf bu yüzden yeniden üretme); bir cümle anormal kısa/uzunsa ses_uret.py'yi o proje için tekrar çalıştır.
 - `work/voice.wav` repoya EKLENMEZ (.gitignore). Render botu aynı bilgisayarda olduğu için gerek yok. words/phrases/timing commit edilebilir.
 - Referans kayıt `Masaüstü\PMDARWIN\Ses\ref_baris.wav` asla repoya girmez.
 
@@ -40,7 +40,15 @@ Bulut tarafı sadece `script.txt` (+ varsa `okunus.json`) ve `PLAN.md` gönderir
 - Gerçek kişi birebir benzetilmez, marka/logo yok, kanlı/iğrenç detay yok.
 
 ## Sıra (yayın tarihine göre)
-1. amip (Paz 29 Kas 09:30) 2. mermi (Paz 13:30) 3. einstein (Paz 20:30)
+(amip, mermi, einstein tamam — dokunma.) 30 Kas–5 Ara haftası, 18 video, bu sırayla:
+1. delibal (Pzt 30 Kas 09:30) 2. ari (Pzt 13:30) 3. okene (Pzt 20:30)
+4. taslasmis (Sal 1 Ara 09:30) 5. oludeniz (Sal 13:30) 6. onoda (Sal 20:30)
+7. yabanciel (Çar 2 Ara 09:30) 8. pamukkale (Çar 13:30) 9. vulovic (Çar 20:30)
+10. demodex (Per 3 Ara 09:30) 11. karadeniz (Per 13:30) 12. liston (Per 20:30)
+13. derinkuyu (Cum 4 Ara 09:30) 14. vangolu (Cum 13:30) 15. dyatlov (Cum 20:30)
+16. olumbeyin (Cmt 5 Ara 09:30) 17. gobeklitepe (Cmt 13:30) 18. forssmann (Cmt 20:30)
+Bu haftanın HER videosunda yeni kurallar geçerli: döngü sonu + güncel cta_katmani.js (büyük Beğen rozeti). Eski story.js'den CTA kopyalama.
+Hassas olanlar (taslasmis, okene, vulovic, dyatlov, liston, olumbeyin, forssmann): beden/kan/kesik/iğne yok, saygılı ton; PLAN.md'deki sembolik çekimlere uy.
 
 Her videoyu bitirip push ettikten sonra sıradakine geç; böylece bot sen çalışırken bitenleri render eder.
 Hassas konular (radyum, nyos, filayagi, cambeyin): ceset/hastalık/yanık detayı yok, saygılı ton.
