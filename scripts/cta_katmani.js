@@ -5,16 +5,18 @@
 //   1) Bu dosyadaki ctaKatmani fonksiyonunu story.js'nin sonuna kopyala.
 //   2) frame() dönüşünde overlay'i sar:
 //        const ov = ...mevcut overlay ya da null...;
-//        return { ..., overlay: (g, w, h) => { if (ov) ov(g, w, h); ctaKatmani(f, E, g, w, h); } };
+//        return { ..., overlay: (g, w, h, s) => { if (ov) ov(g, w, h, s); ctaKatmani(f, E, g, w, h, BEGEN_KELIME, CTA_Y); } };
+//   3) story.js'nin başında: const BEGEN_KELIME = <ters köşe cümlesinin son kelime indeksi>, CTA_Y = <0..1>;
 //
 // Zamanlama:
 //   - BEĞEN: videonun en ilginç dönüşünden hemen sonra (varsayılan: kelimelerin %55'i), 2,2 sn.
 //     Daha uygun bir an varsa (ör. "Ama..." cümlesinin bitişi) BEGEN_KELIME ile o kelimenin indeksini ver.
 //   - TAKİP ET: son cümle okunurken, sesin bitişinden 1,8 sn önce başlar, video sonuna kadar.
-// Yerleşim: ekranın üst kısmı (y ≈ %13). Altyazı (%65), YouTube'un sağdaki butonları ve alttaki başlık alanı boş kalır.
+// Yerleşim: ekranın üst kısmı (varsayılan y ≈ %13; CTA_Y ile değişir). Overlay başlıkları y≈300–330'daysa
+//   CTA_Y = 0.085 kullan (rozet 110–216 px arasında kalır, başlığa binmez). Altyazı (%65), YouTube'un sağdaki butonları ve alttaki başlık alanı boş kalır.
 // Marka logosu YOK: kalp ve zil simgesi kodla çizilir, YouTube logosu kullanılmaz.
 
-function ctaKatmani(f, E, g, w, h, BEGEN_KELIME = null) {
+function ctaKatmani(f, E, g, w, h, BEGEN_KELIME = null, CTA_Y = 0.13) {
   const fps = E.fps || 30;
   const ws = E.words || [];
   if (!ws.length) return;
@@ -60,12 +62,13 @@ function ctaKatmani(f, E, g, w, h, BEGEN_KELIME = null) {
     g.restore();
   };
   const label = (txt, x, y, size, col) => {
-    g.font = `900 ${size}px Nunito, sans-serif`; g.textAlign = "left"; g.textBaseline = "middle";
+    // motor Nunito'yu "CizgiFont" adıyla yükler
+    g.font = `900 ${size}px CizgiFont, Nunito, sans-serif`; g.textAlign = "left"; g.textBaseline = "middle";
     g.lineWidth = size * 0.12; g.strokeStyle = "#1b1b1b"; g.strokeText(txt, x, y);
     g.fillStyle = col; g.fillText(txt, x, y);
   };
 
-  const cy = h * 0.13, ph = h * 0.055;
+  const cy = h * CTA_Y, ph = h * 0.055;
 
   // BEĞEN
   if (f >= likeStart && f < likeEnd) {
