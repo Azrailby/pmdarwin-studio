@@ -67,6 +67,7 @@ Hassas konular (radyum, nyos, filayagi, cambeyin): ceset/hastalık/yanık detay�
 - filayagi: hazır (22.11 05:01)
 - amip: hazır (28.11 14:43)
 - mermi: hazır (28.11 14:48)
+- einstein: hazır (28.11 14:54)
 
 ## Dosya düzeni (kanal sahibinin kuralı, 27.11)
 Kullanıcının bilgisayarında repo dışı üretilen her dosya (ses kaydı, örnek, rapor, dışa aktarım) masaüstündeki
