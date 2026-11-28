@@ -1,0 +1,13 @@
+yöntem: Barış anlatıcı (chatterbox, exag 0.6, cfg 0.4) · ses 28.94 sn · 53 kelime · 11 parça
+  P00   0.00-  4.77  kare    0- 143  w0-5  Bu amip burnundan girip beynini yiyor.
+  P01   4.97-  8.42  kare  149- 253  w6-13  Ilık bir gölde yüzerken burnuna biraz su kaçıyor.
+  P02   8.62- 10.06  kare  259- 302  w14-16  Hiçbir şey hissetmiyorsun.
+  P03  10.26- 12.55  kare  308- 377  w17-23  Ama suda gözle görülmeyen bir amip var.
+  P04  12.75- 16.49  kare  383- 495  w24-31  Koku sinirinden beynine tırmanıyor ve beyin dokusunu yiyor.
+  P05  16.69- 17.98  kare  501- 539  w32-33  Belirtiler başlayınca,
+  P06  18.13- 20.71  kare  544- 621  w34-38  hastaların yüzde doksan yedisi kurtulamıyor.
+  P07  20.91- 22.21  kare  627- 666  w39-42  Neyse ki çok nadir.
+  P08  22.41- 26.06  kare  672- 782  w43-46  Peki aynı suyu içseydin?
+  P09  26.26- 27.48  kare  788- 824  w47-49  Hiçbir şey olmazdı.
+  P10  27.68- 28.74  kare  830- 862  w50-52  Tek kapısı burun.
+toplam kare (30 fps): 899

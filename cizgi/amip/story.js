@@ -1,252 +1,262 @@
-// Mona Lisa'yı çalan adam — cizgi-short hikâyesi (34,6 sn)
+// Beyin Yiyen Amip — PMDARWIN (Barış anlatıcı sesi)
 export const meta = { fps: 30 };
 
-// çekimler: [ilk kare, ad]
-const SHOTS = [[0, "hook"], [58, "wall"], [156, "paris"], [206, "worker"], [295, "closet"], [363, "smock"], [419, "lift"], [467, "hide"],
-  [513, "exit"], [561, "empty"], [645, "paper"], [698, "police"], [777, "queue"], [912, "found"], [963, "famous"]];
-const shotAt = (f) => { let i = 0; while (i < SHOTS.length - 1 && f >= SHOTS[i + 1][0]) i++; return { i, name: SHOTS[i][1], f0: SHOTS[i][0], f1: (SHOTS[i + 1] || [1060])[0], t: f - SHOTS[i][0] }; };
-
-const PX = 200, IX = -200, NX = 400; // dış mekân, sorgu odası, gazete sahnesi x konumları
-let R = {}, monaCan, monaTex, monaState = "";
-
-function drawMona(E, wink) {
-  const key = String(wink); if (key === monaState) return; monaState = key;
-  const g = monaCan.getContext("2d"), w = monaCan.width, h = monaCan.height;
-  const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, "#9fb08a"); gr.addColorStop(0.45, "#c8b27a"); gr.addColorStop(1, "#5a4a2e"); g.fillStyle = gr; g.fillRect(0, 0, w, h);
-  g.fillStyle = "#7d8a62"; g.beginPath(); g.moveTo(0, h * 0.42); g.quadraticCurveTo(w * 0.25, h * 0.3, w * 0.45, h * 0.4); g.lineTo(w * 0.45, h * 0.5); g.lineTo(0, h * 0.55); g.fill();
-  g.fillStyle = "#6f7f5a"; g.beginPath(); g.moveTo(w, h * 0.38); g.quadraticCurveTo(w * 0.78, h * 0.3, w * 0.6, h * 0.42); g.lineTo(w, h * 0.52); g.fill();
-  g.save(); g.translate(-w * 0.32, -h * 0.02); g.scale(1.6, 1.6);
-  E.CAST.drawChar(g, { skin: "#f6e2c0", shirt: "#3b3324", dress: "#3b3324", hair: "long", hairCol: "#2a1f16", seed: 77 }, { face: wink ? "sly" : "smug", arms: "cross", look: wink ? 0.3 : -0.2, blush: true });
-  g.restore();
-  g.strokeStyle = "rgba(60,40,20,.08)"; g.lineWidth = 2; for (let i = 0; i < 30; i++) { g.beginPath(); const y = (i * 0.618 % 1) * h; g.moveTo(0, y); g.lineTo(w, y + 4); g.stroke(); }
-  monaTex.needsUpdate = true;
+// Çekimler cümle cümle: sınırlar words.json'daki cümle sonlarından (. ? !) hesaplanır.
+const NAMES = ["hook", "swim", "towel", "micro", "climb", "stat", "rare", "drink", "stomach", "end"];
+let SHOTS = null, END = 1100, SW = []; // SW: her cümlenin ilk kelime indeksi
+function buildShots(E) {
+  const fps = E.fps, w = E.words; SHOTS = [[0, NAMES[0]]]; SW = [0];
+  for (let i = 0; i < w.length - 1 && SHOTS.length < NAMES.length; i++)
+    if (/[.?!…]["']?$/.test(w[i].w)) { SHOTS.push([Math.round(w[i + 1].s * fps) - 3, NAMES[SHOTS.length]]); SW.push(i + 1); }
+  while (SHOTS.length < NAMES.length) SHOTS.push([SHOTS[SHOTS.length - 1][0] + 90, NAMES[SHOTS.length]]);
+  END = w.length ? Math.ceil((w[w.length - 1].e + 0.7) * fps) : 1100;
 }
+const shotAt = (f) => { let i = 0; while (i < SHOTS.length - 1 && f >= SHOTS[i + 1][0]) i++; return { name: SHOTS[i][1], i, f0: SHOTS[i][0], f1: (SHOTS[i + 1] || [END])[0], t: f - SHOTS[i][0] }; };
+const WF = (E, n) => (E.words.length ? Math.round(E.words[Math.min(n, E.words.length - 1)].s * E.fps) : 0);
 
-const emptyPic = (g, x, y, w, h) => { g.fillStyle = "#9a3a40"; g.fillRect(x, y, w, h); g.strokeStyle = "#c9a24a"; g.lineWidth = 14; g.strokeRect(x + w * 0.3, y + h * 0.12, w * 0.4, h * 0.76); g.fillStyle = "#fff"; g.font = "900 150px CizgiFont, Nunito"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText("?", x + w / 2, y + h / 2 + 6); };
-function painting(E, parent) {
-  const { THREE } = E, g = E.group(parent);
-  E.box(0.98, 1.36, 0.08, E.mat("#c9a24a"), [0, -0.68, 0], { parent: g });
-  E.box(0.86, 1.24, 0.09, E.mat("#8a6a2a"), [0, -0.62, 0], { parent: g });
-  const m = E.plane(0.78, 1.14, E.mat("#ffffff", { map: monaTex }), [0, 0, 0.05], { parent: g }); m.castShadow = false;
+const TEAL = "#3fe0c5";
+const MX = 100, HX = 200, CX = 300, KX = 400, SX = 500, NX = 600; // mikroskop, kafa kesiti, koridor, mutfak, mide, burun
+let R = {};
+
+function makeAmoeba(E, s = 1, col = "#7ff0d8") {
+  const g = E.group(null, [0, -50, 0]);
+  const body = E.mat(col, { emissive: "#1fae96", glow: 0.35, transparent: true, opacity: 0.82 });
+  const b = E.sphere(0.5 * s, body, [0, 0, 0], { parent: g, seg: 22 }); b.scale.set(1.25, 0.9, 0.55);
+  g.userData.pods = [];
+  for (let i = 0; i < 6; i++) { const a = (i / 6) * Math.PI * 2; const p = E.sphere(0.24 * s, body, [Math.cos(a) * 0.5 * s, Math.sin(a) * 0.38 * s, 0], { parent: g, seg: 14 }); p.scale.set(1.3, 1, 0.6); p.userData.a = a; g.userData.pods.push(p); }
+  E.sphere(0.16 * s, E.mat("#2d6f7a", { emissive: "#0d3a44", glow: 0.4 }), [0.05 * s, 0.04 * s, 0.14 * s], { parent: g, seg: 14 });
+  E.sphere(0.07 * s, E.mat("#123c44"), [0.07 * s, 0.06 * s, 0.24 * s], { parent: g, seg: 10 });
+  for (const [x, y] of [[-0.28, 0.12], [0.3, -0.14], [-0.12, -0.2]]) E.sphere(0.05 * s, E.mat("#d8fff6", { emissive: "#9ff5e3", glow: 0.6 }), [x * s, y * s, 0.2 * s], { parent: g, seg: 8 });
+  g.userData.s = s;
+  return g;
+}
+function wob(g, f, k = 1) {
+  const s = g.userData.s;
+  g.userData.pods.forEach((p, i) => { const r = (0.5 + 0.12 * Math.sin(f / 9 * k + i * 1.7)) * s; p.position.set(Math.cos(p.userData.a + 0.05 * Math.sin(f / 20)) * r, Math.sin(p.userData.a) * r * 0.76, 0); });
+  g.rotation.z = 0.12 * Math.sin(f / 25 * k);
+}
+function makeNose(E, x, y, z, s = 1) {
+  const g = E.group(null, [x, y, z]); const sk = E.mat("#f0c39e"), dk = E.mat("#7a3e3a");
+  const face = E.sphere(2.6 * s, E.mat("#f6d2b2"), [0, 0.4 * s, -3.0 * s], { parent: g, seg: 32 }); face.scale.set(1, 1.1, 0.6);
+  const bridge = E.cyl(0.32 * s, 0.5 * s, 1.5 * s, sk, [0, 0.4 * s, -1.0 * s], { parent: g, seg: 18 }); bridge.rotation.x = 0.45;
+  const tip = E.sphere(0.6 * s, sk, [0, 0, -0.55 * s], { parent: g, seg: 24 }); tip.scale.set(1, 0.85, 1);
+  for (const sx of [-1, 1]) { const w = E.sphere(0.36 * s, sk, [sx * 0.55 * s, -0.18 * s, -0.75 * s], { parent: g, seg: 16 }); w.scale.set(0.9, 0.75, 0.9);
+    const n = E.sphere(0.16 * s, dk, [sx * 0.3 * s, -0.36 * s, -0.42 * s], { parent: g, seg: 14 }); n.scale.set(1.3, 0.6, 1); }
+  // gözler (sevimli, büyük burun)
+  for (const sx of [-1, 1]) { E.sphere(0.32 * s, E.mat("#ffffff"), [sx * 1.0 * s, 1.3 * s, -1.65 * s], { parent: g, seg: 16 }); E.sphere(0.16 * s, E.mat("#1d1622"), [sx * 0.98 * s, 1.28 * s, -1.36 * s], { parent: g, seg: 12 }); }
   return g;
 }
 
 export function build(E) {
-  const { S, T, THREE } = E;
-  monaCan = document.createElement("canvas"); monaCan.width = 600; monaCan.height = 880;
-  monaTex = new THREE.CanvasTexture(monaCan); monaTex.colorSpace = THREE.SRGBColorSpace; drawMona(E, false);
-  // ---- galeri (0,0,0) ----
-  S.room({ w: 14, d: 10, h: 5.2, wall: T.wallpaper("#9a3a40", "#8a3036", "diamond"), floor: T.planks("#a8743f"), floorRep: 0.4, window: false, door: false });
-  R.mona = painting(E); R.mona.position.set(0, 2.75, -4.9);
-  for (const [x, k] of [[-3.2, "landscape"], [3.2, "portrait"], [-5.6, "portrait"], [5.6, "landscape"]]) S.frame(x, 2.3, -4.95, { w: 1.5, h: 1.1, kind: k });
-  S.frame(-6.95, 2.3, -1.5, { w: 1.4, h: 1, kind: "landscape", rotY: Math.PI / 2 }); S.frame(6.95, 2.3, -1.5, { w: 1.4, h: 1, kind: "portrait", rotY: -Math.PI / 2 });
-  S.bench(-4.2, 1.5, Math.PI / 2); S.rug(0, -1.8, 5, 3.2, "#3f5f8a");
-  E.label(T.sign("MONA LISA", { bg: "#c9a24a", fg: "#2b2633", border: "#7a5a1a", size: 170 }), 0.62, 0.23, [0, 1.12, -4.93]);
-  R.hooks = E.group(); for (const [x, y] of [[-0.42, 2.72], [0.42, 2.72], [-0.42, 1.48], [0.42, 1.48]]) E.sphere(0.035, E.mat("#2b2633"), [x, y, -4.93], { parent: R.hooks });
-  // dolap
-  R.closet = E.group(null, [-4.6, 0, -4.35]);
-  const cm = E.mat("#7a4a2a", { map: T.planks("#7a4a2a", 3) }), ci = E.mat("#5a3420");
-  E.box(1.5, 2.8, 0.08, cm, [0, 0, -0.51], { parent: R.closet }); E.box(0.08, 2.8, 1.1, cm, [-0.71, 0, 0], { parent: R.closet }); E.box(0.08, 2.8, 1.1, cm, [0.71, 0, 0], { parent: R.closet });
-  E.box(1.5, 0.1, 1.1, cm, [0, 2.75, 0], { parent: R.closet }); E.box(1.5, 0.1, 1.1, ci, [0, 0, 0], { parent: R.closet });
-  R.door = E.group(R.closet, [0.68, 0, 0.58]); const dm = E.box(1.32, 2.6, 0.07, E.mat("#8a5a36", { map: T.wood("#8a5a36") }), [-0.66, 0.08, 0], { parent: R.door }); E.sphere(0.05, E.mat("#e8c45a"), [-1.18, 1.3, 0.06], { parent: R.door });
-  // camcının camı
-  R.glass = E.box(0.75, 0.95, 0.03, E.mat("#bfe6ff", { transparent: true, opacity: 0.35 }), [0, 0, 0]); R.glass.userData.noink = true; R.glass.castShadow = false;
-  // ---- Paris dış (x = 200) ----
-  E.ground(T.grass("#86b860"), 320, 0.2, [PX, -0.03, 0]);
-  const st = E.group(null, [PX, 0, 0]); st.updateMatrixWorld();
-  S.street({ len: 160, width: 9, z: -4, x: PX }); // x=0 merkezli: dış sahneyi PX'e taşı
-  R.louvre = S.building(PX, -18, { w: 44, d: 12, floors: 3, fh: 3.6, wall: "#eadfc4", roof: "#5a6b8a", shutter: null, win: "#7fb2d8", cols: 12 });
-  E.label(T.sign("MUSÉE DU LOUVRE", { bg: "#eadfc4", fg: "#3a2a20", border: null, size: 120 }), 9, 1.1, [PX, 11.6, -11.9]);
-  for (const x of [-14, -7, 7, 14]) { S.tree(PX + x, -9.4, { s: 1.1 }); S.lamp(PX + x + 3.5, -9.3); }
-  // Eyfel (uzakta)
-  const eif = E.group(null, [PX + 26, 0, -150]), em = E.mat("#7a4a32");
-  for (const [sx, sz] of [[-1, -1], [1, -1], [-1, 1], [1, 1]]) { const leg = E.box(1.6, 22, 1.6, em, [sx * 6, 0, sz * 6], { parent: eif }); leg.rotation.set(-sz * 0.26, 0, sx * 0.26); leg.position.set(sx * 3.2, 10, sz * 3.2); }
-  E.box(9, 1.2, 9, em, [0, 18, 0], { parent: eif }); E.cyl(1.4, 3.6, 22, em, [0, 18.5, 0], { parent: eif, seg: 4 }); E.box(4.2, 1, 4.2, em, [0, 30, 0], { parent: eif }); E.cyl(0.4, 1.4, 14, em, [0, 31, 0], { parent: eif, seg: 4 });
-  S.hills({ z: -110, col: "#8cbf6a" }); S.clouds({ n: 7, z: -130, y: 50 });
-  // dış sahne setlerini PX'e kaydır (street x=0'da kuruldu) — sokak uzun olduğu için PX'te de görünür: ikinci sokak kur
-  // ---- sorgu odası (x = -200) ----
-  S.room({ x: IX, w: 7, d: 6, h: 3.6, wall: T.wallpaper("#5a6a6a", "#4e5d5d", "stripe"), floor: T.tiles("#d9d2c0", "#8a8478", 10), floorRep: 0.25, window: false, door: true });
-  S.table(IX, -1.2, { w: 1.8, d: 1, col: "#6b4428" }); S.hangLamp(IX, 3.6, -1.2, { col: "#2f4a3a", i: 9 });
-  S.chair(IX - 0.9, -1.9, {});
-  S.paper(IX - 0.2, 0.96, -1.1, T.newspaper("MONA LISA\nÇALINDI!", { paper: "LE JOURNAL", date: "23 AĞUSTOS 1911" }), { w: 0.36, h: 0.48, spin: 0.3 });
-  // ---- gazete sahnesi (x = 400) ----
-  const bc = document.createElement("canvas"); bc.width = bc.height = 1024; const bg = bc.getContext("2d");
-  bg.fillStyle = "#ffcf4a"; bg.fillRect(0, 0, 1024, 1024); bg.fillStyle = "#ffb43a"; for (let i = 0; i < 24; i++) { const a = (i / 24) * Math.PI * 2; bg.beginPath(); bg.moveTo(512, 512); bg.lineTo(512 + 1100 * Math.cos(a), 512 + 1100 * Math.sin(a)); bg.lineTo(512 + 1100 * Math.cos(a + 0.13), 512 + 1100 * Math.sin(a + 0.13)); bg.fill(); }
-  const btex = new THREE.CanvasTexture(bc); btex.colorSpace = THREE.SRGBColorSpace;
-  E.plane(30, 30, E.flat("#ffffff", { map: btex, fog: false }), [NX, 0, -6], { noink: true, noShadow: true });
-  R.paper = E.plane(2.3, 3.07, E.flat("#ffffff", { map: T.newspaper("MONA LISA\nÇALINDI!", { paper: "LE JOURNAL", date: "23 AĞUSTOS 1911", col: "#b8262e", picDraw: emptyPic }), side: THREE.DoubleSide, fog: false }), [NX, 0, 0], { noShadow: true });
+  const { S, T } = E;
+  E.ground(T.grass("#6fae4e"), 500, 0.25);
+  // ---- göl (x=0) ----
+  E.plane(40, 5, E.mat("#ffffff", { map: (() => { const t = T.sand("#ecd39a").clone(); t.needsUpdate = true; t.repeat.set(10, 1.5); return t; })() }), [0, 0.01, 1.5], { rot: [-Math.PI / 2, 0, 0], noShadow: true });
+  const wt = T.water("#2fb3b0").clone(); wt.needsUpdate = true; wt.repeat.set(12, 8); R.waterTex = wt;
+  E.plane(90, 60, E.mat("#ffffff", { map: wt }), [0, 0.03, -31], { rot: [-Math.PI / 2, 0, 0], noShadow: true });
+  for (let i = 0; i < 9; i++) S.tree(-28 + i * 7, -40 - (i % 3) * 4, { s: 1.6, col: "#4f9a46" });
+  S.hills({ z: -90, col: "#6fa45a" }); S.clouds();
+  S.tree(-3.5, 2.6, { s: 1.1 }); S.bush(3.6, 2.8, 1.0);
+  R.towel = E.box(1.4, 0.03, 0.7, E.mat("#ff6f61", { map: T.sign("", { bg: "#ff6f61", border: null }) }), [1.3, 0.02, 1.6]);
+  R.umb = E.group(null, [2.3, 0, 1.2]); E.cyl(0.04, 0.04, 2.2, E.mat("#f4efe4"), [0, 0, 0], { parent: R.umb, seg: 8 }); E.cone(1.1, 0.5, E.mat("#ffcf4a"), [0, 2.0, 0], { parent: R.umb, seg: 10 });
+  // ---- mikroskop görüntüsü (x=MX) ----
+  E.box(14, 10, 0.2, E.mat("#0d2a3a"), [MX, -1, -3]);
+  const lens = E.cyl(2.0, 2.0, 0.05, E.mat("#a8efe6", { emissive: "#3aa9a0", glow: 0.5 }), [MX, 2, -2.85], { seg: 48 }); lens.rotation.x = Math.PI / 2;
+  E.cyl(2.2, 2.2, 0.06, E.mat("#2b3f55"), [MX, 2, -2.9], { seg: 48 }).rotation.x = Math.PI / 2;
+  R.micro = []; for (let i = 0; i < 5; i++) R.micro.push(makeAmoeba(E, i === 0 ? 1.3 : 0.55));
+  // ---- kafa kesiti (x=HX) ----
+  const hd = E.sphere(1.0, E.mat("#f2c9a8"), [HX, 2.1, -1], { seg: 32 }); hd.scale.set(1, 1.05, 0.3);
+  const nose = E.cone(0.28, 0.55, E.mat("#e9b893"), [HX + 1.08, 1.58, -0.98], { seg: 16 }); nose.rotation.z = -Math.PI / 2 - 0.35;
+  E.cyl(0.32, 0.38, 0.8, E.mat("#f2c9a8"), [HX - 0.05, 0.75, -1], { seg: 16 }).scale.z = 0.4;
+  const cav = E.sphere(0.24, E.mat("#d98b82"), [HX + 0.72, 1.72, -0.77], { seg: 16 }); cav.scale.set(1.5, 0.6, 0.15);
+  R.brain = E.sphere(0.62, E.mat("#f6a9c4"), [HX - 0.08, 2.42, -0.67], { seg: 28 }); R.brain.scale.set(1.18, 0.78, 0.32);
+  for (let i = 0; i < 6; i++) { const c = E.cyl(0.02, 0.02, 0.5, E.mat("#e07aa0"), [HX - 0.6 + i * 0.22, 2.42, -0.47], { seg: 6, center: true }); c.rotation.z = 0.5 + i * 0.4; c.scale.y = 0.7; }
+  R.path = [[HX + 0.95, 1.7], [HX + 0.62, 1.86], [HX + 0.4, 2.0], [HX + 0.25, 2.15], [HX + 0.12, 2.3]];
+  for (let i = 0; i < R.path.length - 1; i++) {
+    const [a, b] = [R.path[i], R.path[i + 1]], dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy);
+    const c = E.cyl(0.025, 0.025, L, E.mat("#ffe27a", { emissive: "#ffc93a", glow: 0.9 }), [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2, -0.62], { seg: 6, center: true }); c.rotation.z = Math.atan2(dy, dx) - Math.PI / 2;
+  }
+  R.dots = []; for (let i = 0; i < 6; i++) R.dots.push(E.sphere(0.05, E.mat(TEAL, { emissive: "#18d7b8", glow: 1.6 }), [0, -50, 0], { seg: 10 }));
+  R.spots = []; for (let i = 0; i < 5; i++) R.spots.push(E.sphere(0.09, E.mat("#7a3e6e"), [HX - 0.45 + i * 0.2, 2.35 + 0.12 * Math.sin(i * 2.1), -0.44], { seg: 12 }));
+  // ---- hastane koridoru (x=CX) ----
+  S.room({ x: CX, z: -4, w: 4.4, d: 18, h: 3.2, wall: T.plaster("#cfe6df"), floor: T.tiles("#e8eef0", "#b9cbd0", 6), window: false, door: true });
+  for (let i = 0; i < 4; i++) { S.door(CX - 2.18, -2 - i * 3.5, { rotY: Math.PI / 2, col: "#7fa7b8" }); E.box(1.4, 0.06, 0.4, E.mat("#fff7d6", { emissive: "#fff0b0", glow: 1.2 }), [CX, 3.15, -1 - i * 3.5]); }
+  const bed = E.group(null, [CX + 1.2, 0, -3.5], -0.3); E.box(0.9, 0.12, 2.0, E.mat("#f4f6f8"), [0, 0.7, 0], { parent: bed }); E.box(0.9, 0.5, 0.06, E.mat("#9fb4bf"), [0, 0.7, -0.98], { parent: bed });
+  for (const [a, b] of [[-0.4, -0.9], [0.4, -0.9], [-0.4, 0.9], [0.4, 0.9]]) E.cyl(0.03, 0.03, 0.7, E.mat("#9fb4bf"), [a, 0, b], { parent: bed, seg: 6 });
+  // ---- mutfak (x=KX) ----
+  S.room({ x: KX, w: 7, d: 6, h: 3.2, wall: T.wallpaper("#f6e3b8", "#efd59e", "stripe"), floor: T.planks("#b9824f"), window: true, door: false });
+  S.counter(KX + 1.6, -2.4, { w: 3 }); S.shelf(KX - 2.4, -2.7, {});
+  E.cyl(0.1, 0.1, 0.4, E.mat("#cfe9ff", { transparent: true, opacity: 0.6 }), [KX + 1.0, 1.18, -2.4], { seg: 12 });
+  // ---- mide şeması (x=SX) ----
+  E.box(12, 10, 0.2, E.mat("#2a4a6a"), [SX, -1, -2.5]);
+  const torso = E.sphere(1.0, E.mat("#5aa0d8"), [SX, 1.6, -1.2], { seg: 28 }); torso.scale.set(0.85, 1.25, 0.3);
+  E.sphere(0.5, E.mat("#f2c9a8"), [SX, 3.35, -1.2], { seg: 24 }).scale.z = 0.5;
+  E.cyl(0.07, 0.07, 1.3, E.mat("#f0b0a8"), [SX - 0.05, 2.2, -0.86], { seg: 8, center: true });
+  R.stomach = E.sphere(0.42, E.mat("#f48fa0"), [SX - 0.12, 1.35, -0.86], { seg: 24 }); R.stomach.scale.set(1.2, 0.85, 0.3);
+  R.drop = E.sphere(0.09, E.mat("#7fd3ff", { emissive: "#3fa9ff", glow: 0.6 }), [0, -50, 0], { seg: 12 });
+  R.sAm = []; for (let i = 0; i < 3; i++) R.sAm.push(makeAmoeba(E, 0.22));
+  // ---- dev burun (x=NX) ----
+  R.nose = makeNose(E, NX, 1.6, -0.4, 1);
+  R.clip = E.group(null, [NX, 50, -0.4]);
+  const cm = E.mat("#2f7fe0");
+  for (const sx of [-1, 1]) { const pd = E.sphere(0.17, cm, [sx * 0.9, -0.2, -0.65], { parent: R.clip, seg: 14 }); pd.scale.set(0.6, 1, 1.2); }
+  const arch = new E.THREE.Mesh(new E.THREE.TorusGeometry(0.92, 0.05, 8, 28, Math.PI), cm); arch.position.set(0, -0.2, 0.12); E.add(arch, R.clip);
+  R.hookAm = makeAmoeba(E, 1.0); R.endAm = makeAmoeba(E, 0.35);
   // ---- karakterler ----
-  const vin = { shirt: "#5d6b7a", pants: "#3b3f52", hat: "cap", hatCol: "#4a4f5a", moustache: "#2a1d16", seed: 21, skin: "#f0d0b0" };
-  E.actor("vin", vin); E.actor("vinW", { ...vin, shirt: "#f4f1ea", buttons: "#cfc8b8" }); E.actor("vinF", { ...vin, shirt: "#f4f1ea", buttons: "#cfc8b8", build: "stout" });
-  E.actor("guard", { shirt: "#22305a", pants: "#1d2238", hat: "police", buttons: "#e8c45a", moustache: "#8a8a8a", seed: 31, build: "stout", skin: "#f6dcc0" });
-  E.actor("police", { shirt: "#22305a", pants: "#1d2238", hat: "police", buttons: "#e8c45a", moustache: "#3a2a20", seed: 41, skin: "#e9c3a0" });
-  E.actor("sus", { shirt: "#8c6a3a", hat: "bowler", seed: 45, skin: "#f6dcc0", jacket: "#5a4a3a" });
-  E.actor("pic", { shirt: "#f4f1ea", hat: "beret", hatCol: "#2b2633", seed: 51, skin: "#e9c3a0", pants: "#2f3a5a" });
-  const coats = ["#3f6fb5", "#8c3b4a", "#5d7a3a", "#b5653f", "#2f5f6a", "#7b5ac9", "#c2843a", "#4a5a8a", "#a8343e", "#3f8a6a"], hats = ["tophat", "bowler", null, "fedora", null, "bowler", "beret", "tophat", null, "cap"];
-  for (let i = 0; i < 10; i++) { const woman = i % 3 === 1; E.actor("c" + i, { shirt: coats[i], jacket: i % 4 === 0 ? "#2b2633" : null, dress: woman ? coats[(i + 3) % 10] : null, hair: woman ? "long" : i % 2 ? "short" : null, hairCol: ["#2a1d16", "#7a4a2a", "#c9a24a"][i % 3], hat: woman ? null : hats[i], seed: 60 + i * 7, skin: ["#fbf5ea", "#f6dcc0", "#e9c3a0", "#c98f66"][i % 4], moustache: i % 5 === 2 ? "#3a2a20" : null, glasses: i === 7 }); }
+  const me = { skin: "#f2cfae", hair: "short", hairCol: "#3a2a20", seed: 4 };
+  E.actor("swim", { ...me, shirt: "#ff6f61", pants: "#f2cfae", shoes: "#f2cfae", glasses: true });
+  E.actor("me", { ...me, shirt: "#3f8fd0", pants: "#3b3f52" });
+  E.actor("doc", { skin: "#e9c3a0", jacket: "#f4f6f8", shirt: "#8fb5c9", pants: "#4a5560", hair: "bun", hairCol: "#2a1d16", glasses: true, seed: 11 });
+  const cols = ["#ff6f61", "#ffcf4a", "#5ad08a", "#7b5ac9", "#3f8fd0", "#ff9ec0", "#f4efe4", "#c2843a", "#3fbfbf"];
+  for (let i = 0; i < 9; i++) E.actor("p" + i, { shirt: cols[i], pants: cols[i], hair: ["short", "long", "bun", "part", "spiky"][i % 5], hairCol: ["#2a1d16", "#7a4a2a", "#c9a24a"][i % 3], glasses: i % 3 === 0, seed: 30 + i * 5, skin: ["#fbf5ea", "#e9c3a0", "#f6dcc0", "#c98f66"][i % 4] });
 }
 
-const nameCard = (title, sub) => (g, w, h, s) => {
-  const k = w / 1080, x = 70 * k, y = 1390 * k, pw = Math.max(430, 40 + title.length * 34) * k;
-  g.save(); g.fillStyle = "rgba(20,14,24,.88)"; g.beginPath(); g.roundRect(x, y, pw, 112 * k, 22 * k); g.fill();
-  g.fillStyle = "#ffcf4a"; g.fillRect(x, y, 10 * k, 112 * k);
-  g.font = `900 ${46 * k}px CizgiFont, Nunito, sans-serif`; g.fillStyle = "#fff"; g.textBaseline = "middle"; g.fillText(title, x + 34 * k, y + 40 * k);
-  g.font = `700 ${30 * k}px CizgiFont, Nunito, sans-serif`; g.fillStyle = "#ffcf4a"; g.fillText(sub, x + 34 * k, y + 82 * k); g.restore();
+// ---------- 2D katman ----------
+const fit = (g, txt, size, k, maxW) => { let s = size; g.font = `900 ${s * k}px CizgiFont, Nunito, sans-serif`; while (g.measureText(txt).width > maxW && s > 40) { s -= 6; g.font = `900 ${s * k}px CizgiFont, Nunito, sans-serif`; } return s; };
+const big = (txt, a = 1, sub = "", col = TEAL, size = 150) => (g, w) => {
+  const k = w / 1080; g.save(); g.globalAlpha = Math.max(0, Math.min(1, a)); g.textAlign = "center"; g.textBaseline = "middle";
+  fit(g, txt, size, k, w * 0.9); g.lineJoin = "round"; g.lineWidth = 16 * k; g.strokeStyle = "#0b1a20"; g.strokeText(txt, w / 2, 330 * k);
+  g.fillStyle = col; g.fillText(txt, w / 2, 330 * k);
+  if (sub) { g.font = `800 ${46 * k}px CizgiFont, Nunito, sans-serif`; g.lineWidth = 8 * k; g.strokeText(sub, w / 2, 455 * k); g.fillStyle = "#fff"; g.fillText(sub, w / 2, 455 * k); }
+  g.restore();
 };
+const card = (title, sub) => (g, w) => {
+  const k = w / 1080, x = 70 * k, y = 1390 * k; g.save();
+  g.font = `900 ${46 * k}px CizgiFont, Nunito, sans-serif`; const tw = g.measureText(title).width; g.font = `700 ${30 * k}px CizgiFont, Nunito, sans-serif`; const sw = g.measureText(sub).width;
+  const pw = Math.max(420 * k, Math.max(tw, sw) + 70 * k);
+  g.fillStyle = "rgba(8,24,28,.88)"; g.beginPath(); g.roundRect(x, y, pw, 112 * k, 22 * k); g.fill(); g.fillStyle = TEAL; g.fillRect(x, y, 10 * k, 112 * k);
+  g.textBaseline = "middle"; g.font = `900 ${46 * k}px CizgiFont, Nunito, sans-serif`; g.fillStyle = "#fff"; g.fillText(title, x + 34 * k, y + 40 * k);
+  g.font = `700 ${30 * k}px CizgiFont, Nunito, sans-serif`; g.fillStyle = "#c9fff3"; g.fillText(sub, x + 34 * k, y + 82 * k); g.restore();
+};
+const line = (txt, y, col, size, a = 1) => (g, w) => {
+  const k = w / 1080; g.save(); g.globalAlpha = Math.max(0, Math.min(1, a)); g.textAlign = "center"; g.textBaseline = "middle";
+  fit(g, txt, size, k, w * 0.9); g.lineJoin = "round"; g.lineWidth = 18 * k; g.strokeStyle = "#0b1a20"; g.strokeText(txt, w / 2, y * k); g.fillStyle = col; g.fillText(txt, w / 2, y * k); g.restore();
+};
+const tint = (col, a) => (g, w, h) => { g.save(); g.globalAlpha = a; g.fillStyle = col; g.fillRect(0, 0, w, h); g.restore(); };
+const lensRing = (a) => (g, w, h) => { // büyüteç çerçevesi: kenarları karart, ortada yuvarlak pencere
+  g.save(); g.globalAlpha = a; g.fillStyle = "#06141c"; g.beginPath(); g.rect(0, 0, w, h); g.arc(w / 2, h * 0.47, w * 0.46, 0, Math.PI * 2, true); g.fill("evenodd");
+  g.lineWidth = 22 * w / 1080; g.strokeStyle = "#2b3f55"; g.beginPath(); g.arc(w / 2, h * 0.47, w * 0.46, 0, Math.PI * 2); g.stroke(); g.restore();
+};
+const all = (...fs) => (g, w, h, s) => fs.forEach((fn) => fn && fn(g, w, h, s));
+
+function put(o, x, y, z, yaw = 0, s = 1) { o.position.set(x, y, z); o.rotation.set(0, yaw, 0); o.scale.setScalar(s); o.visible = true; }
+function reset() {
+  [...R.micro, ...R.sAm, R.hookAm, R.endAm].forEach((a) => { a.visible = false; a.position.y = -50; a.scale.setScalar(1); });
+  R.dots.forEach((d) => (d.position.y = -50)); R.spots.forEach((s) => s.scale.setScalar(0.001));
+  R.drop.position.y = -50; R.clip.position.y = 50; R.stomach.material.color.set("#f48fa0");
+}
 
 export function frame(f, E) {
+  if (!SHOTS) buildShots(E);
   const X = E.X, sh = shotAt(f), t = sh.t, A = [], FX = [];
   const st = (seed, o = {}) => ({ blink: E.blink(f, seed), ...E.idle(f, seed), ...o });
-  let cam, light = "interior", dof = { focus: 4, amount: 0 }, flash = 0, overlay = null, focusPt = null;
-  // varsayılanlar
-  R.mona.visible = true; R.mona.position.set(0, 2.75, -4.9); R.mona.rotation.set(0, 0, 0); R.mona.scale.setScalar(1);
-  R.hooks.visible = false; R.glass.visible = false; R.door.rotation.y = 0; drawMona(E, false);
-  const flashIn = (f0, n = 6) => Math.max(0, 1 - Math.abs(f - f0) / n);
+  const sw = (k) => WF(E, SW[sh.i] + k); // bu cümlenin k. kelimesi
+  let cam, light = "day", dof = { focus: 4, amount: 0 }, flash = 0, overlay = null, focusPt = null;
+  const shake = (f0, a, d) => { const s = E.shake(f, f0, a, d); cam.pos = cam.pos.map((v, i) => v + s[i]); };
+  reset();
+  R.waterTex.offset.set(f * 0.0015, f * 0.001);
 
   switch (sh.name) {
     case "hook": {
-      light = "dramatic";
-      const x = 1.0 + 0.2 * X.smooth(t / 57);
-      R.mona.position.set(x + 0.55, 1.62, -0.9); R.mona.rotation.set(0, -0.3, -0.18); R.mona.scale.setScalar(0.85);
-      A.push({ id: "vinW", pos: [x - 0.15, 0, -1], st: st(2, { face: "sly", arms: [[10, 4], [30, 70]], look: 0.5 }) });
-      cam = E.camAt(f, [{ f: 0, pos: [1.25, 1.65, 2.9], look: [1.2, 1.45, -1], fov: 40 }, { f: 57, pos: [1.3, 1.65, 2.1], look: [1.25, 1.5, -1], fov: 38 }]);
-      dof = { focus: [1.4, 1.6, -1], amount: 9 };
-      FX.push({ kind: "sparkle", pos: [x + 0.6, 2.2, -0.7], size: 0.9, t: t / 30 });
+      const p = X.back(X.span(f, 0, 14));
+      put(R.hookAm, NX + 0.05, 1.22 + 0.05 * Math.sin(f / 12), 0.9, 0, 0.35 + 0.33 * p); wob(R.hookAm, f, 1.4);
+      cam = E.camAt(f, [{ f: 0, pos: [NX, 1.2, 5.6], look: [NX, 1.75, 0], fov: 46 }, { f: sh.f1, pos: [NX, 1.25, 4.9], look: [NX, 1.75, 0], fov: 44 }]);
+      dof = { focus: [NX, 1.3, 0.9], amount: 3 };
+      overlay = all(tint("#0a3a40", 0.12), line("BEYİN YİYEN", 300, TEAL, 140), line("AMİP", 450, "#ffffff", 170, X.span(f, 4, 10)));
+      if (f < 10) flash = 0.4 * (1 - f / 10);
       break;
     }
-    case "wall": {
-      drawMona(E, f >= 118 && f < 140);
-      cam = E.camAt(f, [{ f: 58, pos: [0, 2.15, -1.6], look: [0, 2.15, -4.9], fov: 40 }, { f: 155, pos: [0, 2.15, -2.6], look: [0, 2.15, -4.9], fov: 38 }]);
-      FX.push({ kind: "sparkle", pos: [0.55, 2.7, -4.6], size: 0.6, t: t / 30 }, { kind: "sparkle", pos: [-0.55, 1.6, -4.6], size: 0.5, t: t / 30 + 0.5 });
-      if (f >= 120 && f < 150) FX.push({ kind: "hearts", pos: [0.62, 2.9, -4.6], size: 0.5, t: (f - 120) / 30 });
-      dof = { focus: [0, 2.15, -4.9], amount: 6 };
-      break;
-    }
-    case "paris": {
-      light = "day";
-      cam = E.camAt(f, [{ f: 156, pos: [PX - 7, 2.2, 6], look: [PX - 2, 5.5, -12], fov: 52 }, { f: 205, pos: [PX - 5.5, 3.4, 4.5], look: [PX - 1, 6.5, -12], fov: 50 }]);
-      for (let i = 0; i < 4; i++) { const ph = (t / 30 + i * 0.37); A.push({ id: "c" + i, pos: [PX - 9 + i * 2.6 + ph * 0.9, 0, -8.2 + (i % 2) * 1.5], st: st(10 + i, { legs: "walk", phase: ph * 1.6, face: ["happy", "neutral", "smug", "talk"][i] }), flip: true }); }
-      focusPt = [PX - 2, 0, -6];
-      break;
-    }
-    case "worker": {
-      const x = X.keyed(f, [[206, -3.2], [270, -0.9], [294, -0.8]]);
-      const walking = f < 268;
-      A.push({ id: "vin", pos: [x, 0, -2.6], st: st(3, { legs: walking ? "walk" : "stand", phase: t / 26, arms: "hold", face: walking ? "neutral" : "sly", look: walking ? 0.4 : -0.6 }) });
-      R.glass.visible = true; R.glass.position.set(x + 0.62, 0.55, -2.45); R.glass.rotation.y = -0.5;
-      cam = E.camAt(f, [{ f: 206, pos: [-2.6, 1.75, 1.2], look: [-2.8, 1.6, -3], fov: 42 }, { f: 294, pos: [-0.4, 1.8, 1.4], look: [-0.5, 1.8, -3.5], fov: 40 }]);
-      dof = { focus: [x, 1.4, -2.6], amount: 7 };
-      overlay = nameCard("Vincenzo Peruggia", "Louvre'un camcısı");
-      break;
-    }
-    case "closet": {
-      light = ["night", "interior", 0.48];
-      R.door.rotation.y = X.keyed(f, [[295, 0], [318, 1.05]], X.easeOut);
-      A.push({ id: "vin", pos: [-4.6, 0.1, -4.3], scale: 0.95, st: st(3, { face: "sly", arms: "hang", look: X.keyed(f, [[300, 0], [330, 0.8], [350, -0.6]]) }), tint: "#c4cdf0" });
-      cam = E.camAt(f, [{ f: 295, pos: [-5.3, 1.7, -0.2], look: [-4.6, 1.55, -4.2], fov: 44 }, { f: 362, pos: [-5.0, 1.7, -1.3], look: [-4.6, 1.6, -4.2], fov: 40 }]);
-      dof = { focus: [-4.6, 1.6, -4.1], amount: 8 }; focusPt = [-4.6, 0, -4];
-      break;
-    }
-    case "smock": {
-      R.door.rotation.y = 1.05;
-      const x = X.keyed(f, [[363, -4.55], [395, -3.7]]);
-      A.push({ id: "vinW", pos: [x, 0, X.keyed(f, [[363, -4.1], [395, -3.3]])], st: st(4, { legs: f < 395 ? "walk" : "stand", phase: t / 22, face: "nervous", arms: "hang", look: Math.sin(t / 7) }) });
-      cam = E.camAt(f, [{ f: 363, pos: [-5.7, 1.7, 0.5], look: [-4.1, 1.5, -3.6], fov: 44 }, { f: 418, pos: [-5.3, 1.7, -0.4], look: [-3.8, 1.55, -3.4], fov: 42 }]);
-      dof = { focus: [x, 1.5, -3.4], amount: 6 };
-      break;
-    }
-    case "lift": {
-      const p = X.smooth(X.span(f, 428, 458));
-      R.mona.position.set(X.X ? 0 : 0 + 0.55 * p, 2.75 - 0.85 * p, -4.9 + 0.75 * p); R.mona.rotation.z = -0.08 * p;
-      A.push({ id: "vinW", pos: [0.85, 0, -4.0], st: st(4, { face: p > 0.6 ? "smug" : "determined", arms: p < 0.5 ? "reach" : [[18, 70], [18, 70]], look: -0.7 }) });
-      cam = E.camAt(f, [{ f: 419, pos: [0.9, 1.9, -0.9], look: [0.35, 1.8, -4.6], fov: 42 }, { f: 466, pos: [0.8, 1.8, -1.6], look: [0.45, 1.6, -4.5], fov: 40 }]);
-      dof = { focus: [0.5, 1.8, -4.4], amount: 6 };
-      FX.push({ kind: "lines", pos: [-0.6, 2.4, -4.5], size: 0.5, t: 0 });
-      R.hooks.visible = p > 0.3;
-      break;
-    }
-    case "hide": {
-      R.hooks.visible = true;
-      const puff = f >= 488, pp = X.span(f, 482, 496);
-      R.mona.visible = !puff; R.mona.position.set(0.55, 1.9, -4.15); R.mona.scale.setScalar(1 - 0.7 * X.span(f, 474, 488));
-      A.push({ id: puff ? "vinF" : "vinW", pos: [0.85, 0, -4.0], st: st(4, { face: puff ? "smug" : "nervous", arms: puff ? "hip" : [[18, 70], [18, 70]], look: puff ? 0.3 : -0.4 }) });
-      if (f >= 482 && f < 500) FX.push({ kind: "puff", pos: [0.85, 1.4, -3.7], size: 1.6, t: pp });
-      if (puff) FX.push({ kind: "sweat", pos: [1.25, 2.45, -3.8], size: 0.25 });
-      cam = E.camAt(f, [{ f: 467, pos: [0.7, 1.75, -0.9], look: [0.6, 1.45, -4.2], fov: 42 }, { f: 512, pos: [0.85, 1.7, -1.3], look: [0.8, 1.4, -4.1], fov: 40 }]);
-      dof = { focus: [0.85, 1.5, -4.0], amount: 6 };
-      break;
-    }
-    case "exit": {
-      light = "day";
-      const z = X.keyed(f, [[513, -11.4], [560, -7.6]], (v) => v);
-      A.push({ id: "vinF", pos: [PX + 0.4 + (z + 11.4) * 0.35, 0, z], st: st(5, { legs: "walk", phase: t / 20, face: "smug", arms: "hang", look: 0.6 }) });
-      A.push({ id: "guard", pos: [PX - 2.4, 0, -10.6], st: st(6, { legs: "sit", face: "sleep", arms: "cross" }) });
-      FX.push({ kind: "zzz", pos: [PX - 1.9, 2.6, -10.4], size: 0.9, t: t / 30 });
-      cam = E.camAt(f, [{ f: 513, pos: [PX + 0.6, 1.9, -2.6], look: [PX - 0.9, 1.5, -11], fov: 46 }, { f: 560, pos: [PX + 1.0, 1.85, -2.4], look: [PX - 0.2, 1.4, -9.5], fov: 46 }]);
-      E.S && null;
-      dof = { focus: [PX + 0.8, 1.4, z], amount: 5 }; focusPt = [PX, 0, -9];
-      break;
-    }
-    case "empty": {
-      R.mona.visible = false; R.hooks.visible = true;
-      const x = X.keyed(f, [[561, 2.8], [598, 0.95]]); const shocked = f >= 616;
-      flash = flashIn(605, 6);
-      A.push({ id: "guard", pos: [x, 0, -3.2], st: st(6, { legs: f < 598 ? "walk" : "stand", phase: t / 22, face: shocked ? "shock" : f >= 605 ? "neutral" : "happy", arms: shocked ? "up" : "hang", look: -0.8 }) });
-      if (shocked) FX.push({ kind: "exclaim", pos: [x + 0.15, 3.0, -3.0], size: 0.7 * X.back(X.span(f, 616, 624)) });
-      cam = E.camAt(f, [{ f: 561, pos: [0.4, 1.9, 0.8], look: [0.3, 2.0, -4.9], fov: 44 }, { f: 615, pos: [0.4, 1.9, 0.3], look: [0.35, 2.0, -4.9], fov: 42 }, { f: 625, pos: [0.6, 1.85, -1.0], look: [0.6, 1.9, -4.5], fov: 40 }]);
-      if (shocked) { const s = E.shake(f, 616, 0.06, 10); cam.pos = cam.pos.map((v, i) => v + s[i]); }
-      dof = { focus: [x, 1.6, -3.2], amount: 4 };
-      break;
-    }
-    case "paper": {
-      light = "day";
-      const p = X.easeOut(X.span(f, 645, 668));
-      R.paper.rotation.set(0, 0, (1 - p) * Math.PI * 5); R.paper.scale.setScalar(0.15 + 0.85 * p);
-      R.paper.position.set(NX, 0.2 + 0.05 * Math.sin(t / 5), 0);
-      cam = { pos: [NX, 0.2, 4.1 - 0.4 * X.smooth(X.span(f, 668, 697))], look: [NX, 0.2, 0], fov: 46, roll: 0 };
-      if (f > 668) { const s = E.shake(f, 668, 0.05, 8); cam.pos = cam.pos.map((v, i) => v + s[i]); }
-      flash = flashIn(668, 4) * 0.6;
-      break;
-    }
-    case "police": {
-      light = "dramatic";
-      const pic = f >= 746;
-      A.push({ id: "police", pos: [IX - 0.6, 0, -1.95], st: st(7, { face: "angry", arms: pic ? "point" : f % 40 < 20 ? "point" : "hip", look: 0.8, talk: E.talk(f, 698, 745) * 0 }) });
-      A.push({ id: pic ? "pic" : "sus", pos: [IX + 0.6, 0, -0.5], st: st(8, { face: pic ? "scared" : "nervous", arms: pic ? "shrug" : "hang", look: -0.8, sweat: true }) });
-      cam = pic ? E.camAt(f, [{ f: 746, pos: [IX + 0.75, 1.75, 2.2], look: [IX + 0.6, 1.6, -0.5], fov: 40 }, { f: 776, pos: [IX + 0.7, 1.75, 1.6], look: [IX + 0.6, 1.65, -0.5], fov: 38 }])
-        : E.camAt(f, [{ f: 698, pos: [IX + 0.1, 2.3, 3.4], look: [IX, 1.5, -1.2], fov: 46 }, { f: 745, pos: [IX + 0.1, 2.2, 2.8], look: [IX, 1.55, -1.2], fov: 44 }]);
-      if (pic) { overlay = nameCard("Pablo Picasso", "o da sorgulandı"); FX.push({ kind: "question", pos: [IX + 1.5, 2.9, -0.5], size: 0.55 * X.back(X.span(f, 748, 756)) }); }
-      dof = { focus: pic ? [IX + 0.6, 1.6, -0.5] : [IX, 1.4, -1.2], amount: pic ? 8 : 3 }; focusPt = [IX, 0, -1.2];
-      if (f >= 698 && f < 708) { const s = E.shake(f, 698, 0.05, 8); cam.pos = cam.pos.map((v, i) => v + s[i]); }
-      break;
-    }
-    case "queue": {
-      R.mona.visible = false; R.hooks.visible = true;
-      for (let i = 0; i < 10; i++) {
-        const z = -3.0 + i * 0.95, x = 1.1 + (i % 2) * 0.35;
-        A.push({ id: "c" + i, pos: [x, 0, z], st: st(20 + i, { face: i === 0 ? "wow" : ["think", "neutral", "talk", "smug", "happy", "nervous"][i % 6], arms: i === 0 ? "point" : ["hang", "cross", "chin", "hip", "hang", "count"][i % 6], look: -0.7, talk: i % 3 === 2 ? E.talk(f) : 0 }) });
+    case "swim": {
+      const mid = sw(4); // "burnuna"
+      if (f < mid - 4) { // dalış
+        const d = X.span(f, sh.f0 + 4, sh.f0 + 44);
+        const x = X.lerp(0.75, 0.9, d), y = d < 1 ? X.lerp(0.0, -1.05, X.easeIn(d)) + 0.7 * Math.sin(d * Math.PI) : -1.05 + 0.05 * Math.sin(f / 8);
+        A.push({ id: "swim", pos: [x, y, d > 0.6 ? -1.5 : X.lerp(0.4, -1.5, d / 0.6)], roll: d < 1 ? -0.9 * Math.sin(d * Math.PI) : 0, st: st(2, { face: d >= 1 ? "happy" : "wow", arms: d < 1 && d > 0 ? "up" : "hang", legs: d >= 1 ? "walk" : "stand", phase: f / 30 }) });
+        if (f > sh.f0 + 38 && f < sh.f0 + 56) FX.push({ kind: "puff", pos: [1.35, 0.25, -2.0], size: 0.8, t: X.span(f, sh.f0 + 38, sh.f0 + 56) });
+        cam = E.camAt(f, [{ f: sh.f0, pos: [0.4, 1.6, 5.2], look: [0.5, 1.0, -0.6], fov: 46 }, { f: mid, pos: [0.7, 1.4, 4.4], look: [0.8, 0.7, -1.0], fov: 44 }]);
+        focusPt = [0.6, 0, -1]; dof = { focus: [0.8, 0.6, -1.3], amount: 4 };
+      } else { // yakın: burna su kaçar
+        A.push({ id: "swim", pos: [0.9, -1.05, -1.5], st: st(2, { face: "neutral", arms: "hang", look: 0 }) });
+        const dp = X.span(f, mid, mid + 26);
+        for (let i = 0; i < 3; i++) { const q = X.clamp(dp * 1.4 - i * 0.2); if (q > 0 && q < 1) FX.push({ kind: "sweat", pos: [0.9 + 0.3 * (1 - q), 0.5 + 0.3 * (1 - q) + 0.05 * i, -1.3], size: 0.1 * (1 - q * 0.5) }); }
+        cam = E.camAt(f, [{ f: mid, pos: [0.95, 0.75, 0.3], look: [0.9, 0.55, -1.5], fov: 38 }, { f: sh.f1, pos: [0.95, 0.72, 0.1], look: [0.9, 0.55, -1.5], fov: 36 }]);
+        dof = { focus: [0.9, 0.55, -1.5], amount: 6 }; focusPt = [0.9, 0, -1.5];
       }
-      cam = E.camAt(f, [{ f: 777, pos: [-3.4, 2.9, 6.8], look: [0.6, 1.5, -0.5], fov: 50 }, { f: 911, pos: [-0.9, 2.15, 0.9], look: [0.55, 1.75, -4.2], fov: 48 }]);
-      dof = { focus: X.keyed(f, [[777, 6], [911, 5]]), amount: 5, range: 3 };
       break;
     }
-    case "found": {
-      flash = flashIn(912, 6);
-      cam = E.camAt(f, [{ f: 912, pos: [0, 2.2, -1.4], look: [0, 2.15, -4.9], fov: 42 }, { f: 962, pos: [0, 2.15, -2.3], look: [0, 2.15, -4.9], fov: 40 }]);
-      FX.push({ kind: "sparkle", pos: [0.5, 2.8, -4.6], size: 0.7, t: t / 30 }, { kind: "sparkle", pos: [-0.5, 1.7, -4.6], size: 0.6, t: t / 30 + 0.4 });
-      A.push({ id: "guard", pos: [1.25, 0, -3.9], st: st(6, { face: "happy", arms: "present", look: -0.6 }) });
-      dof = { focus: [0, 2.15, -4.9], amount: 5 };
+    case "towel": {
+      A.push({ id: "swim", pos: [0.4, 0, 1.4], st: st(3, { face: "happy", arms: "hip", legs: "stand" }) });
+      FX.push({ kind: "sparkle", pos: [0.9, 2.2, 1.5], size: 0.5, t: t / 25 });
+      cam = E.camAt(f, [{ f: sh.f0, pos: [0.9, 1.5, 5.6], look: [0.7, 1.2, 1.4], fov: 42 }, { f: sh.f1, pos: [0.8, 1.45, 5.0], look: [0.6, 1.2, 1.4], fov: 40 }]);
+      dof = { focus: [0.5, 1.2, 1.4], amount: 5 }; focusPt = [0.5, 0, 1.4];
       break;
     }
-    case "famous": {
-      light = ["interior", "golden", X.span(f, 963, 1000)];
-      drawMona(E, f >= 1028);
-      const pos = [[-1.9, -3.6], [-1.15, -3.0], [1.15, -3.0], [1.9, -3.6], [-0.55, -2.4], [0.6, -2.35], [-2.6, -2.6], [2.6, -2.6]];
-      pos.forEach(([x, z], i) => A.push({ id: "c" + i, pos: [x, 0, z], st: st(30 + i, { face: ["wow", "happy", "laugh", "grin", "wow", "happy", "smug", "grin"][i], arms: ["cheer", "up", "point", "cheer", "wave", "cheer", "point", "up"][i], phase: f / 30, bob: 14 * Math.abs(Math.sin(f / 6 + i)), look: x > 0 ? -0.5 : 0.5 }) }));
-      FX.push({ kind: "sparkle", pos: [0.55, 3.0, -4.6], size: 0.8, t: t / 30 }, { kind: "stars", pos: [0, 3.6, -4.5], size: 1.4, t: t / 30 });
-      if (f >= 1028) FX.push({ kind: "hearts", pos: [0.6, 3.2, -4.6], size: 0.6, t: (f - 1028) / 30 });
-      cam = E.camAt(f, [{ f: 963, pos: [0, 2.3, -1.0], look: [0, 2.4, -4.9], fov: 42 }, { f: 1030, pos: [0, 2.5, 0.9], look: [0, 2.1, -4.6], fov: 46 }, { f: 1058, pos: [0, 2.52, 1.05], look: [0, 2.1, -4.6], fov: 46 }]);
-      dof = { focus: X.keyed(f, [[963, 3.7], [1030, 4.2]]), amount: 3 };
+    case "micro": {
+      const z = X.smooth(X.span(f, sh.f0, sh.f0 + 25));
+      R.micro.forEach((a, i) => { const ang = i * 1.3 + f / 70; put(a, MX + (i ? 1.1 * Math.cos(ang) : 0.05 * Math.sin(f / 30)), 2 + (i ? 1.0 * Math.sin(ang) : 0), -2.6 + (i ? 0 : 0.2), 0, 1); wob(a, f + i * 20); });
+      cam = E.camAt(f, [{ f: sh.f0, pos: [MX, 2, 6.5], look: [MX, 2, -2.8], fov: 46 }, { f: sh.f0 + 25, pos: [MX, 2, 3.4], look: [MX, 2, -2.8], fov: 44 }, { f: sh.f1, pos: [MX + 0.1, 2.05, 2.9], look: [MX, 2, -2.8], fov: 44 }]);
+      FX.push({ kind: "sparkle", pos: [MX + 0.8, 3.0, -2.2], size: 0.7, t: t / 20 });
+      overlay = all(lensRing(0.4 + 0.6 * z), f > sh.f0 + 20 ? card("Naegleria fowleri", "ılık tatlı suda yaşayan tek hücreli") : null);
+      break;
+    }
+    case "climb": {
+      const half = sw(4); // "ve"
+      for (let i = 0; i < R.dots.length; i++) {
+        const q = X.clamp(((f - sh.f0) / 50) - i * 0.18); if (q <= 0) continue;
+        const seg = Math.min(R.path.length - 2, Math.floor(q * (R.path.length - 1))), u = q * (R.path.length - 1) - seg;
+        const [a, b] = [R.path[seg], R.path[Math.min(seg + 1, R.path.length - 1)]];
+        R.dots[i].position.set(X.lerp(a[0], b[0], u), X.lerp(a[1], b[1], u), -0.58);
+        if (q >= 1) R.dots[i].position.set(HX + 0.12 - i * 0.12, 2.3 + 0.05 * Math.sin(f / 6 + i), -0.42);
+      }
+      R.spots.forEach((s, i) => s.scale.set(1.4 * X.easeOut(X.span(f, half + i * 6, half + 20 + i * 6)), 0.9 * X.easeOut(X.span(f, half + i * 6, half + 20 + i * 6)), 0.4));
+      cam = E.camAt(f, [{ f: sh.f0, pos: [HX + 0.5, 1.9, 3.0], look: [HX + 0.5, 1.9, -0.8], fov: 40 }, { f: half, pos: [HX + 0.3, 2.1, 3.4], look: [HX + 0.3, 2.1, -0.8], fov: 42 }, { f: sh.f1, pos: [HX + 0.1, 2.2, 3.6], look: [HX + 0.05, 2.2, -0.8], fov: 44 }]);
+      overlay = all(tint("#3a2060", 0.1), card("Koku siniri", "burundan beyne açılan yol"));
+      break;
+    }
+    case "stat": {
+      A.push({ id: "doc", pos: [CX - 0.6, 0, -6.5], st: st(5, { face: "sad", arms: "hold", prop: { kind: "paper" } }) });
+      cam = E.camAt(f, [{ f: sh.f0, pos: [CX, 1.6, 3.5], look: [CX, 1.3, -6], fov: 46 }, { f: sh.f1, pos: [CX, 1.55, 2.4], look: [CX, 1.3, -6], fov: 44 }]);
+      focusPt = [CX, 0, -4]; light = "interior";
+      const n = Math.round(97 * X.easeOut(X.span(f, sh.f0 + 4, sw(5))));
+      overlay = all(tint("#1a3040", 0.15), big("%" + n, 1, f > sw(6) ? "kurtulamıyor" : "", "#ff4a4a", 260));
+      break;
+    }
+    case "rare": {
+      for (let i = 0; i < 9; i++) { const x = -3.2 + (i % 3) * 3.2 + (Math.floor(i / 3) % 2) * 1.4, z = -2.5 - Math.floor(i / 3) * 3.5;
+        A.push({ id: "p" + i, pos: [x, -1.15 + 0.05 * Math.sin(f / 9 + i), z], st: st(40 + i, { face: i % 2 ? "laugh" : "happy", arms: i % 3 === 0 ? "wave" : "up", phase: f / 30 + i }) }); }
+      cam = E.camAt(f, [{ f: sh.f0, pos: [0, 2.8, 5.5], look: [0, 0.6, -5], fov: 48 }, { f: sh.f1, pos: [0, 2.5, 4.6], look: [0, 0.6, -5], fov: 46 }]);
+      focusPt = [0, 0, -4];
+      overlay = big("ÇOK NADİR", X.span(f, sw(2) - 2, sw(2) + 6), "ABD'de 60 yılda 154 vaka", "#ffd24a", 150);
+      break;
+    }
+    case "drink": {
+      light = "interior";
+      const sip = f > sh.f0 + 20 && f < sh.f0 + 45;
+      A.push({ id: "me", pos: [KX + 0.2, 0, -0.8], st: st(6, { face: sip ? "neutral" : "think", arms: sip ? [[10, 4], [24, 150]] : "holdR", prop: { kind: "cup", col: "#cfe9ff", dy: sip ? -30 : 0 } }) });
+      FX.push({ kind: "question", pos: [KX + 0.75, 2.45, -0.7], size: 0.5 * X.back(X.span(f, sh.f0 + 30, sh.f0 + 40)) });
+      cam = E.camAt(f, [{ f: sh.f0, pos: [KX + 0.4, 1.7, 3.4], look: [KX + 0.35, 1.45, -0.8], fov: 44 }, { f: sh.f1, pos: [KX + 0.45, 1.65, 2.9], look: [KX + 0.4, 1.45, -0.8], fov: 42 }]);
+      dof = { focus: [KX + 0.3, 1.4, -0.8], amount: 5 }; focusPt = [KX, 0, -0.8];
+      break;
+    }
+    case "stomach": {
+      const d = X.span(f, sh.f0 - 2, sh.f0 + 12);
+      R.drop.position.set(SX - 0.05, X.lerp(2.9, 1.4, X.easeIn(d)), -0.78); if (d >= 1) R.drop.position.y = -50;
+      R.sAm.forEach((a, i) => { const fade = 1 - X.smooth(X.span(f, sh.f0 + 12 + i * 3, sh.f0 + 26 + i * 3)); put(a, SX - 0.3 + i * 0.18, 1.35 + 0.06 * Math.sin(f / 7 + i), -0.72, 0, Math.max(0.001, fade)); wob(a, f); });
+      if (f > sh.f0 + 18) FX.push({ kind: "check", pos: [SX + 0.6, 2.2, -0.6], size: 0.5 * X.back(X.span(f, sh.f0 + 18, sh.f0 + 26)) });
+      cam = E.camAt(f, [{ f: sh.f0, pos: [SX + 0.1, 2.2, 4.8], look: [SX + 0.05, 2.15, -1], fov: 44 }, { f: sh.f1, pos: [SX + 0.1, 2.1, 4.3], look: [SX + 0.05, 2.05, -1], fov: 44 }]);
+      overlay = card("Mide asidi", "yutulan amip zarar veremez");
+      break;
+    }
+    case "end": {
+      const c = X.easeOut(X.span(f, sh.f0 + 12, sh.f0 + 26));
+      R.clip.position.set(NX, X.lerp(4.5, 1.6, c), -0.4);
+      const bx = X.span(f, sh.f0, sh.f0 + 40);
+      const away = X.easeOut(X.span(f, sh.f0 + 26, sh.f0 + 44));
+      put(R.endAm, NX + 0.2 - 0.1 * bx + 1.1 * away, 1.3 + 0.2 * Math.abs(Math.sin(bx * 5)) - 0.4 * away, 1.7 - 0.9 * Math.sin(bx * Math.PI) + 0.6 * away, 0, 1 - 0.5 * away); wob(R.endAm, f, 2);
+      if (f > sh.f0 + 26 && f < sh.f0 + 40) FX.push({ kind: "burst", pos: [NX, 1.6, 0.9], size: 0.8 * X.back(X.span(f, sh.f0 + 26, sh.f0 + 34)), opt: { text: "KLİK", size: 70 } });
+      cam = E.camAt(f, [{ f: sh.f0, pos: [NX, 1.55, 3.2], look: [NX, 1.65, 0], fov: 44 }, { f: sh.f1, pos: [NX, 1.6, 4.2], look: [NX, 1.7, 0], fov: 46 }]);
+      shake(sh.f0 + 26, 0.04, 8);
+      overlay = all(line("TEK KAPISI:", 300, "#ffffff", 120, X.span(f, sh.f0 + 4, sh.f0 + 10)), line("BURUN", 450, TEAL, 170, X.span(f, sh.f0 + 12, sh.f0 + 18)));
       break;
     }
   }
