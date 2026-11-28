@@ -72,3 +72,12 @@ Hassas konular (radyum, nyos, filayagi, cambeyin): ceset/hastalık/yanık detay�
 ## Dosya düzeni (kanal sahibinin kuralı, 27.11)
 Kullanıcının bilgisayarında repo dışı üretilen her dosya (ses kaydı, örnek, rapor, dışa aktarım) masaüstündeki
 `%USERPROFILE%\OneDrive\Masaüstü\PMDARWIN\` klasörüne, konusuna göre alt klasöre konur. İndirilenler'e ya da başka yere dağınık dosya bırakma.
+
+## Görsel güvenlik kuralı (Shorts akışında kısıtlanmamak için, 28.11)
+Silah, kan, yara, iğne/şırınga, ceset, marka logosu ve gerçek kişi fotoğrafı ÇİZME. Mermi konusunda silah değil
+sadece mermi izi/deney düzeneği; ameliyat ve kateter konularında kesik/kan değil sembolik çizim (çizgi, ok, şema).
+Ölüm anlatılan hikâyelerde (Dyatlov, Vulović, Okene) bedenler gösterilmez.
+
+## Dersler (her videodan sonra güncelle)
+Bir videoda yeni bir hata bulup düzelttiğinde, aynı hatayı bir daha yapmamak için "Bilinen tuzaklar"
+bölümüne tek satır ekle (hata → çözüm). Bu dosya senin hafızan; her yeni videoya başlamadan önce oku.

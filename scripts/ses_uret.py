@@ -121,6 +121,17 @@ def main():
     open(os.path.join(work, "timing.txt"), "w", encoding="utf-8").write("\n".join(lines) + "\n")
     print("\n".join(lines))
 
+    # Gerçek kelime zamanları: Whisper ile hizala (hece tahmini yerine). Kurulu değilse uyar.
+    try:
+        import whisper
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import zamanla
+        del m
+        torch.cuda.empty_cache() if dev == "cuda" else None
+        zamanla.align(proj, whisper.load_model(zamanla.MODEL_NAME, device=dev))
+    except ImportError:
+        print("UYARI: openai-whisper kurulu değil; zamanlama hece tahmini. Kur: pip install -U openai-whisper", flush=True)
+
 
 if __name__ == "__main__":
     main()
