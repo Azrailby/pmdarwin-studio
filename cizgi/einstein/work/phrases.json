@@ -1,0 +1,100 @@
+[
+ {
+  "text": "Einstein öldüğünde,",
+  "s": 0.0,
+  "e": 1.24,
+  "w0": 0,
+  "w1": 1
+ },
+ {
+  "text": "beyni çalındı.",
+  "s": 1.39,
+  "e": 2.423,
+  "w0": 2,
+  "w1": 3
+ },
+ {
+  "text": "Yıl bin dokuz yüz elli beş.",
+  "s": 2.623,
+  "e": 4.914,
+  "w0": 4,
+  "w1": 9
+ },
+ {
+  "text": "Einstein yakılmak istiyordu.",
+  "s": 5.114,
+  "e": 6.915,
+  "w0": 10,
+  "w1": 12
+ },
+ {
+  "text": "Ama otopsiyi yapan doktor Thomas Harvey,",
+  "s": 7.115,
+  "e": 9.453,
+  "w0": 13,
+  "w1": 18
+ },
+ {
+  "text": "beyni kimseye sormadan sakladı.",
+  "s": 9.603,
+  "e": 11.441,
+  "w0": 19,
+  "w1": 22
+ },
+ {
+  "text": "İşinden kovuldu,",
+  "s": 11.641,
+  "e": 12.547,
+  "w0": 23,
+  "w1": 24
+ },
+ {
+  "text": "yine de bırakmadı.",
+  "s": 12.697,
+  "e": 13.755,
+  "w0": 25,
+  "w1": 27
+ },
+ {
+  "text": "Beyni iki yüz kırk parçaya böldü ve kavanozlara koydu.",
+  "s": 13.955,
+  "e": 18.943,
+  "w0": 28,
+  "w1": 36
+ },
+ {
+  "text": "Kavanozlar yıllarca bir elma şırası kutusunda bekledi.",
+  "s": 19.143,
+  "e": 22.661,
+  "w0": 37,
+  "w1": 43
+ },
+ {
+  "text": "Kırk yılı aşkın süre sonra geri verdi.",
+  "s": 22.861,
+  "e": 26.199,
+  "w0": 44,
+  "w1": 50
+ },
+ {
+  "text": "Peki dahiliğin sırrı bulundu mu?",
+  "s": 26.399,
+  "e": 28.366,
+  "w0": 51,
+  "w1": 55
+ },
+ {
+  "text": "Beyin,",
+  "s": 28.566,
+  "e": 28.933,
+  "w0": 56,
+  "w1": 56
+ },
+ {
+  "text": "ortalama bir beyinden bile hafifti.",
+  "s": 29.083,
+  "e": 31.466,
+  "w0": 57,
+  "w1": 61
+ }
+]

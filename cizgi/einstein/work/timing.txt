@@ -1,0 +1,16 @@
+yöntem: Barış anlatıcı (chatterbox, exag 0.6, cfg 0.4) · ses 31.67 sn · 62 kelime · 14 parça
+  P00   0.00-  1.24  kare    0-  37  w0-1  Einstein öldüğünde,
+  P01   1.39-  2.42  kare   42-  73  w2-3  beyni çalındı.
+  P02   2.62-  4.91  kare   79- 147  w4-9  Yıl bin dokuz yüz elli beş.
+  P03   5.11-  6.92  kare  153- 207  w10-12  Einstein yakılmak istiyordu.
+  P04   7.12-  9.45  kare  213- 284  w13-18  Ama otopsiyi yapan doktor Thomas Harvey,
+  P05   9.60- 11.44  kare  288- 343  w19-22  beyni kimseye sormadan sakladı.
+  P06  11.64- 12.55  kare  349- 376  w23-24  İşinden kovuldu,
+  P07  12.70- 13.76  kare  381- 413  w25-27  yine de bırakmadı.
+  P08  13.96- 18.94  kare  419- 568  w28-36  Beyni iki yüz kırk parçaya böldü ve kavanozlara koydu.
+  P09  19.14- 22.66  kare  574- 680  w37-43  Kavanozlar yıllarca bir elma şırası kutusunda bekledi.
+  P10  22.86- 26.20  kare  686- 786  w44-50  Kırk yılı aşkın süre sonra geri verdi.
+  P11  26.40- 28.37  kare  792- 851  w51-55  Peki dahiliğin sırrı bulundu mu?
+  P12  28.57- 28.93  kare  857- 868  w56-56  Beyin,
+  P13  29.08- 31.47  kare  872- 944  w57-61  ortalama bir beyinden bile hafifti.
+toplam kare (30 fps): 980
