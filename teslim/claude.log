@@ -213,3 +213,30 @@ Görev dosyasıyla talimatlarınız arasında çakışan ya da göze çarpan nok
 - **Dokunmadığım dosyalar:** `teslim/bot.log` bot tarafından değiştirilmiş, onu da toksoplazma'nın eski wav dosyalarını da olduğu gibi bıraktım.
 
 ===== 2026-11-28 20:32 başlatıldı: gorev:zamanlama
+Zamanlama görevi tamamlandı. `gorevler/zamanlama/DONE` konuldu, commit ve push edildi. cizgi/ altında bekleyen video işi yok: PLAN.md olan her projede READY zaten var.
+
+**Senkron düzeltmesi**
+- Whisper eşleşmeleri: amip 52/53, einstein 61/62, mermi 54/54. Üçü de %80'in üstünde.
+- Kayma cümle başlarında değil, cümle içindeki kelimelerdeydi.
+- Ses dalgasıyla karşılaştırınca Whisper'ın da hata yaptığını gördüm. Duraklamadan sonraki bazı kelimeleri sessizliğin ya da nefesin içinde başlatıyordu: mermi "Su" 0,7 sn, einstein "Peki" 0,55 sn, amip "Ilık" 0,7 sn erken.
+- `scripts/zamanla.py`'ye nefes/tık ayıklama ekledim, ayrıca her cümlenin ilk kelimesini cümle arasındaki sessizlikten sonraki ilk sese bağladım. Şimdi üç projede de cümle başları gerçek sesin başladığı anla ±0,05 sn içinde.
+- story.js'lerde sabit kare numarası yoktu. sound.json'larda kelimeyle tetiklenen efektleri kelimeye göre taşıdım. Görsel bir olaya bağlı olanları (sıçrama, KLİK, tik-tak serisi) çekime göre bıraktım ki ses görüntüden kopmasın.
+
+**CTA katmanı**
+- "Beğen" rozeti dönüş cümlesinden sonra çıkıyor: amip "…bir amip var.", einstein "…yine de bırakmadı.", mermi "…parçalanmadı.".
+- Görevdeki varsayılan yükseklikte rozet her projede üst başlıkların üstüne biniyordu. y'yi biraz yukarı aldım (0,085; einstein'da büyük sayılar yüzünden 0,075).
+- einstein'da ilk seçtiğim kelime "…sakladı." idi; rozet büyüyerek gelen KOVULDU damgasıyla aynı anda çıktığı için sonraki cümleye kaydırdım.
+- Ortak betikte bir hata vardı: yazı fontu motorun yüklediği isimle eşleşmiyordu, düzelttim.
+- Rozetli kareleri tam çözünürlükte kontrol ettim; altyazıyla, yüzlerle ve başlıklarla çakışma yok.
+- Kural CLAUDE_CODE_GOREV.md'ye eklendi.
+
+**mermi sesi**
+- Ses bir kez yeniden üretildi. "Ama yavaş…" cümlesi 5,9 sn'den 2,24 sn'ye indi; ek deneme gerekmedi.
+- Yeni seste ilk cümlenin sonuna konuşma olmayan ~1,7 sn'lik bir parça eklenmişti (Whisper oraya hiç kelime koymadı). Bunu ve uzun bir duraklamayı kestim.
+- **Toplam süre 23,95 sn.** Kuraldaki 30–45 sn aralığının altında. Metin 54 kelime ve hız doğal görünüyor; eski 29,9 sn'nin farkı bu tür boşluklardı. Sesi dinleyemedim, bu yüzden yayından önce dinlemenizi öneririm.
+
+Üç proje teslim/'den kaldırıldı, READY duruyor; render botu yeniden çıkaracak. Bilinen tuzaklar listesine bu hatalar eklendi.
+
+**Dikkat:** Bu oturum sırasında uzaktan gelen bir commit yayınlanmış eski videoları (aglamak, balina, dans…) teslim/'den sildi. O projelerde READY hâlâ duruyor. Bot READY olup teslim/'de videosu olmayan her projeyi render ettiği için ~20 eski videoyu baştan render edip yeniden push edebilir. Kapsam dışı olduğu için dokunmadım; istemiyorsanız o projelerin READY dosyalarının kaldırılması ya da botun "yayınlandı" durumunu ayırt etmesi gerekiyor.
+
+**Botla çakışma:** Botun arka planda çalıştırdığı `git pull` iki kez commit'lenmemiş değişikliklerimi stash'e aldı. Kaybolan bir şey olmadı, stash'ten geri aldım, sonra sık commit ile ilerledim. Bu da tuzaklar listesinde.

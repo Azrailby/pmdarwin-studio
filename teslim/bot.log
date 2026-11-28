@@ -125,4 +125,7 @@
 2026-11-28 14:58:24  mermi: başladı
 2026-11-28 15:00:41  mermi: bitti (137 sn) |   QA sayfas�: out/qa_sheet.jpg
 2026-11-28 15:02:43  claude: önceki oturum bitti
-2026-11-28 20:33:25  push başarısız (3 deneme)
+2026-11-28 20:42:47  git pull hatası: error: unable to unlink old 'teslim/claude.log': Invalid argument
+error: could not apply autostash; your changes are safe in the stash
+error: could not detach HEAD
+2026-11-28 21:12:44  claude: önceki oturum bitti
