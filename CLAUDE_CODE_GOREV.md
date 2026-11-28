@@ -49,6 +49,20 @@ Hassas konular (radyum, nyos, filayagi, cambeyin): ceset/hastalık/yanık detay�
 - Karanlık sahnede ya da parlama efektinde yüzler okunabilir kalsın; karakteri siyaha boyama.
 - Yüzün önüne düz kutu/kare koyma (havlu gibi); hata gibi görünür. Nesneyi elde ya da yüzün yanında göster.
 - Yakın planda kafanın üstü kesilmesin.
+- Altyazı–ses kayması (amip, 28.11): ses_uret.py kelime zamanlarını hece sayısından TAHMİN ediyordu; cümle başları doğru ama cümle içi kelimeler 0,3–0,7 sn kayıyordu. Çözüm: scripts/zamanla.py (Whisper + ses enerjisi) gerçek zamanları çıkarır; ses_uret.py sonunda otomatik çağırır. timing.txt'deki "Whisper eşleşen x/y" %80'in altındaysa incele. Whisper duraklama sonrası kelimeyi sessizlikte ya da nefesin içinde başlatabiliyor; zamanla.py bunu nefes reddi + cümle arası dijital sessizlik çapasıyla düzeltir (sesi yeniden üretmeden yeniden hizalamak için: `zamanla.py cizgi/<ad>`).
+- Zamanlama değişince sound.json'u da güncelle: kelimeyle tetiklenen efekt o kelimenin yeni başlangıcına; görseli `sh.f0 + N` ile çekim başına bağlı efekt (sıçrama, KLİK, tik-tak serisi) çekim başına göre kalsın, seri efektlerin aralığı bozulmasın.
+- Render botu arka planda `git pull --rebase --autostash` yapar; yerelde push edilmemiş commit varken rebase kilitli teslim/claude.log yüzünden düşer ve commit'lenmemiş değişikliklerin `git stash`'te kalır. Ara adımlarda sık commit + push et; dosyaların aniden eski haline döndüyse `git stash list`e bak.
+- ffmpeg PATH'te yok: Whisper için `%USERPROFILE%\pmdarwin_tts\ffbin` (imageio_ffmpeg kopyası) PATH'e eklenir.
+- Render/kare araçları `py -3.12` ile çalışır (varsayılan python'da Playwright yok); repoda node yok.
+
+## CTA katmanı (kanal sahibinin kuralı, 28.11) — HER videoda zorunlu
+Her story.js'ye `scripts/cta_katmani.js`'deki `ctaKatmani` eklenir (sessiz, video uzamaz): dönüş/ters köşe cümlesinin
+bitişinden sonra 2,2 sn "Beğen" (kalp), son cümlede "Takip et" (zil). story.js başında
+`const BEGEN_KELIME = <ters köşe cümlesinin son kelime indeksi>, CTA_Y = <oran>;`, frame() dönüşünde overlay sarılır
+(`const ov = overlay; return {..., overlay: (g, w, h, s) => { if (ov) ov(g, w, h, s); ctaKatmani(f, E, g, w, h, BEGEN_KELIME, CTA_Y); } }`).
+Rozet altyazı, yüzler, ana nesne ve overlay başlıklarıyla çakışmasın: başlıklar y≈300–330'daysa CTA_Y 0,085; 200+ puntoluk
+sayı/yıl varsa 0,075. Damga gibi büyüyerek gelen bir overlay ile aynı anda çıkmasın. Stills'e rozetli kareleri
+(BEĞEN başı/ortası, Takip et) mutlaka ekle ve tam çözünürlükte bak.
 
 ## Durum
 - suayisi: hazır (21.11 23:50)

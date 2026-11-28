@@ -1,0 +1,6 @@
+zamanlama görevi tamamlandı (28.11.2026)
+- Whisper hizalama: amip 52/53, einstein 61/62, mermi 54/54; cümle başları ses enerjisiyle ±0,05 sn
+- zamanla.py: nefes reddi + cümle arası sessizlik çapası
+- CTA katmanı: amip w23 (y .085), einstein w27 (y .075), mermi w36 (y .085)
+- mermi sesi yeniden üretildi; 'Ama yavaş…' 5,9 -> 2,24 sn; 1. cümle sonundaki ~1,7 sn artefakt kesildi (toplam 23,95 sn)
+- sound.json efektleri yeni zamanlara taşındı; 3 video yeniden render için teslim/'den kaldırıldı
