@@ -6,7 +6,17 @@ Sen bu kanalın ikinci üretim istasyonusun. Bulut tarafındaki Claude konu, sen
 1. `git pull`
 2. `cizgi/*/PLAN.md` olup içinde `READY` OLMAYAN klasörler senin işin. Aşağıdaki "Sıra" listesine göre çalış.
    Bu dosya otomatik çalışır: render botu bekleyen iş görünce seni kendisi başlatır (claude -p). Kullanıcı yok, soru sorma.
-3. Her klasörde hazır: `script.txt`, `work/voice.wav`, `work/words.json`, `work/phrases.json`, motor + araçlar. Sesi/senaryoyu DEĞİŞTİRME.
+3. Her klasörde hazır: `script.txt`, `PLAN.md`, motor + araçlar. Sesi önce `scripts/ses_uret.py` ile SEN üretirsin (aşağıdaki "Ses" bölümü). Senaryoyu DEĞİŞTİRME.
+
+
+## Ses (28.11'den itibaren — ÖNEMLİ)
+Seslendirme artık kanal sahibinin klon sesi "Barış anlatıcı" (Chatterbox Multilingual, exaggeration 0.6, cfg 0.4).
+Bulut tarafı sadece `script.txt` (+ varsa `okunus.json`) ve `PLAN.md` gönderir; `work/voice.wav` YOKTUR. Her yeni projede İLK adım:
+`%USERPROFILE%\pmdarwin_tts\Scripts\python scripts/ses_uret.py cizgi/<ad>`
+→ work/voice.wav, words.json, phrases.json, timing.txt oluşur. PLAN.md'deki çekim tablosu cümle cümle verilir; kare aralıklarını timing.txt'deki P parçalarından sen eşleştir.
+- Sesi dinleyemezsin: timing.txt'deki toplam süreyi kontrol et (30–45 sn arası olmalı); bir cümle anormal kısa/uzunsa ses_uret.py'yi o proje için tekrar çalıştır.
+- `work/voice.wav` repoya EKLENMEZ (.gitignore). Render botu aynı bilgisayarda olduğu için gerek yok. words/phrases/timing commit edilebilir.
+- Referans kayıt `Masaüstü\PMDARWIN\Ses\ref_baris.wav` asla repoya girmez.
 
 ## Her video için adımlar
 1. `PLAN.md`'yi oku. Çekim tablosu kare aralıklarıyla verildi (phrases.json ile eşleşir).
@@ -30,10 +40,7 @@ Sen bu kanalın ikinci üretim istasyonusun. Bulut tarafındaki Claude konu, sen
 - Gerçek kişi birebir benzetilmez, marka/logo yok, kanlı/iğrenç detay yok.
 
 ## Sıra (yayın tarihine göre)
-1. sullivan (Çar 09:30) 2. mantis (Çar 13:30) 3. radyum (Çar 20:30)
-4. osborne (Per 09:30) 5. muz (Per 13:30) 6. dans (Per 20:30)
-7. aglamak (Cum 09:30) 8. cambeyin (Cum 13:30) 9. nyos (Cum 20:30)
-10. balina (Cmt 09:30) 11. mumya (Cmt 13:30) 12. filayagi (Cmt 20:30)
+1. amip (Paz 29 Kas 09:30) 2. mermi (Paz 13:30) 3. einstein (Paz 20:30)
 
 Her videoyu bitirip push ettikten sonra sıradakine geç; böylece bot sen çalışırken bitenleri render eder.
 Hassas konular (radyum, nyos, filayagi, cambeyin): ceset/hastalık/yanık detayı yok, saygılı ton.
