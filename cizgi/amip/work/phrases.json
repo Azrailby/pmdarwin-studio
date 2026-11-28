@@ -1,78 +1,78 @@
 [
  {
   "text": "Bu amip burnundan girip beynini yiyor.",
-  "s": 0.0,
-  "e": 4.766,
+  "s": 0.06,
+  "e": 2.08,
   "w0": 0,
   "w1": 5
  },
  {
   "text": "Ilık bir gölde yüzerken burnuna biraz su kaçıyor.",
-  "s": 4.966,
-  "e": 8.42,
+  "s": 5.01,
+  "e": 7.76,
   "w0": 6,
   "w1": 13
  },
  {
   "text": "Hiçbir şey hissetmiyorsun.",
-  "s": 8.62,
+  "s": 8.71,
   "e": 10.061,
   "w0": 14,
   "w1": 16
  },
  {
   "text": "Ama suda gözle görülmeyen bir amip var.",
-  "s": 10.261,
-  "e": 12.554,
+  "s": 10.31,
+  "e": 12.44,
   "w0": 17,
   "w1": 23
  },
  {
   "text": "Koku sinirinden beynine tırmanıyor ve beyin dokusunu yiyor.",
-  "s": 12.754,
-  "e": 16.488,
+  "s": 12.8,
+  "e": 16.34,
   "w0": 24,
   "w1": 31
  },
  {
   "text": "Belirtiler başlayınca,",
-  "s": 16.688,
-  "e": 17.979,
+  "s": 16.73,
+  "e": 18.04,
   "w0": 32,
   "w1": 33
  },
  {
   "text": "hastaların yüzde doksan yedisi kurtulamıyor.",
-  "s": 18.129,
-  "e": 20.709,
+  "s": 18.28,
+  "e": 20.64,
   "w0": 34,
   "w1": 38
  },
  {
   "text": "Neyse ki çok nadir.",
-  "s": 20.909,
-  "e": 22.209,
+  "s": 20.95,
+  "e": 22.1,
   "w0": 39,
   "w1": 42
  },
  {
   "text": "Peki aynı suyu içseydin?",
-  "s": 22.409,
-  "e": 26.06,
+  "s": 22.45,
+  "e": 23.88,
   "w0": 43,
   "w1": 46
  },
  {
   "text": "Hiçbir şey olmazdı.",
-  "s": 26.26,
-  "e": 27.481,
+  "s": 26.34,
+  "e": 27.44,
   "w0": 47,
   "w1": 49
  },
  {
   "text": "Tek kapısı burun.",
-  "s": 27.681,
-  "e": 28.739,
+  "s": 27.72,
+  "e": 28.62,
   "w0": 50,
   "w1": 52
  }
