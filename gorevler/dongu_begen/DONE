@@ -1,0 +1,7 @@
+28.11 — tamamlandı.
+- scripts/cta_katmani.js: Beğen rozeti Takip et ile aynı boyut (w*0.5 x h*0.055), 3,4 sn, pop giriş, kalp 0,7 ve 1,4 sn'de 2 kez atar;
+  BEGEN_KELIME null ise %40–55 aralığındaki cümle sonunu seçer; varsayılan CTA_Y 0.068 (rozet ≈78–190 px), "TEK KAPISI" ile çakışma yok.
+- Kontrol: amip'in geçici kopyasında (%TEMP%\amip_cta_test, CTA_Y 0.068) kareler 380–474 ve 812–858 tam çözünürlükte incelendi.
+- CLAUDE_CODE_GOREV.md: Döngü sonu kuralı + güncel CTA kuralı eklendi.
+- teslim/aglamak.mp4, aglamak_qa.jpg git rm edildi (aglamak/YAYINDA zaten var).
+- amip, mermi, einstein'a dokunulmadı.

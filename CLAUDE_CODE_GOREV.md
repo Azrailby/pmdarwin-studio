@@ -55,14 +55,28 @@ Hassas konular (radyum, nyos, filayagi, cambeyin): ceset/hastalık/yanık detay�
 - ffmpeg PATH'te yok: Whisper için `%USERPROFILE%\pmdarwin_tts\ffbin` (imageio_ffmpeg kopyası) PATH'e eklenir.
 - Render/kare araçları `py -3.12` ile çalışır (varsayılan python'da Playwright yok); repoda node yok.
 
+## Döngü sonu (kanal sahibinin kuralı, 28.11 akşam) — HER videoda zorunlu
+**Her video döngü sonuyla biter: son kare kare 0'a görsel olarak bağlanır. Beğen ve Takip et rozetleri aynı boyutta ve belirgin.**
+- Son çekimin son ~0,7 sn'si, kare 0'daki açılışla AYNI kompozisyona (aynı kamera konumu, ışık, karakter/obje yerleşimi)
+  yumuşakça varsın; son kare ile kare 0 arasında kamera/renk sıçraması olmasın. Örnek: amip "Tek kapısı burun." → kamera
+  açılıştaki burun+amip yakın planına döner, amip burnun önünde yeniden belirir.
+- Son karede fade/siyah YOK. sound.json'da müzik sting'i son 0,3 sn içinde bitsin; başa sarınca ses kesik durmasın.
+- Kontrol: `render.py . stills 0,<son kare>` al, iki kareyi yan yana sheet yap; neredeyse aynı olmalılar.
+- Overlay başlığı/kart son 0,7 sn'de ekrandaysa kare 0'da da aynısı olmalı; değilse son 0,7 sn'den önce kaldır.
+- (amip, mermi, einstein bu kuraldan önce teslim edildi; onlara dokunma.)
+
 ## CTA katmanı (kanal sahibinin kuralı, 28.11) — HER videoda zorunlu
-Her story.js'ye `scripts/cta_katmani.js`'deki `ctaKatmani` eklenir (sessiz, video uzamaz): dönüş/ters köşe cümlesinin
-bitişinden sonra 2,2 sn "Beğen" (kalp), son cümlede "Takip et" (zil). story.js başında
-`const BEGEN_KELIME = <ters köşe cümlesinin son kelime indeksi>, CTA_Y = <oran>;`, frame() dönüşünde overlay sarılır
+Her story.js'ye `scripts/cta_katmani.js`'deki GÜNCEL `ctaKatmani` eklenir (sessiz, video uzamaz). Eski bir story.js'den kopyalama;
+amip/mermi/einstein'daki eski sürümdür (küçük Beğen rozeti).
+- Beğen: videonun ~%40–55'inde bir cümle bittikten hemen sonra (BEGEN_KELIME = o cümlenin noktalı son kelimesinin indeksi;
+  null verilirse kod kendisi seçer), 3,4 sn ekranda, girişte pop, kalp 2 kez belirgin atar. Takip et ile AYNI boyut.
+- Takip et: son cümlede, sesin bitişinden 1,8 sn önce başlar.
+story.js başında `const BEGEN_KELIME = <indeks>, CTA_Y = 0.068;`, frame() dönüşünde overlay sarılır
 (`const ov = overlay; return {..., overlay: (g, w, h, s) => { if (ov) ov(g, w, h, s); ctaKatmani(f, E, g, w, h, BEGEN_KELIME, CTA_Y); } }`).
-Rozet altyazı, yüzler, ana nesne ve overlay başlıklarıyla çakışmasın: başlıklar y≈300–330'daysa CTA_Y 0,085; 200+ puntoluk
-sayı/yıl varsa 0,075. Damga gibi büyüyerek gelen bir overlay ile aynı anda çıkmasın. Stills'e rozetli kareleri
-(BEĞEN başı/ortası, Takip et) mutlaka ekle ve tam çözünürlükte bak.
+Rozet 1920'lik karede ≈78–190 px arasında kalır. Overlay başlıklarının üst kenarı en az 230 px'te olsun (120 punto başlık için
+taban y ≥ 300); 170+ puntoluk başlık/yıl rozete yaklaşıyorsa başlığı aşağı kaydır. "TEK KAPISI" gibi büyük yazı rozetle
+üst üste binmesin. Rozet yüzleri/ana nesneyi kapatmasın; damga gibi büyüyerek gelen bir overlay ile aynı anda çıkmasın.
+Stills'e rozetli kareleri (Beğen başı, 1. ve 2. kalp atışı, Takip et + son başlık) mutlaka ekle ve tam çözünürlükte bak.
 - Yayınlanmış videoyu teslim/'den silerken cizgi/<ad>/YAYINDA dosyası koy; yoksa render botu READY'yi görüp videoyu baştan çizer ve tekrar repoya yükler. Yeniden çizdirmek için YAYINDA'yı sil.
 
 ## Durum
