@@ -1,4 +1,6 @@
-# Görev: Döngü sonu + görünür Beğen rozeti (amip, mermi, einstein)
+# Görev: Döngü sonu + görünür Beğen rozeti (SADECE SONRAKİ VİDEOLAR İÇİN)
+
+**ÖNEMLİ (kullanıcı kararı 21:30): amip, mermi, einstein'a DOKUNMA. story.js'lerini, teslim/ dosyalarını, READY'lerini değiştirme, yeniden render ettirme. Bunlar olduğu gibi yayınlanacak. Aşağıdaki değişiklikleri sadece ortak araçlara (scripts/cta_katmani.js) ve kurallara (CLAUDE_CODE_GOREV.md) uygula; bundan sonra üretilecek videolarda geçerli olsun.**
 
 Kullanıcı amip videosunu izledi, iki eksik buldu:
 1. **Son ile baş birbirine bağlanmıyor.** Shorts'ta video başa sardığında fark edilmeden devam etmeli.
@@ -6,7 +8,7 @@ Kullanıcı amip videosunu izledi, iki eksik buldu:
 
 SESE DOKUNMA (voice.wav, words.json aynen kalsın). Sadece story.js / cta_katmani.js / sound.json.
 
-## 1) Döngü (loop) sonu — üç videoda da
+## 1) Döngü (loop) sonu — sonraki videolarda kural (örnekler, uygulama değil)
 - Son çekimin son ~0,7 sn'si, kare 0'daki açılış görüntüsüyle AYNI kompozisyona (aynı kamera konumu, aynı ışık, aynı karakter/obje yerleşimi) yumuşakça varsın. Son kare ile kare 0 arasında kamera/renk sıçraması olmasın.
   - amip: "Tek kapısı burun." → kamera, açılıştaki burun+amip yakın planına geri döner; amip tekrar burnun önünde belirir (açılış karesinin aynısı).
   - mermi: son cümle → açılıştaki "suya atlama" karesine döner.
@@ -19,10 +21,9 @@ SESE DOKUNMA (voice.wav, words.json aynen kalsın). Sadece story.js / cta_katman
 - Konum: üstte, başlık yazılarıyla çakışmasın (çakışıyorsa y'yi ayarla). Yüzü/önemli objeyi kapatmasın.
 - Zaman: videonun ~%40–55'inde, bir cümle bittikten hemen sonra (BEGEN_KELIME).
 - Takip et rozetinin "TEK KAPISI" gibi büyük yazılarla üst üste binmesini de düzelt.
-- Kontrol: Beğen'in göründüğü 3 kareden still al, gözle bak.
+- Kontrol: amip projesinin bir KOPYASINDA (ör. /tmp) Beğen karelerinden still al ve gözle bak; amip klasörünün kendisini değiştirme.
 
 ## 3) Bitir
-- Üç videoda frames/ ve out/ sil, `git rm` teslim/amip|mermi|einstein mp4 ve _qa.jpg, READY kalsın, push → bot yeniden render etsin.
 - teslim/aglamak.mp4 ve aglamak_qa.jpg depoya yanlışlıkla geri gelmiş: `git rm` et ve yerel teslim/ klasöründen de kaldır ki bot tekrar eklemesin.
 - CLAUDE_CODE_GOREV.md'ye kural ekle: "Her video döngü sonuyla biter: son kare kare 0'a görsel olarak bağlanır. Beğen ve Takip et rozetleri aynı boyutta ve belirgin."
 - DONE koy, commit, push.
