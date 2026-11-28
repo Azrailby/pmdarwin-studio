@@ -1,0 +1,13 @@
+yöntem: Barış anlatıcı (chatterbox, exag 0.6, cfg 0.4) · ses 29.88 sn · 54 kelime · 11 parça
+  P00   0.00-  2.64  kare    0-  79  w0-5  Kurşun yağarken suya atlasan kurtulur musun?
+  P01   2.84-  4.43  kare   85- 133  w6-9  Filmlerde hep işe yarıyor.
+  P02   4.63-  7.23  kare  139- 217  w10-15  Bir deneyde tüfek mermileri suya ateşlendi.
+  P03   7.43- 11.59  kare  223- 348  w16-22  En hızlı mermiler suya çarptığı anda parçalandı.
+  P04  11.79- 15.18  kare  354- 455  w23-27  Su onlar için beton gibiydi.
+  P05  15.38- 16.79  kare  461- 504  w28-31  Bir metre derinlik yetti.
+  P06  16.99- 22.93  kare  510- 688  w32-36  Ama yavaş tabanca mermileri parçalanmadı.
+  P07  23.13- 25.37  kare  694- 761  w37-41  İki buçuk metreye kadar tehlikeliydiler.
+  P08  25.57- 26.52  kare  767- 796  w42-44  Tuhaf ama gerçek:
+  P09  26.67- 27.94  kare  800- 838  w45-48  Mermi ne kadar hızlıysa,
+  P10  28.09- 29.68  kare  843- 890  w49-53  suda o kadar çabuk ölüyor.
+toplam kare (30 fps): 927

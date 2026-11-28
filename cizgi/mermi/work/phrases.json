@@ -1,0 +1,79 @@
+[
+ {
+  "text": "Kurşun yağarken suya atlasan kurtulur musun?",
+  "s": 0.0,
+  "e": 2.637,
+  "w0": 0,
+  "w1": 5
+ },
+ {
+  "text": "Filmlerde hep işe yarıyor.",
+  "s": 2.837,
+  "e": 4.432,
+  "w0": 6,
+  "w1": 9
+ },
+ {
+  "text": "Bir deneyde tüfek mermileri suya ateşlendi.",
+  "s": 4.632,
+  "e": 7.234,
+  "w0": 10,
+  "w1": 15
+ },
+ {
+  "text": "En hızlı mermiler suya çarptığı anda parçalandı.",
+  "s": 7.434,
+  "e": 11.587,
+  "w0": 16,
+  "w1": 22
+ },
+ {
+  "text": "Su onlar için beton gibiydi.",
+  "s": 11.787,
+  "e": 15.179,
+  "w0": 23,
+  "w1": 27
+ },
+ {
+  "text": "Bir metre derinlik yetti.",
+  "s": 15.379,
+  "e": 16.793,
+  "w0": 28,
+  "w1": 31
+ },
+ {
+  "text": "Ama yavaş tabanca mermileri parçalanmadı.",
+  "s": 16.993,
+  "e": 22.927,
+  "w0": 32,
+  "w1": 36
+ },
+ {
+  "text": "İki buçuk metreye kadar tehlikeliydiler.",
+  "s": 23.127,
+  "e": 25.366,
+  "w0": 37,
+  "w1": 41
+ },
+ {
+  "text": "Tuhaf ama gerçek:",
+  "s": 25.566,
+  "e": 26.519,
+  "w0": 42,
+  "w1": 44
+ },
+ {
+  "text": "Mermi ne kadar hızlıysa,",
+  "s": 26.669,
+  "e": 27.94,
+  "w0": 45,
+  "w1": 48
+ },
+ {
+  "text": "suda o kadar çabuk ölüyor.",
+  "s": 28.09,
+  "e": 29.679,
+  "w0": 49,
+  "w1": 53
+ }
+]
