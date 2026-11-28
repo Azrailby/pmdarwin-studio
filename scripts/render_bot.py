@@ -43,7 +43,24 @@ def run(cmd, cwd):
     return "\n".join(tail)
 
 
+def claude_busy():
+    """Claude Code oturumu hâlâ çalışıyor mu? (kilit dosyası + canlı süreç + süre sınırı)"""
+    if not os.path.isfile(LOCK):
+        return False
+    try:
+        info = json.load(open(LOCK, encoding="utf-8"))
+        age = (time.time() - info.get("t", 0)) / 60
+        return pid_alive(info.get("pid", -1)) and age < LOCK_MAX_MIN
+    except Exception:
+        return False
+
+
 def one_pass():
+    # Claude çalışırken dokunma: git pull (autostash) oturumun yarım değişikliklerini kenara alıp
+    # geri koymaya çalışır ve açık claude.log yüzünden Windows'ta başarısız olur; render de yarım
+    # düzenlenmiş projeyi çizebilir. Oturum bitince bir sonraki tur her şeyi yapar.
+    if claude_busy():
+        return
     try:
         git("pull", "--rebase", "--autostash")
     except subprocess.CalledProcessError as e:
