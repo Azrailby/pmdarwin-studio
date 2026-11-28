@@ -188,3 +188,26 @@ I didn't touch two things in the working tree:
 - `teslim/claude.log`, which shows as modified.
 
 ===== 2026-11-28 14:32 başlatıldı: amip, einstein, mermi
+Üç video da (amip → mermi → einstein) yayın sırasına göre bitti. Her biri commit edilip push'landı, READY dosyası kondu ve Durum bölümüne satırı eklendi. Videoları ben render etmedim; READY'yi gören bot çıkaracak. Benim kontrol ettiğim yalnızca tek tek kareler oldu.
+
+| Video | Ses süresi | Kare kontrolü | Durum satırı |
+|---|---|---|---|
+| amip | 28,9 sn | 3 tur | 28.11 14:43 |
+| mermi | 29,9 sn | 3 tur | 28.11 14:48 |
+| einstein | 31,7 sn | 3 tur | 28.11 14:54 |
+
+Her video için PLAN.md'deki çekim tablosuna göre `story.js` yazdım. Ardından `sound.json`, `meta.json` ve `READY` dosyalarını oluşturup `audio.py`'yi çalıştırdım. Çekim sınırlarını `words.json`'daki cümle sonlarından otomatik hesaplattım, böylece sahne geçişleri sesle aynı anda oluyor.
+
+Kare kontrolünde düzelttiklerim:
+- **amip:** Açılıştaki amip burnu kapatıyordu. Dalış sahnesinde karakter görünmüyordu, sıçrama efekti de yüzü kapatıyordu. Burun klipsi masaya benziyordu, ona da şekil verdim.
+- **mermi:** Sinema sahnesi çok karanlıktı. Çarpma efekti tüm ekranı kaplıyordu. Beton dokusu su yüzeyiyle çakışıp görünmüyordu.
+- **einstein:** Beyaz diken saç taç gibi duruyordu. Harvey'in taşıdığı kutu yüzünü kapatıyordu. Takvim başka hastane sahnelerinde de kalıyordu.
+
+Görev dosyasıyla talimatlarınız arasında çakışan ya da göze çarpan noktalar:
+- **Sesi ben ürettim:** Üç klasörde de `work/voice.wav` yoktu. Görev dosyası ilk adım olarak `ses_uret.py` ile üretmeyi istiyor, ben de bunu yaptım. Var olan hiçbir ses dosyasını ve `script.txt`'yi değiştirmedim.
+- **amip ve mermi 30 sn'nin altında:** Kural 30–45 sn arası diyor ama senaryolar kısa. "Sese dokunma" dediğiniz için yeniden üretmedim.
+- **mermi'de yavaş bir cümle var:** "Ama yavaş tabanca mermileri parçalanmadı" cümlesi 5,9 sn sürüyor, diğerlerine göre belirgin yavaş. Aynı nedenle yeniden üretmedim. Bir dinlemenizi öneririm; görev dosyasına göre normalde bu cümle yeniden üretilmeliydi.
+- **mermi'de tek müzik:** Plan sona doğru "tense → happy" geçişi istiyor ama `audio.py` tek müzik stiline izin veriyor. Tense kullandım, sona sting ve success efekti ekledim.
+- **wav dosyalarını commit etmedim:** Ürettiğim `work/music.wav` ve `sfx.wav` dosyaları yerelde duruyor. Eski projelerde bunlar commit edilmişti ama talimatınız gereği eklemedim. Bot aynı bilgisayarda çalıştığı için bulacaktır.
+- **Python 3.12 gerekti:** Varsayılan `python` komutunda Playwright ve PIL yok; render ve ses araçlarını `py -3.12` ile çalıştırdım. Bot zaten kendi Python'unu kullanıyor.
+- **Dokunmadığım dosyalar:** `teslim/bot.log` bot tarafından değiştirilmiş, onu da toksoplazma'nın eski wav dosyalarını da olduğu gibi bıraktım.
