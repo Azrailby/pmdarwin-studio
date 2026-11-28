@@ -16,6 +16,13 @@ kelime zamanlarını çıkarıyor (ses_uret.py de sonunda bunu otomatik çağır
 4. story.js çekim sınırları words.json'dan hesaplanıyor; yine de her story.js'de sabit kare numarası
    kalmış mı bak, kaldıysa words.json'a bağla. sound.json'daki efekt zamanlarını yeni kelime zamanlarına
    göre güncelle (efekt, tetikleyen kelimeyle aynı anda).
+4b. CTA KATMANI (kanal sahibinin isteği, 28.11 20:31): `scripts/cta_katmani.js` dosyasını oku ve içindeki
+   `ctaKatmani` fonksiyonunu üç projenin story.js'sine ekle, frame() dönüşündeki overlay'i dosyadaki gibi sar.
+   Videoda sesli çağrı YOK, video uzamaz: ortada "Beğen" (kalp atan) hap şeklinde bir rozet en ilginç
+   andan hemen sonra 2,2 sn; son cümle okunurken "Takip et" (sallanan zil) rozeti. Her projede BEĞEN için
+   en uygun kelimeyi seç (ters köşe/dönüş cümlesinin bitişi) ve BEGEN_KELIME ile ver. Rozet altyazıyla,
+   karakter yüzleriyle ve sahnenin ana nesnesiyle çakışmasın; çakışıyorsa o projede y konumunu biraz değiştir.
+   Stills'te rozetli kareleri de kontrol et. Bundan sonraki HER videoda bu katman olacak; CLAUDE_CODE_GOREV.md'ye kural olarak ekle.
 5. Stills sayfasıyla 3 projeyi tekrar kontrol et (geçişler doğru cümlede mi).
 6. Yeniden render ettir: her projede `frames/` ve `out/` içeriğini sil, `teslim/amip.mp4`, `teslim/mermi.mp4`,
    `teslim/einstein.mp4` ve _qa.jpg'lerini `git rm` ile kaldır, READY kalsın. Commit + push → render botu
