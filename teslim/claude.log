@@ -242,3 +242,21 @@ Zamanlama görevi tamamlandı. `gorevler/zamanlama/DONE` konuldu, commit ve push
 **Botla çakışma:** Botun arka planda çalıştırdığı `git pull` iki kez commit'lenmemiş değişikliklerimi stash'e aldı. Kaybolan bir şey olmadı, stash'ten geri aldım, sonra sık commit ile ilerledim. Bu da tuzaklar listesinde.
 
 ===== 2026-11-28 21:32 başlatıldı: gorev:dongu_begen
+`dongu_begen` görevini bitirdim ve push ettim (commit `8996de4`). `cizgi/` altında bekleyen video işi yok: PLAN.md'si olup READY'si olmayan klasör bulunmadı.
+
+**Yapılanlar:**
+- **Beğen rozeti** (`scripts/cta_katmani.js`):
+  - Artık Takip et ile aynı boyutta ve ekranda 3,4 sn kalıyor.
+  - Girişte hafifçe büyüyüp yerine oturuyor. Kalp 0,7 ve 1,4. saniyelerde iki kez belirgin atıyor, her atışta küçük kalpler yükseliyor.
+  - Beğen kelimesi belirtilmezse kod, videonun %40–55'i arasında biten bir cümle seçiyor.
+- **Takip et çakışması:** İki rozeti de biraz yukarı aldım (`CTA_Y` 0.085'ten 0.068'e). Artık "TEK KAPISI" yazısına binmiyor.
+- **Kontrol:** amip'in geçici bir kopyasında Beğen ve Takip et karelerini çizdirip tam çözünürlükte baktım. Boyutlar eşit, iki kalp atışı görünüyor, çakışma yok. Kopyayı sonra sildim.
+- **Kurallar** (`CLAUDE_CODE_GOREV.md`):
+  - Yeni "Döngü sonu" bölümü: son kare açılış karesine bağlanır, sonda kararma yok, müzik son 0,3 sn içinde biter, ilk ve son kare yan yana karşılaştırılır.
+  - Verdiğin cümle aynen eklendi. CTA bölümü yeni boyut ve konuma göre güncellendi.
+- **Temizlik:** `teslim/aglamak.mp4` ve `aglamak_qa.jpg` hem depodan hem yerel klasörden kaldırıldı. aglamak'ta zaten YAYINDA dosyası olduğu için bot onu tekrar çizip eklemez.
+- **DONE:** `gorevler/dongu_begen/DONE` eklendi.
+
+Talimata uyarak amip, mermi ve einstein'a dokunmadım. Döngü sonu bu videolar için bir uygulama değil, yalnızca sonraki videolar için kural. Bu yüzden henüz hiçbir videoda denenmedi.
+
+`cizgi/*/work/` altındaki music.wav ve sfx.wav dosyaları zaten takip dışıydı. Onları commit'e eklemedim.
