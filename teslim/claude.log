@@ -211,3 +211,5 @@ Görev dosyasıyla talimatlarınız arasında çakışan ya da göze çarpan nok
 - **wav dosyalarını commit etmedim:** Ürettiğim `work/music.wav` ve `sfx.wav` dosyaları yerelde duruyor. Eski projelerde bunlar commit edilmişti ama talimatınız gereği eklemedim. Bot aynı bilgisayarda çalıştığı için bulacaktır.
 - **Python 3.12 gerekti:** Varsayılan `python` komutunda Playwright ve PIL yok; render ve ses araçlarını `py -3.12` ile çalıştırdım. Bot zaten kendi Python'unu kullanıyor.
 - **Dokunmadığım dosyalar:** `teslim/bot.log` bot tarafından değiştirilmiş, onu da toksoplazma'nın eski wav dosyalarını da olduğu gibi bıraktım.
+
+===== 2026-11-28 20:32 başlatıldı: gorev:zamanlama
