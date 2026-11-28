@@ -63,6 +63,7 @@ bitişinden sonra 2,2 sn "Beğen" (kalp), son cümlede "Takip et" (zil). story.j
 Rozet altyazı, yüzler, ana nesne ve overlay başlıklarıyla çakışmasın: başlıklar y≈300–330'daysa CTA_Y 0,085; 200+ puntoluk
 sayı/yıl varsa 0,075. Damga gibi büyüyerek gelen bir overlay ile aynı anda çıkmasın. Stills'e rozetli kareleri
 (BEĞEN başı/ortası, Takip et) mutlaka ekle ve tam çözünürlükte bak.
+- Yayınlanmış videoyu teslim/'den silerken cizgi/<ad>/YAYINDA dosyası koy; yoksa render botu READY'yi görüp videoyu baştan çizer ve tekrar repoya yükler. Yeniden çizdirmek için YAYINDA'yı sil.
 
 ## Durum
 - suayisi: hazır (21.11 23:50)

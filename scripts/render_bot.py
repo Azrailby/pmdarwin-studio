@@ -78,6 +78,10 @@ def one_pass():
         out_mp4 = os.path.join(ROOT, "teslim", f"{name}.mp4")
         if not os.path.isfile(os.path.join(proj, "READY")) or os.path.isfile(out_mp4):
             continue
+        # YouTube'a yüklenmiş ve teslim/'den temizlenmiş projeleri yeniden çizme.
+        # Yeniden çizdirmek için YAYINDA dosyasını sil.
+        if os.path.isfile(os.path.join(proj, "YAYINDA")):
+            continue
         meta = {}
         if os.path.isfile(os.path.join(proj, "meta.json")):
             meta = json.load(open(os.path.join(proj, "meta.json"), encoding="utf-8"))
