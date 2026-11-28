@@ -240,3 +240,5 @@ Zamanlama görevi tamamlandı. `gorevler/zamanlama/DONE` konuldu, commit ve push
 **Dikkat:** Bu oturum sırasında uzaktan gelen bir commit yayınlanmış eski videoları (aglamak, balina, dans…) teslim/'den sildi. O projelerde READY hâlâ duruyor. Bot READY olup teslim/'de videosu olmayan her projeyi render ettiği için ~20 eski videoyu baştan render edip yeniden push edebilir. Kapsam dışı olduğu için dokunmadım; istemiyorsanız o projelerin READY dosyalarının kaldırılması ya da botun "yayınlandı" durumunu ayırt etmesi gerekiyor.
 
 **Botla çakışma:** Botun arka planda çalıştırdığı `git pull` iki kez commit'lenmemiş değişikliklerimi stash'e aldı. Kaybolan bir şey olmadı, stash'ten geri aldım, sonra sık commit ile ilerledim. Bu da tuzaklar listesinde.
+
+===== 2026-11-28 21:32 başlatıldı: gorev:dongu_begen
